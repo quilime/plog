@@ -113,9 +113,9 @@ function parse_entry($fileInfo, $page = 0)
 	$file['timestamp'] = $file['config']['date'] ? date('U', strtotime( $file['config']['date'])) : $fileInfo->getCTime();
 	$file['tags'] = $file['config']['tags'] ? explode(" ", $file['config']['tags']) : null;
 	$file['content'] = Markdown($content);
-	$file['cat'] = $page ? null : substr(clean_slashes(str_replace(LOCAL_ROOT . CONTENT_DIR, "", $fileInfo->getPath())),1);
+	$file['cat'] = $page? null : substr(clean_slashes(str_replace(LOCAL_ROOT . CONTENT_DIR, "", $fileInfo->getPath())),1);
 	$file['path'] = $fileInfo->getRealPath();
-	$file['url'] = WEB_ROOT . $file['cat'] . $fileInfo->getFilename();
+	$file['url'] = WEB_ROOT . ($page ? '' : $file['cat'] . '/' ) . $fileInfo->getFilename();
 
 	return $file;
 }
