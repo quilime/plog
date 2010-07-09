@@ -23,8 +23,9 @@
 	}
 	# page
 	else if (is_file( LOCAL_ROOT . PAGE_DIR . DIRECTORY_SEPARATOR . $url_parts['filename'] )) {
-		$t->assign('data', parse_file(LOCAL_ROOT . PAGE_DIR . DIRECTORY_SEPARATOR . $url_parts['filename']));
-		$template = 'page.' . $response_format . '.tpl';
+		$page = parse_file(LOCAL_ROOT . PAGE_DIR . DIRECTORY_SEPARATOR . $url_parts['filename']);
+		$t->assign('data', $page);
+		$template = $page['template'] ? $page['template'] . '.' . $response_format . '.tpl' : 'page.' . $response_format . '.tpl';
 	}
 	# direct template
 	else if (is_file( LOCAL_ROOT . TEMPLATE_DIR . DIRECTORY_SEPARATOR . $url_parts['filename'] .'.'. $response_format . '.tpl')) {

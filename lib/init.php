@@ -4,9 +4,9 @@
     
 	ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . dirname(realpath(__FILE__)));
 
-	define ('SITE_TITLE', 'plog');
-	define ('LOCAL_ROOT', '/local/plog/root/');
-	define ('WEB_ROOT', 'http://webroot.com/');
+	define ('SITE_TITLE', 'quilime');
+	define ('LOCAL_ROOT', '/home/quilime/quilime-site/' );
+	define ('WEB_ROOT', 'http://py.quilime.com/' );
 	
 	define ('CONTENT_DIR', 'content');
 	define ('TEMPLATE_DIR', 'templates');

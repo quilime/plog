@@ -4,8 +4,6 @@
 	
 	<br />
 	
-	<h3>categories</h3>
-	
 	<? $categories = get_content_folders(); ?>
 	<? foreach($categories as $cat) : ?>
 	<li><a href="<?=$cat['url']?>"><?=$cat['title']?></a></li>
@@ -13,11 +11,8 @@
 	
 	<br />
 	
-	<h3>pages</h3>
-	
-	<? $pages = get_pages(); ?>
-	<? foreach($pages as $page) : ?>
-	<li><a href="<?=$page['url']?>"><?=$page['title']?></a></li>
-	<? endforeach; ?>
+	<li><a href="/agg/">aggregate</a></li>
+	<li><a href="/links/">links</a></li>	
+	<li><a href="/about/">about</a></li>
 
 </ul>	
