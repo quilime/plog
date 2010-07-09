@@ -40,7 +40,7 @@ function get_entries( $path = "", $args = array())
 
 
 /**
- * get pages
+ * get all pages
  */
 function get_pages()
 {
@@ -59,8 +59,8 @@ function get_pages()
 
 /**
  * 	returns directories of a folder
- * 	@param path 	the path to search. defaults to the CONTENT_DIR
- * 	@param recursive	default is true
+ * 	@param path the path to search. defaults to the CONTENT_DIR
+ * 	@param args array
  */
 function get_dirs( $path = "", $args = array())
 {
@@ -85,8 +85,8 @@ function get_dirs( $path = "", $args = array())
 
 
 /**
- * @param splFileInfo 		SPLFileInfo Object
- * @param include_drafts	default is false
+ * @param splFileInfo SPLFileInfo Object
+ * @param page	default is false
  */
 function parse_entry($fileInfo, $page = 0)
 {
