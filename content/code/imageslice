@@ -1,0 +1,57 @@
+title = Image Slice
+date = 2009-04-23
+tags = bash, script, slice, image, imagemagick
+lang = bash
+--
+
+<p>
+    Shell script that slices a single image into any number of vertical and horizontal sections.
+</p>
+
+<pre class="prettyprint lang-bash">#!/bin/bash
+#copyright: 2009
+#author: gabriel dunne
+#url: quilime.com
+
+IMAGE=$1
+IMAGE_W=$2
+IMAGE_H=$3
+ROWS=$4
+COLS=$5
+
+if [ $# -eq 0 ]
+then
+	echo "usage: image width height rows cols"
+	echo "example: ./slice.sh Sunset.jpg 800 600 16 16"
+	exit
+else
+
+	for (( x = 1; x <= COLS; x++ ))
+	do
+	    for (( y = 1 ; y <= ROWS; y++ ))
+	    do
+	    	let CROP_X = `expr $IMAGE_W-IMAGE_W/$x`
+	    	let CROP_Y = `expr $IMAGE_H-IMAGE_H/$y`
+	    	let CROP_W = `expr $IMAGE_W/$ROWS`
+	    	let CROP_H = `expr $IMAGE_H/$COLS`
+	        echo -n "crop ${CROP_W}x${CROP_H}+${CROP_X}+${CROP_Y} result: [${x},${y}]_$IMAGE"
+	        echo ""
+			convert $IMAGE -crop ${CROP_W}x${CROP_H}+${CROP_X}+${CROP_Y} [${x},${y}]_$IMAGE
+	    done
+	done
+	
+fi
+</pre>
+
+<h2>To Use</h2>
+<p>
+    <ol>
+        <li>navigate to slice.sh in your terminal and do 
+            <br />
+            <pre class="prettyprint lang-bash">$  chmod 775 slice.sh
+$  ./slice.sh Sunset.jpg 800 600 16 16</pre>
+        </li>
+        <li>replace <strong>Sunset.jpg</strong> with your image name.</li>
+        <li>vars: <strong>Image Height, Image Width, Vertical Divisions, Horizontal Divisions</strong></li>        
+    </ol>
+</p>

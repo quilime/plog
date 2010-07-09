@@ -1,0 +1,122 @@
+date = 2007-12-12
+title = "MEL Notepad"
+tags = mel, maya
+lang = mel
+--
+
+process selection list
+<pre class="prettyprint lang-mel">string $select[] = `ls -sl`;
+for ( $node in $select ) // process each
+{
+   /* ... */
+}
+</pre>
+
+<br />
+
+if node exists
+<pre class="prettyprint lang-mel">
+string $node = "object";
+if ( `objExists $node` )
+{
+   // The node exists
+}
+</pre>
+
+<h2>regexp</h2>
+
+Strip component
+<pre class="prettyprint lang-mel">
+string $node = "pCube1.f[2]";
+string $no_component = `match "^[^\.]*" $node`;
+// Result: "pCube1" //
+</pre>
+
+<br />
+Extract component or attribute, with '.'
+<pre class="prettyprint lang-mel">
+string $node = "pCube1.f[2]";
+string $component = `match "\\..*" $node`;
+// Result: ".f[2]" //
+
+string $nodeAttr = "blinn1.color";
+string $attrName = `match "\\..*" $nodeAttr`;
+// Result: ".color" //
+</pre>
+
+<br />
+Extract attribute name, without '.'
+
+<pre class="prettyprint lang-mel">
+string $node = "pCube1.f[2]";
+string $component = `substitute "^[^.]*\\." $node ""`;
+// Result: "f[2]" //
+
+string $nodeAttr = "blinn1.color";
+string $attrName = `substitute "^[^.]*\\." $nodeAttr ""`;
+// Result: "color" //
+</pre>
+
+<br />
+Extract parent UI control from full path
+<pre class="prettyprint lang-mel">
+string $uiControl = "OptionBoxWindow|formLayout52|formLayout55|button6";
+string $uiParent = `substitute "|[^|]*$" $uiControl ""`;
+// Result: OptionBoxWindow|formLayout52|formLayout55 //
+</pre>
+
+<br />
+Strip trailing Line Break (\n), if any. <br /><br />This is useful when processing text input read from a file using `fgetline`.
+<pre class="prettyprint lang-mel">
+string $input = "line\n";
+$string $line = `match "^[^(\r\n)]*" $input`;
+// Result: "line" //
+</pre>
+
+<br />
+Extract directory from path.
+<br /><br />
+Keep the trailing slash for ease of use.
+<pre class="prettyprint lang-mel">
+string $path = "C:/AW/Maya5.0/bin/maya.exe";
+string $dir = `match "^.*/" $path`;
+// Result: "C:/AW/Maya5.0/bin/"
+</pre>
+
+<br />
+Extract file from path
+<pre class="prettyprint lang-mel">
+string $path = "C:/AW/Maya5.0/bin/maya.exe";
+string $filepart = `match "[^/\\]*$" $path`;
+// Result: "maya.exe"
+</pre>
+
+<br />
+Strip numeric suffix
+<pre class="prettyprint lang-mel">
+
+string $node = "pCube1|pCubeShape223";
+string $noSuffix = `match ".*[^0-9]" $node`;
+// Result: "pCube1|pCubeShape"
+</pre>
+
+<br />
+Extract numeric suffix
+<pre class="prettyprint lang-mel">
+string $node = "pCube1|pCubeShape223";
+string $suffix = `match "[0-9]+$" $node`;
+// Result: "223" //
+</pre>
+
+<br />
+Extract short name of DAG or control path
+<pre class="prettyprint lang-mel">
+string $dagPath = "pCube1|pCubeShape223";
+string $shortName = `match "[^|]*$" $dagPath`;
+// Result: pCubeShape223 //
+</pre>
+
+<h2>other reference</h2>
+<ul class="bullet">
+<li><a href="http://xyz2.net/mel/">http://xyz2.net/mel/</a></li>
+</ul>

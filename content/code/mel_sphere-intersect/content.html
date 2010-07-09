@@ -1,0 +1,65 @@
+<p>
+Function to return location of intersect with poly mesh and spherical object moving in the positive direction on the Y axis.
+<br/>
+</p>
+
+<h2>
+mel source
+</h2>
+<pre class="prettyprint lang-mel">
+
+global proc intersectSphereY()
+{
+    	print(". . . . . go go go\n");
+
+	int $iter = 50;
+	float $start[3] = {0, -0.5, 0};
+	float $limit[3] = {0, 5.0, 0};
+    	$mesh = "test_mesh";    
+	$tmpCN = "cpom";
+
+    
+	$obj = "rod1";
+    	float $radius = 0.5;
+    	float $curPos[3] = {0, 0, 0};
+
+	for ($i = 0; $i <= $iter; $i++)
+	{    
+       	$mesh = "test_mesh";
+		$shape = `listRelatives -shapes $mesh`;
+
+		createNode -n $tmpCN closestPointOnMesh;
+        	connectAttr -f ($shape[0] + ".outMesh") ($tmpCN + ".inMesh");
+        	setAttr ($tmpCN + ".inPosition") $curPos[0] $curPos[1] $curPos[2];
+        	
+		$cpom = `getAttr ($tmpCN + ".position")`;
+        	
+        	if ( pointDist($curPos, $cpom) <= $radius ) {
+			return ". . bonk\n";
+        	}
+
+        	$curPos[1] = ($limit.y) / $iter * $i;
+        	setAttr ($obj + ".translateY") $curPos[1];
+
+        	delete $tmpCN;
+    	}
+	return ". nope\n";
+}
+
+global proc float pointDist(float $p1[], float $p2[])
+{
+    return sqrt( 
+	(($p1[0] - $p2[0]) * ($p1[0] - $p2[0])) + 
+	(($p1[1] - $p2[1]) * ($p1[1] - $p2[1])) + 
+	(($p1[2] - $p2[2]) * ($p1[2] - $p2[2])));
+}
+
+intersectSphereY;
+
+</pre>
+
+
+
+
+
+<img src="http://media.quilime.com/files/img/sphere_intersect.png">

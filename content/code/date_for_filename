@@ -1,0 +1,10 @@
+title = date for new filename
+lang = bash
+date = 2010-02-07
+--
+<pre class="prettyprint lang-bash">#!/bin/bash
+# Shell script to create file named after the current date
+# YYYY-MM-DD format
+
+DATE=$(date +%Y"-"%m"-"%d)
+echo -e "new file" > $DATE</pre>

@@ -1,0 +1,30 @@
+<p>
+Get luminosity of texture at UV coord in Maya with custom rgbToHsv node.
+</p>
+
+<pre class="prettyprint lang-mel">
+global proc float getLuminosityAtUVCoord(string $texture, float $U, float $V)
+{
+	$id = "lum"; // unique identifier in case there are duplicate nodes
+	$rgbToHsv = "rgbToHsv_" + $id ; // create rgbToHSV node if necesarry
+	if(!`objExists $rgbToHsv`) {
+		createNode rgbToHsv -n $rgbToHsv;
+	}
+
+	vector $color = `colorAtPoint -o RGB -u $U -v $V  $texture`;
+
+	setAttr ($rgbToHsv+".ir") ($color.x);
+	setAttr ($rgbToHsv+".ig") ($color.y);
+	setAttr ($rgbToHsv+".ib") ($color.z);
+
+	return `getAttr ($rgbToHsv+".ov")`;
+}
+</pre>
+
+<h3>to use</h3>
+<pre class="prettyprint lang-mel">
+// returns luminosity value of 0.5 U 0.5 V on texture file_seq
+$value = getLuminosityAtUVCoord("file_seq", 0.5, 0.5);
+</pre>
+
+</pre>
