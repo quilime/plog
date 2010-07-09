@@ -1,0 +1,22 @@
+DATE=$(date +%Y"-"%m"-"%d)
+FOLDER=$1
+
+echo -n "prepend filename with current date? (y/n) "
+read -e USE_DATE
+
+if $USE_DATE
+	then
+	FILE=$DATE_$2	
+else
+	FILE=$2
+fi
+
+if test -d content/$FOLDER
+	then
+	echo "dir already exists..."
+else
+	mkdir content/$FOLDER
+fi
+
+echo -e "title = $2\ndate = $DATE\ndraft = true\n--\n\n" > content/$FOLDER/$FILE
+emacs content/$FOLDER/$FILE
