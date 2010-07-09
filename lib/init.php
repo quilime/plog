@@ -6,11 +6,11 @@
 
 	define ('SITE_TITLE', 'quilime');
 	define ('LOCAL_ROOT', '/home/quilime/quilime-site/' );
-	define ('WEB_ROOT', 'http://py.quilime.com/' );
+	define ('WEB_ROOT', 'http://dev.quilime.com/' );
 	
 	define ('CONTENT_DIR', 'content');
+	define ('PAGE_DIR', 'pages');		
 	define ('TEMPLATE_DIR', 'templates');
-	define ('PAGE_DIR', 'pages');	
 	define ('CONFIG_DELIMITER', '--');	
 	
     require_once 'data.php';

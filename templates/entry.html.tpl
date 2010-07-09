@@ -11,9 +11,9 @@
 
 	<? if ($single) :?>
 	<div class="metadata">
-		posted <?=date("F d, Y", $data['timestamp'])?> in <a href="/<?=$data['cat'];?>/"><?=$data['cat'];?></a><br/>
+		posted <?=date("F d, Y", $data['timestamp'])?> in <a href="<?=get_base_dir();?>/<?=$data['cat'];?>"><?=$data['cat'];?></a><br/>
 		<ul class="tags">
-		<? foreach($data['tags'] as $tag) : ?>
+		<? if (sizeof($data['tags']) > 0) foreach($data['tags'] as $tag) : ?>
 		<li>#<?=$tag?></li>
 		<? endforeach; ?>
 		</ul>
@@ -21,3 +21,4 @@
 	<? endif; ?>
 
 </div>
+

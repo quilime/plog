@@ -12,7 +12,7 @@
     
 <div id="content">
 
-	<? foreach($data as $entry): ?>
+	<? if (sizeof($data) > 0) foreach($data as $entry): ?>
 	<? $this->include_template('entry.html.tpl', array('data' => $entry)); ?>
 	<? endforeach; ?>	
 	

@@ -4,15 +4,19 @@
 	
 	<br />
 	
-	<? $categories = get_content_folders(); ?>
-	<? foreach($categories as $cat) : ?>
-	<li><a href="<?=$cat['url']?>"><?=$cat['title']?></a></li>
+	<h2>content</h2>
+	<? $dirs = get_dirs("/", array('recursive' => 0)); ?>
+	<? foreach($dirs as $d) : ?>
+	<li><a href="<?=get_base_dir();?>/<?=$d?>"><?=$d?></a></li>
 	<? endforeach; ?>
 	
 	<br />
 	
-	<li><a href="/agg/">aggregate</a></li>
-	<li><a href="/links/">links</a></li>	
-	<li><a href="/about/">about</a></li>
+	<h2>pages</h2>	
+	
+	<? $pages = get_pages(); ?>
+	<? foreach($pages as $p) : ?>
+	<li><a href="<?=$p['url']?>"><?=$p['title']?></a></li>
+	<? endforeach; ?>
 
 </ul>	

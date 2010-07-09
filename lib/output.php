@@ -52,6 +52,15 @@ if( !function_exists('parse_ini_string') ) {
 
 
 /**
+ * removes double slashes
+ */
+function clean_slashes($path)
+{
+	return preg_replace('/\/+/', '/', $path);	
+}
+
+
+/**
 * @param    int     $seconds    Number of seconds to convert into a human-readable timestamp
 * @return   tring   Human-readable approximate timestamp like "2 hours"
 */
