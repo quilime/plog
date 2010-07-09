@@ -1,17 +1,22 @@
 <?php
 
 
+/**
+ *	return new template instance
+ */
 function get_template_instance()
 {
     $t = new Template();
     $t->template_dir = join(DIRECTORY_SEPARATOR, array(dirname(__FILE__), '..', TEMPLATE_DIR));
 	$t->template_cache_dir = join(DIRECTORY_SEPARATOR, array(dirname(__FILE__), '..', TEMPLATE_DIR, 'cache'));
-//	$t->caching = 0;
 	
     return $t;
 }
 
-
+/**
+ *	@param format 
+ *  @param default format
+ */
 function parse_format($format, $default)
 {
     $types = array('html' => 'text/html',
@@ -30,6 +35,9 @@ function parse_format($format, $default)
 }
 
 
+/**
+ *	parse ini file
+ */
 if( !function_exists('parse_ini_string') ) {
     function parse_ini_string( $string ) {
         $array = Array();
@@ -53,6 +61,7 @@ if( !function_exists('parse_ini_string') ) {
 
 /**
  * removes double slashes
+ * @param path
  */
 function clean_slashes($path)
 {
