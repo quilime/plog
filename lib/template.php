@@ -50,15 +50,9 @@ class Template
 	}
 	
 	
-	function ob_file_callback($buffer)
+	public function page_title($delim)
 	{
-//	  fwrite($this->cache_file, $buffer);
-	}
-	
-	
-	public function title()
-	{
-		return "";
+		return SITE_TITLE . (isset($this->_tpl_vars['page_title']) ? $delim . $this->_tpl_vars['page_title'] : "");
 	}
 }
 
