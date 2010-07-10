@@ -11,8 +11,6 @@
     <? $this->include_template('nav.html.tpl') ?>
     
 <div id="content">
-	
-	<h1><?=$data['title']?></h1>
 
 	<?=$data['content'];?>
 	
