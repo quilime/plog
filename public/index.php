@@ -13,6 +13,7 @@
 	# content folder
 	if (is_dir(LOCAL_ROOT . CONTENT_DIR . DIRECTORY_SEPARATOR . $url_parts['url']) && $url_parts['url'] != "/") {
 		list($data, $total) = get_data(array($url_parts['url']));
+		$t->assign('page_title', preg_replace('{^/|/$}', '', $url_parts['url']));
 		$t->assign('data', $data);		
 	}
 	# single file
