@@ -6,7 +6,7 @@
 
 	define ('SITE_TITLE', 'quilime');
 	define ('LOCAL_ROOT', '/home/quilime/quilime-site/' );
-	define ('WEB_ROOT', 'http://dev.quilime.com/' );
+	define ('WEB_ROOT', 'http://quilime.com/' );
 	
 	define ('CONTENT_DIR', 'content');
 	define ('PAGE_DIR', 'pages');		

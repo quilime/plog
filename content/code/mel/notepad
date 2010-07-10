@@ -1,7 +1,6 @@
 date = 2007-12-12
 title = "MEL Notepad"
-tags = mel, maya
-lang = mel
+tags = mel maya
 --
 
 process selection list
