@@ -1,4 +1,4 @@
-title : <?=SITE_TITLE?><?=$this->title()."\n"; ?>
+title : <?=SITE_TITLE?>, <?=$page_title . "\n"; ?>
 author : gabriel dunne
 email : gdunne at quilime dot com
 copyright : 1997 - <?=date('Y');?>

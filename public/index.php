@@ -6,35 +6,39 @@
 
 	list($response_format, $response_mime_type) = parse_format($url_parts['extension'], 'html');	
 	
-	# setup template
 	$t = get_template_instance();	
 	$t->response_format = $response_format;
 	$t->assign('view', $_GET['v']);
 		
-	# is folder
-	if (is_dir(LOCAL_ROOT . CONTENT_DIR . $url_parts['url']) && $url_parts['url'] != "/") {
-		list($data, $total) = get_entries($url_parts['url']);
+	# content folder
+	if (is_dir(LOCAL_ROOT . CONTENT_DIR . DIRECTORY_SEPARATOR . $url_parts['url']) && $url_parts['url'] != "/") {
+		list($data, $total) = get_data(array($url_parts['url']));
+		$t->assign('page_title', preg_replace('{^/|/$}', '', $url_parts['url']));
 		$t->assign('data', $data);		
 	}
-	# is file
-	else if (is_file( LOCAL_ROOT . CONTENT_DIR . $url_parts['url'])) {
-		$t->assign('single', true);		
-		$t->assign('data', parse_entry(new SplFileInfo(LOCAL_ROOT . CONTENT_DIR . $url_parts['url'])));
+	# single file
+	else if (is_file( LOCAL_ROOT . CONTENT_DIR . $url_parts['dirname'] . DIRECTORY_SEPARATOR . $url_parts['filename'])) {
+		$t->assign('single', true);
+		$t->assign('data', parse_file(LOCAL_ROOT . CONTENT_DIR . $url_parts['dirname'] . DIRECTORY_SEPARATOR . $url_parts['filename']));
 		$template = 'single.'.$response_format.'.tpl';		
 	}
-	# is page
-	else if (is_file( LOCAL_ROOT . PAGE_DIR . $url_parts['url'])) {
-		$page = parse_entry(new SplFileInfo(LOCAL_ROOT . PAGE_DIR . $url_parts['url']), 1);
-		$t->assign('data', $page);
-		$template = $page['config']['template'] ? $page['config']['template'] . '.' . $response_format . '.tpl' : 'page.' . $response_format . '.tpl';
+	# page
+	else if (is_file( LOCAL_ROOT . PAGE_DIR . DIRECTORY_SEPARATOR . $url_parts['filename'] )) {
+		$t->assign('data', parse_file(LOCAL_ROOT . PAGE_DIR . DIRECTORY_SEPARATOR . $url_parts['filename']));
+		$template = 'page.' . $response_format . '.tpl';
 	}
-	# default (all entries)
+	# direct template
+	else if (is_file( LOCAL_ROOT . TEMPLATE_DIR . DIRECTORY_SEPARATOR . $url_parts['filename'] .'.'. $response_format . '.tpl')) {
+		$template = $url_parts['filename'] . '.' . $response_format . '.tpl';		
+	}
+	# default (index)
 	else {
-		list($data, $total) = get_entries();
+		list($data, $total) = get_data();
 		$t->assign('data', $data);		
 	}
 	
-	# render
+	
+	# render template
 	$t->assign('total', $total);	
     header("Content-Type: {$response_mime_type}; charset=UTF-8");
 	$t->render($template);
