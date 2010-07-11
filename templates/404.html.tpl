@@ -3,7 +3,7 @@
     
     <? $this->include_template('head-inc.html.tpl') ?>
     
-    <title><?=SITE_TITLE?><?=$this->page_title(TITLE_DELIMITER);?></title>
+    <title><?=SITE_TITLE?>: 404</title>
     
 </head>
 <body>
@@ -12,9 +12,8 @@
     
 <div id="content">
 
-	<? foreach($data as $entry): ?>
-	<? $this->include_template('entry.html.tpl', array('data' => $entry)); ?>
-	<? endforeach; ?>	
+	oops <br /><br />
+	404
 	
 </div>
 
