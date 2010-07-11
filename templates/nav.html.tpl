@@ -6,9 +6,9 @@
 	
 	<h3>categories</h3>
 	
-	<? $categories = get_content_folders(); ?>
-	<? foreach($categories as $cat) : ?>
-	<li><a href="<?=$cat['url']?>"><?=$cat['title']?></a></li>
+	<? $dirs = get_dirs(); ?>
+	<? foreach($dirs as $dir) : ?>
+	<li><a href="<?=$dir?>"><?=$dir?></a></li>
 	<? endforeach; ?>
 	
 	<br />
