@@ -60,12 +60,21 @@ if( !function_exists('parse_ini_string') ) {
 
 
 /**
- * removes double slashes
+ * removes double slashes in path
  * @param path
  */
 function clean_slashes($path)
 {
 	return preg_replace('/\/+/', '/', $path);	
+}
+
+
+/**
+ *  makes sure path is valid
+ */
+function validate_path()
+{
+
 }
 
 
@@ -148,8 +157,8 @@ function get_url_parts()
 
 function get_url()
 {
-$path_info = pathinfo($_SERVER['SCRIPT_URL']);
-$path_info['url'] = $_SERVER['SCRIPT_URL'];
+    $path_info = pathinfo($_SERVER['SCRIPT_URL']);
+    $path_info['url'] = preg_match("/\.\.\//", $_SERVER['SCRIPT_URL']) ? '/' : $_SERVER['SCRIPT_URL'];    
     return $path_info; //substr($_SERVER['SCRIPT_URL'], strlen(get_base_dir() . '/'));
 }
 
