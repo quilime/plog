@@ -21,7 +21,7 @@ a:hover, a.mute:hover { color:#d15; text-decoration:none; }
 h1, h2, h3, h4, h5, h6 {  font-size:1em; }
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { }
 h1 { margin:0 0 3em 0; }
-h2 { margin:0 0 0.5em 0;  }
+h2 { margin:0 0 0.5em 0; }
 h3 { margin:0 0 0 0; }
 
 ol li { list-style-type:decimal; }
@@ -80,7 +80,7 @@ table.archive td {padding-right:20px; }
     .indent { text-indent:3em; }
     
 .entry { margin-bottom:100px; }
-.entry h2 { border-bottom:1px solid #ddd; padding-bottom:4px; }
+.entry h2 { padding-bottom:4px; font-size:1.3em; }
 .entry h2 .title-date { font-weight:normal; color:#bbb; }
 .entry .metadata { margin-top:20px; font-style:italic; color:#aaa; }
 .entry .metadata .tags li { display:inline-block; margin-right:1em; }

@@ -39,20 +39,17 @@ class Template
 	public function render( $template )
 	{
 		extract( $this->_tpl_vars );
-		
-		
+
 		if (is_file( $this->template_dir . DIRECTORY_SEPARATOR . $template ))
 			include( $this->template_dir . DIRECTORY_SEPARATOR . $template );
 		else
 			include( $this->template_dir . DIRECTORY_SEPARATOR . 'default.' . $this->response_format . '.tpl');
-			
-
 	}
 	
 	
 	public function page_title($delim)
 	{
-		return SITE_TITLE . (isset($this->_tpl_vars['page_title']) ? $delim . $this->_tpl_vars['page_title'] : "");
+		return isset($this->_tpl_vars['page_title']) ? $delim . $this->_tpl_vars['page_title'] : "";
 	}
 }
 

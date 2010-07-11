@@ -3,7 +3,7 @@
     
     <? $this->include_template('head-inc.html.tpl') ?>
     
-    <title><?=SITE_TITLE?><?=TITLE_DELIMITER?> <?=$data['title']?></title>
+    <title><?=SITE_TITLE?>: 404</title>
     
 </head>
 <body>
@@ -12,7 +12,8 @@
     
 <div id="content">
 
-	<?=$data['content'];?>
+	oops <br /><br />
+	404
 	
 </div>
 

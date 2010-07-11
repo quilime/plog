@@ -2,42 +2,52 @@
 
     require_once '../lib/init.php';
 
-    $url_parts = get_url();
+    $url = get_url();
 
-    list($response_format, $response_mime_type) = parse_format($url_parts['extension'], 'html');    
-    
+    list($response_format, $response_mime_type) = parse_format($url['extension'], 'html');
+
     # setup template
-    $t = get_template_instance();    
+    $t = get_template_instance();
     $t->response_format = $response_format;
     $t->assign('view', $_GET['v']);
-        
-    # is folder
-    if (is_dir(LOCAL_ROOT . CONTENT_DIR . $url_parts['url']) && $url_parts['url'] != "/") {
-        list($data, $total) = get_entries($url_parts['url']);
-        $t->assign('page_title', preg_replace('{^/|/$}', '', $url_parts['url']));        
-        $t->assign('data', $data);        
+
+    $content_request = LOCAL_ROOT . CONTENT_DIR . $url['dirname'] . '/' . $url['filename'];
+    $page_request =  LOCAL_ROOT . PAGE_DIR . DIRECTORY_SEPARATOR . $url['filename'];
+
+    # content exists, and is a folder
+    if (is_dir($content_request)) {
+        # get config in folder, if exists
+        if (is_file($content_request . '/' . CONFIG_FILE )) {
+            $config = parse_entry(new SplFileInfo($content_request . '/' . CONFIG_FILE));
+            $template = $config['config']['template'] . '.' . $response_format . '.tpl' ;
+        }
+        list($data, $total) = get_entries($url['dirname'] . '/' . $url['filename']);
+        $t->assign('data', $data);
+        $t->assign('page_title', preg_replace('{^/|/$}', '', $url['url']));
     }
-    # is file
-    else if (is_file( LOCAL_ROOT . CONTENT_DIR . $url_parts['url'])) {
-        $t->assign('single', true);        
-        $t->assign('data', parse_entry(new SplFileInfo(LOCAL_ROOT . CONTENT_DIR . $url_parts['url'])));
-        $template = 'single.'.$response_format.'.tpl';        
+    
+    # content exists, and is a single entry
+    else if (is_file($content_request)) {
+        $t->assign('data', parse_entry(new SplFileInfo($content_request)));
+        $t->assign('single', true);
+        $template = 'single.'.$response_format.'.tpl';
     }
-    # is page
-    else if (is_file( LOCAL_ROOT . PAGE_DIR . $url_parts['url'])) {
-        $page = parse_entry(new SplFileInfo(LOCAL_ROOT . PAGE_DIR . $url_parts['url']), 1);
+    
+    # content exists, and is a page
+    else if (is_file($page_request)) {
+        $page = parse_entry(new SplFileInfo($page_request), 1);
         $t->assign('data', $page);
         $template = $page['config']['template'] ? $page['config']['template'] . '.' . $response_format . '.tpl' : 'page.' . $response_format . '.tpl';
     }
-    # default (all entries)
-    else {
-        list($data, $total) = get_entries();
-        $t->assign('data', $data);        
-    }
     
+    # 404
+    else {
+        $template = '404.html.tpl';
+    }
+
     # render
-    $t->assign('total', $total);    
+    $t->assign('total', $total);
     header("Content-Type: {$response_mime_type}; charset=UTF-8");
     $t->render($template);
-    
+
 ?>

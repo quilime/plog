@@ -3,7 +3,7 @@
     
     <? $this->include_template('head-inc.html.tpl') ?>
     
-    <title><?=$this->page_title('; ');?></title>
+    <title><?=SITE_TITLE?><?=$this->page_title(TITLE_DELIMITER);?></title>
     
 </head>
 <body>
