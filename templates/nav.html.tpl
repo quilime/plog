@@ -1,9 +1,7 @@
 <ul class="nav">	   
 
-	<li><h2><a href="/"><?=SITE_TITLE;?></a></h2></li>
-	
-	<br />
-	
+	<li><h1><a href="/"><?=SITE_TITLE;?></a></h1></li>
+
 	<? $dirs = get_dirs("", array('recursive' => 0)); ?>
 	<? foreach($dirs as $dir) : ?>
 	<li><a href="<?=$dir['url']?>"><?=$dir['name']?></a></li>
