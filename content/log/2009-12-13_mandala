@@ -1,11 +1,6 @@
 title = mandala
 date = 2009-12-13
-tags = art, graphic design
+tags = art graphic&nbsp;design
 --
 
-
-<img src="http://media.quilime.com/files/projects/mandala/mandala2.png" />
-
-<p>
-<a href="http://en.wikipedia.org/wiki/Endless_knot">endless knot</a>, <a href="http://en.wikipedia.org/wiki/Mandala">mandala</a>
-</p>
+![endless knot, mandala](http://media.quilime.com/files/projects/mandala/mandala2.png "endless knot, mandala" )

@@ -1,10 +1,8 @@
 <ul class="nav">	   
 
-	<li><h2><a href="/"><?=SITE_TITLE;?></a></h2></li>
+	<li><h1><a href="/"><?=SITE_TITLE;?></a></h1></li>
 	
-	<br />
 	
-	<h2>content</h2>
 	<? $dirs = get_dirs("/", array('recursive' => 0)); ?>
 	<? foreach($dirs as $d) : ?>
 	<li><a href="<?=get_base_dir();?>/<?=$d?>"><?=$d?></a></li>
@@ -12,7 +10,6 @@
 	
 	<br />
 	
-	<h2>pages</h2>	
 	
 	<? $pages = get_pages(); ?>
 	<? foreach($pages as $p) : ?>
