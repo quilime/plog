@@ -4,11 +4,11 @@
 	
 	<br />
 	
-	<h3>categories</h3>
+	<h3>content</h3>
 	
 	<? $dirs = get_dirs(); ?>
 	<? foreach($dirs as $dir) : ?>
-	<li><a href="<?=$dir?>"><?=$dir?></a></li>
+	<li><a href="<?=$dir['url']?>"><?=$dir['name']?></a></li>
 	<? endforeach; ?>
 	
 	<br />

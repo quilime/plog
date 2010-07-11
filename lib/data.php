@@ -19,6 +19,7 @@ function get_entries( $path = "", $args = array())
 	else {
 		$dir_iterator = new DirectoryIterator($path);
 	}
+	
 	$entries = array();
 	foreach ($dir_iterator as $file => $info) {
 		if (!$info->isDir()) {
@@ -77,7 +78,10 @@ function get_dirs( $path = "", $args = array())
 	$dirs = array();
 	foreach ($dir_iterator as $dir => $info) {
 		if ($info->isDir() && $info->getFilename() != '.' && $info->getFilename() != '..') {
-			$dirs[] = str_replace($path, "",  $info->getRealPath());
+            $d = array();
+            $d['url'] = str_replace($path, "",  $info->getRealPath()) . '/';
+            $d['name'] = substr(str_replace($path, "",  $info->getRealPath()),1);
+			$dirs[] = $d;
 		}
 	}
 	return $dirs;		
@@ -108,14 +112,14 @@ function parse_entry($fileInfo, $page = 0)
 
 	$file = array();
 	$file['config'] = parse_ini_string($config);
-		
 	$file['title'] = $file['config']['title'];
 	$file['timestamp'] = $file['config']['date'] ? date('U', strtotime( $file['config']['date'])) : $fileInfo->getCTime();
 	$file['tags'] = $file['config']['tags'] ? explode(" ", $file['config']['tags']) : null;
 	$file['content'] = Markdown($content);
-	$file['cat'] = $page? null : substr(clean_slashes(str_replace(LOCAL_ROOT . CONTENT_DIR, "", $fileInfo->getPath())),1);
+	$cat = clean_slashes(str_replace(LOCAL_ROOT . CONTENT_DIR, "", $fileInfo->getPath()));
+	$file['cat'] = $page ? null : array('name' => substr($cat,1), 'url' => $cat.'/' );
 	$file['path'] = $fileInfo->getRealPath();
-	$file['url'] = WEB_ROOT . ($page ? '' : $file['cat'] . '/' ) . $fileInfo->getFilename();
+	$file['url'] = WEB_ROOT . ($page ? '' : substr($file['cat']['url'],1)) . $fileInfo->getFilename() . '/';
 
 	return $file;
 }
