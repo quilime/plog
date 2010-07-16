@@ -1,0 +1,206 @@
+title = Maya render bat batch file
+tags = maya render bat
+date = 2010-07-07
+--
+ 
+*.bat file structure
+<pre class="prettyprint">
+REM // .bat comment syntax
+C:\Progra~1\Autodesk\Maya2010\bin\render -s 1 -e 30 -im output_image myscene.ma
+C:\Progra~1\Autodesk\Maya2010\bin\render -s 1 -e 30 -im output_image2 anotherscene.ma
+</pre>
+
+Maya directory must be the 8.3 character DOS version. To execute the file, save as a *.bat and double click it in Explorer.
+
+
+<pre class="prettyprint">
+// Render Flags
+
+usage: Render &lt;options&gt; &lt;filename&gt;
+where &lt;filename&gt; is a Maya ASCII or a Maya Binary file.
+
+ 
+
+startFrame            -s   &lt;float&gt;     starting frame for an animation sequence
+
+endFrame              -e   &lt;float&gt;     end frame for an animation sequence
+
+byFrame               -b   &lt;float&gt;     by frame (or step)
+                                       for an animation sequence
+
+startExtension        -se  &lt;int&gt;       starting number for the output image
+                                       frame file name extensions
+
+byExtension           -be  &lt;int&gt;       by extension (or step) for the output
+                                       image frame file name extension
+
+extensionPadding      -pad &lt;int&gt;       number of digits in the output image
+                                       frame file name extension
+
+project               -proj &lt;dir&gt;      project directory to use
+
+renderDirectory       -rd  &lt;path&gt;      directory in which to store image file
+
+image                 -im  &lt;filename&gt;  image file output name (identical to -p)
+
+pix                   -p   &lt;filename&gt;  image file output name (identical to -im)
+
+mayaExtension         -me  &lt;boolean&gt;   append maya file name to image name
+                                       if true
+
+mayaFormat            -mf  &lt;boolean&gt;   append image file format to image name
+                                       if true
+
+cameraOverride        -cam &lt;name&gt;      all subsequent -im -p -ar -sa flags
+                                       apply only to &lt;camera_name&gt;
+                                       (specifying '-cam &lt;camera_name&gt;' enables
+                                       rendering for that camera). If '-cam
+                                       &lt;camera_name&gt;' is on the command line,
+                                       then only the camera(s) specified on the
+                                       command line will be rendered.
+
+gamma                 -g   &lt;float&gt;     gamma value
+
+ignoreFilmGate        -ifg &lt;boolean&gt;   use the film gate for rendering if false
+
+imageHeight           -ih  &lt;int&gt;       height of image in pixels
+
+imageWidth            -iw  &lt;int&gt;       width of image in pixels
+
+deviceAspectRatio     -ard &lt;float&gt;     device aspect ratio for the rendered image
+
+aspectRatio           -ar  &lt;float&gt;     aspect ratio for the film aperture
+
+maximumMemory         -mm  &lt;int&gt;       renderer maximum memory use
+                                       (in Megabytes)
+
+motionBlur            -mb  &lt;boolean&gt;   motion blur on/off
+
+motionBlurByFrame     -mbf &lt;float&gt;     motion blur by frame
+
+shutterAngle          -sa  &lt;float&gt;     shutter angle for motion blur (1-360)
+
+motionBlur2D          -mb2d &lt;boolean&gt;  motion blur 2D on/off
+
+blurLength            -bll &lt;float&gt;     2D motion blur blur length
+
+blurSharpness         -bls &lt;float&gt;     2D motion blur blur sharpness
+
+smoothValue           -smv &lt;int&gt;       2D motoin blur smooth value
+
+smoothColor           -smc &lt;boolean&gt;   2D motion blur smooth color on/off
+
+keepMotionVector      -kmv &lt;boolean&gt;   keep motion vector for 2D motion blur on/off
+
+useFileCache          -uf  &lt;boolean&gt;   use the tessellation file cache
+
+optimizeInstances     -oi  &lt;boolean&gt;   dynamically detects similarly
+                                       tessellated surfaces
+
+reuseTessellations    -rut &lt;boolean&gt;   reuse render geometry to
+                                       generate depth maps
+
+useDisplacementBbox   -udb &lt;boolean&gt;   use the displacement bounding box scale to
+                                       optimize displacement-map performance
+
+enableDepthMaps       -edm &lt;boolean&gt;   enable depth map usage
+
+enableRayTrace        -ert &lt;boolean&gt;   enable ray tracing
+
+reflections           -rfl &lt;int&gt;       maximum ray-tracing reflection level
+
+refractions           -rfr &lt;int&gt;       maximum ray-tracing refraction level
+
+renderLayers          -rl &lt;boolean|name&gt;  render each layer separately
+
+renderPasses          -rp &lt;boolean|name&gt;  render passes separately
+
+renderSubdirs         -rs &lt;boolean&gt;    render layer output placed in subdirectories
+
+shadowLevel           -sl  &lt;int&gt;       maximum ray-tracing shadow ray depth
+
+edgeAntiAliasing      -eaa &lt;quality&gt;   The anti-aliasing quality of EAS
+                                       (Abuffer). One of highest high medium low
+
+useFilter             -ufil &lt;boolean&gt;  if true, use the multi-pixel filtering
+                                       otherwise use single pixel filtering.
+
+pixelFilterType       -pft  &lt;filter&gt;   when useFilter is true, identifies one of the
+                                       following filters: box, triangle
+                                       gaussian, quadraticbspline, plugin
+
+shadingSamples        -ss  &lt;int&gt;       global number of shading samples
+                                       per surface in a pixel
+
+maxShadingSamples     -mss &lt;int&gt;       maximum number of adaptive shading
+                                       samples per surface in a pixel
+
+visibilitySamples     -mvs &lt;int&gt;       number of motion blur visibility samples
+
+maxVisibilitySamples  -mvm &lt;int&gt;       maximum number of motion blur
+                                       visibility samples
+
+volumeSamples         -vs  &lt;int&gt;       global number of volume shading samples
+
+particleSamples       -pss &lt;int&gt;       number of particle visibility samples
+
+redThreshold          -rct &lt;float&gt;     red channel contrast threshold
+
+greenThreshold        -gct &lt;float&gt;     green channel contrast threshold
+
+blueThreshold         -bct &lt;float&gt;     blue channel contrast threshold
+
+coverageThreshold     -cct &lt;float&gt;     pixel coverage contrast threshold
+                                       (default is 1.0/8.0)
+
+outputFormat          -of  &lt;format&gt;    output image file format. One of: si soft
+                                       softimage, gif, rla wave wavefront, tiff
+                                       tif, tiff16 tif16, sgi rgb, sgi16 rgb16
+                                       alias als pix, iff tdi explore maya, jpeg
+                                       jpg, eps, maya16 iff16, cineon cin fido,
+                                       qtl quantel, tga targa, bmp
+
+shadowPass            -sp &lt;boolean&gt;    generate shadow depth maps only
+
+abortOnMissingTexture -amt             abort renderer when encountered missing texture
+
+dontReplaceRendering  -rep             do not replace the rendered image if it already exists
+
+verbose               -verbose &lt;boolean&gt; perform the render verbosely if on
+
+iprFile               -ipr             create an IPR file
+
+xResolution           -x   &lt;int&gt;       set X resolution of the final image
+
+yResolution           -y   &lt;int&gt;       set Y resolution of the final image
+
+xLeft                 -xl  &lt;int&gt;       set X sub-region left pixel boundary
+                                       of the final image
+
+xRight                -xr  &lt;int&gt;       set X sub-region right pixel boundary
+                                       of the final image
+
+yLow                  -yl  &lt;int&gt;       set Y sub-region low pixel boundary
+                                       of the final image
+
+yHigh                 -yh  &lt;int&gt;       set Y sub-region high pixel boundary
+                                       of the final image
+
+displayLayer          -l  &lt;name&gt;       one or more displayLayer names to render
+
+numberOfProcessors    -n  &lt;int&gt;        number of processors to use. 0 indicates
+                                       use all available.
+
+tileWidth             -tw &lt;int&gt;        force the width of the tiles.  Valid valu
+                                       are between 16 and 256.
+
+tileHeight            -th &lt;int&gt;        force the height of the tiles.  Valid values
+                                       are between 16 and 256.
+
+                      -cont            allow renderer to continue when it hits errors
+
+                      -keepPreImage    keep the renderings prior to post-process around
+</pre>
+any boolean works: yes, true, or 1, as TRUE,and off, no, false, or 0 as FALSE.
+
+e.g. Render -x 512 -y 512 -cam persp -im test -of sgi -mb on -sa 180 file.ma
