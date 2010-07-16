@@ -49,7 +49,7 @@ class Template
 	
 	public function page_title($delim)
 	{
-		return isset($this->_tpl_vars['page_title']) ? $delim . $this->_tpl_vars['page_title'] : "";
+		return $this->_tpl_vars['page_title'] ? $delim . $this->_tpl_vars['page_title'] : "";
 	}
 }
 
