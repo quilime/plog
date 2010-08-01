@@ -1,24 +1,25 @@
 title = Maya render bat batch file
 tags = maya render bat
 date = 2010-07-07
+hidden = true
 --
- 
 *.bat file structure
+
 <pre class="prettyprint">
 REM // .bat comment syntax
 C:\Progra~1\Autodesk\Maya2010\bin\render -s 1 -e 30 -im output_image myscene.ma
 C:\Progra~1\Autodesk\Maya2010\bin\render -s 1 -e 30 -im output_image2 anotherscene.ma
 </pre>
 
-Maya directory must be the 8.3 character DOS version. To execute the file, save as a *.bat and double click it in Explorer.
+The path to render.exe must be the 8.3 character DOS version.  
+To execute the file, save as a *.bat and double click it in Explorer.
 
+<!--more-->
 
 <pre class="prettyprint">
 // Render Flags
-
 usage: Render &lt;options&gt; &lt;filename&gt;
 where &lt;filename&gt; is a Maya ASCII or a Maya Binary file.
-
  
 
 startFrame            -s   &lt;float&gt;     starting frame for an animation sequence

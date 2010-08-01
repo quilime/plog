@@ -4,14 +4,10 @@ tags = bash script slice image imagemagick
 lang = bash
 --
 
-<p>
-    Shell script that slices a single image into any number of vertical and horizontal sections.
-</p>
+Shell script that slices a single image into any number of vertical and horizontal sections.
 
-<pre class="prettyprint lang-bash">#!/bin/bash
-#copyright: 2009
-#author: gabriel dunne
-#url: quilime.com
+<pre class="prettyprint">#!/bin/bash
+#@author  gabriel dunne &lt;quilime.com&gt;
 
 IMAGE=$1
 IMAGE_W=$2
@@ -43,15 +39,11 @@ else
 fi
 </pre>
 
-<h2>To Use</h2>
-<p>
-    <ol>
-        <li>navigate to slice.sh in your terminal and do 
-            <br />
-            <pre class="prettyprint lang-bash">$  chmod 775 slice.sh
+##To Use
+navigate to slice.sh in your terminal and do 
+<pre class="prettyprint">$  chmod 775 slice.sh
 $  ./slice.sh Sunset.jpg 800 600 16 16</pre>
-        </li>
-        <li>replace <strong>Sunset.jpg</strong> with your image name.</li>
-        <li>vars: <strong>Image Height, Image Width, Vertical Divisions, Horizontal Divisions</strong></li>        
-    </ol>
-</p>
+replace **Sunset.jpg** with your image name.  
+params: **Image Height, Image Width, Vertical Divisions, Horizontal Divisions**  
+
+  <br />

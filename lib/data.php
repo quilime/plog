@@ -10,7 +10,7 @@ function get_entries( $path = "", $args = array())
 	$recursive = isset($args['recursive']) ? $args['recursive'] : 1;
 	$order_by = empty($args['order_by']) ? null : $args['order_by'];
 	$order = empty($args['order']) ? SORT_DESC : $args['order'];
-	
+
 	$path = LOCAL_ROOT . CONTENT_DIR . $path;
 	if ($recursive) {
 		$iterator = new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::KEY_AS_PATHNAME);
@@ -96,6 +96,7 @@ function parse_entry($fileInfo, $page = 0)
 {
 	$config = "";
 	$content = "";
+    $content_short = "";
 	$passed_config = false;
 	$file_contents = file($fileInfo->getRealPath(), FILE_USE_INCLUDE_PATH);
 	foreach ( $file_contents as $line ) {
@@ -107,6 +108,12 @@ function parse_entry($fileInfo, $page = 0)
 			$config .= $line;
 			continue;
 		}
+		if (trim($line) == MORE_DELIM) {
+          $passed_more = true;
+        }
+        if (!$passed_more) {
+          $content_short .= $line;
+        }
 		$content .= $line;
 	}
 
@@ -116,6 +123,8 @@ function parse_entry($fileInfo, $page = 0)
 	$file['timestamp'] = $file['config']['date'] ? date('U', strtotime( $file['config']['date'])) : $fileInfo->getCTime();
 	$file['tags'] = $file['config']['tags'] ? explode(" ", $file['config']['tags']) : null;
 	$file['content'] = Markdown($content);
+    if ($passed_more)
+      $file['content_short'] = Markdown($content_short);
 	$cat = clean_slashes(str_replace(LOCAL_ROOT . CONTENT_DIR, "", $fileInfo->getPath()));
 	$file['cat'] = $page ? null : array('name' => substr($cat,1), 'url' => $cat.'/' );
 	$file['path'] = $fileInfo->getRealPath();

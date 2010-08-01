@@ -4,7 +4,9 @@
     <? $this->include_template('head-inc.html.tpl') ?>
     
     <title><?=SITE_TITLE?></title>
-    
+
+    <meta http-equiv="refresh" content="0;url=/log/">
+
 </head>
 <body>
     
@@ -12,7 +14,12 @@
     
 <div id="content">
 
-	this is the index template
+<br />
+<br />
+<br />
+<br />
+<br />
+&larr; navigation
 	
 </div>
 
