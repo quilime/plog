@@ -3,9 +3,9 @@
     putenv("TZ=America/Los_Angeles");
     
 	ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . dirname(realpath(__FILE__)));
-
-	define ('SITE_TITLE', 'plog');
-	define ('LOCAL_ROOT', '/home/quilime/plog/plog/');
+	define ('LOCAL_ROOT', join(array_slice(split( "/", dirname(realpath(__FILE__))),0,-1),"/").'/');
+	
+	define ('SITE_TITLE', 'plog');	
 	define ('WEB_ROOT', 'http://dev.quilime.com/');
 	
 	define ('CONTENT_DIR', 'content');
