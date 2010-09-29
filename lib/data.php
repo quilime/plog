@@ -22,7 +22,7 @@ function get_entries( $path = "", $args = array())
 	
 	$entries = array();
 	foreach ($dir_iterator as $file => $info) {
-		if (!$info->isDir()) {
+		if (!$info->isDir() && $info->getFilename() != CONFIG_FILE) {
 			$entries[] = parse_entry($info);
 		}
 	}
