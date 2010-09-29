@@ -1,8 +1,8 @@
 <ul class="nav">	   
 
-	<li><h1><a href="/"><?=SITE_TITLE;?></a></h1></li>
+	<li><strong><a href="/"><?=SITE_TITLE;?></a></strong></li>
 
-
+    <li><br /></li>
 
 	<? $dirs = get_dirs("", array('recursive' => 1)); ?>
 	<? foreach($dirs as $dir) : ?>
