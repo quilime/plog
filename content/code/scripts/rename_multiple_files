@@ -1,0 +1,7 @@
+title = Rename Multiple Files via Shell
+tags = bash terminal rename
+date = 2010-01-11
+--
+<pre class="prettyprint">
+ls | nl -nrz -w2 | while read a b; do mv "$b" filename.$a.png; done;
+</pre>

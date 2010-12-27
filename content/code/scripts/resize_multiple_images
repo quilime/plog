@@ -1,0 +1,5 @@
+title = resize multiple images
+date = 2010-07-11
+--
+<pre class="prettyprint lang-bash">for k in $(ls *.JPG); do convert $k -resize 50% -quality 80 r_$k; done</pre>
+

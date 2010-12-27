@@ -1,5 +1,5 @@
-body { margin:80px 100px 50px 40px; }
-html, body, table { font-family: sans-serif; font-size:12px; line-height:1.4em; color:#44d ; }
+body { margin:20px 100px 50px 30px; }
+html, body, table { font-family: sans-serif; font-size:14px; line-height:1.4em; color:#44d ; }
 
 ::-moz-selection {background: #08f !important; color:#fff;} 
 ::selection {background: #08f !important; color:#fff;} 
@@ -22,16 +22,19 @@ ol li { list-style-type:decimal; }
 blockquote { font-family:times; background:#000; color:#aaa;
 margin:0; font-size:15px; line-height:1.4em; padding:2em 4em; font-style:italic; line-height:1.45em; max-width:600px;}
 
-#content { margin-left:160px; min-width:500px; position:absolute; top:20px; padding-bottom:200px; z-index:10;}
+#content { padding-right:160px; min-width:500px; padding-bottom:200px; z-index:10; }
 #content p:first-child { margin-top:0; }
 p { max-width:720px; }
 
-.nav { position:absolute; z-index:1; top:20px; left:30px;  }
-.nav a { text-decoration:none; font-weight:bold;}
-.nav a.mute { font-weight:normal;}
-.nav ul { margin-left:1em; }
+
+.nav { position:absolute; width:200px; z-index:1; top:20px; right:20px; margin:0; }
+.nav a { text-decoration:none; font-weight:bold; } 
+.nav a.mute { font-weight:normal; }
 .nav h1 { }
-    
+.index { padding:0; margin:0;  }
+.index li {line-height:1.1em; margin-bottom:0.4em; }
+.index li a { text-decoration:underline; font-weight:normal; }    
+
 .entry { margin-bottom:100px; }
 .entry h2 { padding-bottom:4px; font-size:1.3em;}
 .entry .metadata { font-style:italic; color:#bbb; }

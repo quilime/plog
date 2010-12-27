@@ -5,7 +5,7 @@
 	ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . dirname(realpath(__FILE__)));
 
 	define ('SITE_TITLE', 'quilime');
-	define ('LOCAL_ROOT', '/home/quilime/quilime-site/');
+	define ('LOCAL_ROOT', '/home/quilime/quilime.com/');
 	define ('WEB_ROOT', 'http://quilime.com/');
 	
 	define ('CONTENT_DIR', 'content');

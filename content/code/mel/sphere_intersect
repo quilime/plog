@@ -32,20 +32,20 @@ mel source
 		$shape = `listRelatives -shapes $mesh`;
 
 		createNode -n $tmpCN closestPointOnMesh;
-        	connectAttr -f ($shape[0] + ".outMesh") ($tmpCN + ".inMesh");
-        	setAttr ($tmpCN + ".inPosition") $curPos[0] $curPos[1] $curPos[2];
+       	connectAttr -f ($shape[0] + ".outMesh") ($tmpCN + ".inMesh");
+       	setAttr ($tmpCN + ".inPosition") $curPos[0] $curPos[1] $curPos[2];
         	
 		$cpom = `getAttr ($tmpCN + ".position")`;
         	
-        	if ( pointDist($curPos, $cpom) <= $radius ) {
-			return ". . bonk\n";
-        	}
+        if ( pointDist($curPos, $cpom) <= $radius ) {
+		   	return ". . bonk\n";
+        }
 
-        	$curPos[1] = ($limit.y) / $iter * $i;
-        	setAttr ($obj + ".translateY") $curPos[1];
+       	$curPos[1] = ($limit.y) / $iter * $i;
+       	setAttr ($obj + ".translateY") $curPos[1];
 
-        	delete $tmpCN;
-    	}
+       	delete $tmpCN;
+   	}
 	return ". nope\n";
 }
 
