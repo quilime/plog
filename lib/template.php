@@ -1,8 +1,7 @@
 <?php
 
 class Template
-{
-	
+{	
 	var $template_dir = 'templates';
 	var $template_cache_dir = 'cache';
 	var $cachr_file = null;
@@ -10,6 +9,7 @@ class Template
 	var $caching = 1;
 	
 	var $_tpl_vars = array();
+
 
 	function __construct()
 	{
@@ -52,5 +52,3 @@ class Template
 		return isset($this->_tpl_vars['page_title']) ? $delim . $this->_tpl_vars['page_title'] : "";
 	}
 }
-
-?>

@@ -20,4 +20,16 @@
 	<li><a href="<?=$page['url']?>"><?=$page['title']?></a></li>
 	<? endforeach; ?>
 
-</ul>	
+<br />
+
+<? /*
+<ul class="index">
+    <li><h3>index</h3></li>
+	<? list($dirs, $total) = get_entries(""); ?>
+	<?php foreach($dirs as $entry): ?>
+    <li><a href="<?php echo $entry['url']; ?>"><?php echo $entry['title']; ?></a></li>
+    <?php endforeach; ?>
+</ul>
+*/ ?>
+
+</ul>

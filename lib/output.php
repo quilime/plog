@@ -8,13 +8,13 @@ function get_template_instance()
 {
     $t = new Template();
     $t->template_dir = join(DIRECTORY_SEPARATOR, array(dirname(__FILE__), '..', TEMPLATE_DIR));
-	$t->template_cache_dir = join(DIRECTORY_SEPARATOR, array(dirname(__FILE__), '..', TEMPLATE_DIR, 'cache'));
-	
+    $t->template_cache_dir = join(DIRECTORY_SEPARATOR, array(dirname(__FILE__), '..', TEMPLATE_DIR, 'cache'));
+
     return $t;
 }
 
 /**
- *	@param format 
+ *	@param format
  *  @param default format
  */
 function parse_format($format, $default)
@@ -65,7 +65,7 @@ if( !function_exists('parse_ini_string') ) {
  */
 function clean_slashes($path)
 {
-	return preg_replace('/\/+/', '/', $path);	
+	return preg_replace('/\/+/', '/', $path);
 }
 
 
@@ -99,7 +99,7 @@ function approximate_time($seconds)
            return round(abs($seconds) / (24 * 60 * 60)).' days';
    }
 }
-    
+
 
 /**
 * @param    int     $time   Unix timestamp
@@ -114,14 +114,27 @@ function get_relative_time($time)
 
 function get_rss_feed( $url )
 {
+  /*
    $ch = curl_init();
    curl_setopt($ch, CURLOPT_URL, $url);
    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
    $feed = curl_exec($ch);
    curl_close($ch);
-   
+
    $xml = new SimpleXMLElement($feed);
-   return $xml;        
+   return $xml;
+   */
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+    $data = curl_exec($ch);
+    curl_close($ch);
+    return new SimpleXMLElement($data);
 }
 
 
@@ -129,7 +142,7 @@ function die_with_code($code, $message)
 {
    header("HTTP/1.1 {$code}");
    die($message);
-}   
+}
 
 
 function get_base_dir()
@@ -149,8 +162,8 @@ function get_base_href()
 
 
 function get_url_parts()
-{        
-	$parts = explode('/', substr($_SERVER['SCRIPT_URL'], strlen(get_base_dir() . '/')));        
+{
+	$parts = explode('/', substr($_SERVER['SCRIPT_URL'], strlen(get_base_dir() . '/')));
 	return $parts[0] ? $parts : 0;
 }
 
@@ -158,7 +171,8 @@ function get_url_parts()
 function get_url()
 {
     $path_info = pathinfo($_SERVER['SCRIPT_URL']);
-    $path_info['url'] = preg_match("/\.\.\//", $_SERVER['SCRIPT_URL']) ? '/' : $_SERVER['SCRIPT_URL'];    
+    $path_info['url'] = preg_match("/\.\.\//", $_SERVER['SCRIPT_URL']) ? '/' : $_SERVER['SCRIPT_URL'];
+    $path_info['extension'] = null;
     return $path_info; //substr($_SERVER['SCRIPT_URL'], strlen(get_base_dir() . '/'));
 }
 
@@ -175,6 +189,3 @@ function get_url_domain($url)
     $parsed = parse_url($url);
     return $parsed['host'];
 }
-
-
-?>
