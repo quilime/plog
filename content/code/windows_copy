@@ -1,0 +1,15 @@
+title = Combine Files (Windows)
+date = Wed, april 27 2011
+tags = windows cmd console
+--
+<pre class="prettyprint">
+copy /b file1+ file2 output
+</pre>
+eg
+<pre class="prettyprint">
+copy /b picture.jpg + archive.rar file.jpg
+</pre>
+
+Open file.jpg with the default application, it will show the picture "picture.jpg".
+Change the extension to "file.rar" or if you try to open "file.jpg" with an archiver you will get the contents of "archive.rar".
+

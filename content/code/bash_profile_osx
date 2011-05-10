@@ -1,0 +1,28 @@
+date = 2011-02-02
+title = osx bash profile
+--
+
+<pre class="prettyprint" >
+# color ls
+export CLICOLOR=1
+export TERM=xterm-color
+export LSCOLORS=GxFxCxDxBxegedabagacad
+
+
+# minimal prompt
+# export PS1="
+# $PWD
+# : "
+
+
+# current git branch
+export PS1="
+\[\033[38m\]\u@\h\[\033[01;34m\] \w \[\033[31m\]\`ruby -e \"
+print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').
+gsub(/^\* (.+)$/, '(\1) ')\"\`\[\033[37m\]
+$\[\033[00m\] "
+
+
+# aliases
+alias ff="find . -type f -name "
+</pre>

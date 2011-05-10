@@ -1,0 +1,10 @@
+title = linux bash profile
+date = march 11 2011
+--
+<pre class="prettyprint">
+alias ls='ls --color'
+export CLICOLOR=1
+export LSCOLORS=gxFxCxDxBxgggdabagacad
+
+export EDITOR='emacs'
+</pre>

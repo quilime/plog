@@ -15,8 +15,12 @@
 	<? foreach($data as $entry): ?>
 	<?  
     if ($entry['content_short']) 
-    $entry['content'] = $entry['content_short'] . '<br /><a class="more" href="'.$entry['url'].'">more &rarr;</a><br /><br />';
-    $this->include_template('entry.html.tpl', array('data' => $entry)); 
+        $entry['content'] = $entry['content_short'] . '<br /><a class="more" href="'.$entry['url'].'">more &rarr;</a><br /><br />';
+    
+
+        $this->include_template('entry.html.tpl', array('data' => $entry)); 
+
+    
     ?>
 	<? endforeach; ?>	
 	

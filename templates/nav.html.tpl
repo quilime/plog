@@ -1,11 +1,8 @@
-<ul class="nav">	   
+<ul class="nav">
 
 
-    <li><a href="/"><?=SITE_TITLE?></a></li>
-    <li>by gabriel dunne</li>
-    <li><br /></li>
+    <li><a href="/">home</a></li>
 
-    <li><h3>contents</h3></li>
 	<? $dirs = get_dirs("", array('recursive' => 0)); ?>
 	<? foreach($dirs as $dir) : ?>
 	<li><a href="<?=$dir['url']?>"><?=$dir['name']?></a></li>
@@ -13,8 +10,9 @@
 
 	<li><a href="/photo/">photo</a></li>
 	<li><a href="/agg/">aggregate</a></li>
-	<li><a href="/links/">links</a></li>			
-	<li><a href="/about/">about</a></li>		
+	<li><a href="/links/">links</a></li>
+
+
 
 <br />
 
@@ -28,4 +26,4 @@
 </ul>
 */ ?>
 
-</ul>	
+</ul>
