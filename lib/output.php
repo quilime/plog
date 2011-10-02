@@ -20,8 +20,9 @@ function get_template_instance()
 function parse_format($format, $default)
 {
     $types = array('html' => 'text/html',
+                   'php'  => 'text/html',
                    'text' => 'text/plain',
-				   'rss'  => 'application/rss+xml',
+				           'rss'  => 'application/rss+xml',
                    'atom' => 'application/atom+xml',
                    'json' => 'text/json',
                    'js'   => 'application/x-javascript',
@@ -163,17 +164,17 @@ function get_base_href()
 
 function get_url_parts()
 {
-	$parts = explode('/', substr($_SERVER['SCRIPT_URL'], strlen(get_base_dir() . '/')));
+	$parts = explode('/', substr($_SERVER['HTTP_HOST'], strlen(get_base_dir() . '/')));
 	return $parts[0] ? $parts : 0;
 }
 
 
 function get_url()
 {
-    $path_info = pathinfo($_SERVER['SCRIPT_URL']);
-    $path_info['url'] = preg_match("/\.\.\//", $_SERVER['SCRIPT_URL']) ? '/' : $_SERVER['SCRIPT_URL'];
-    $path_info['extension'] = null;
-    return $path_info; //substr($_SERVER['SCRIPT_URL'], strlen(get_base_dir() . '/'));
+    $path_info = pathinfo( $_SERVER['SCRIPT_NAME'] );
+    $path_info['url'] = preg_match("/\.\.\//", $_SERVER['SCRIPT_NAME']) ? '/' : $_SERVER['SCRIPT_NAME'];
+    //$path_info['extension'] = null;
+    return $path_info; //substr($_SERVER['HTTP_HOST'], strlen(get_base_dir() . '/'));
 }
 
 

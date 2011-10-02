@@ -1,26 +1,35 @@
 <?php
 
-    putenv("TZ=America/Los_Angeles");
+//  NOTE
+//  short tags must be enabled
 
-	ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . dirname(realpath(__FILE__)));
-	define ('SITE_TITLE', 'plog');
-	define ('LOCAL_ROOT', $_SERVER['DOCUMENT_ROOT'].'/');
-	define ('WEB_ROOT', 'http://'.$_SERVER['SERVER_NAME'].'/');
+# error reporting
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
-	define ('CONTENT_DIR', 'content');
-	define ('TEMPLATE_DIR', 'templates');
-	define ('PAGE_DIR', 'pages');
-	define ('CONFIG_DELIMITER', '--');
-    define ('MORE_DELIM', '<!--more-->');
-	define ('TITLE_DELIMITER', ': ');
-	define ('CONFIG_FILE', 'config');
+# timezone
+putenv("TZ=America/Los_Angeles");
 
-    require_once 'data.php';
-    require_once 'output.php';
-    require_once 'markdown.php';
-    require_once 'template.php';
+# include path
+ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . dirname(realpath(__FILE__)));
 
-   
-	//error_reporting(E_ALL);
-	//ini_set("display_errors", 1);
-	
+# settings
+define ('CLEAN_URLS', 		false);
+define ('SITE_TITLE', 		'plog');
+define ('LOCAL_ROOT', 		'/Users/gdunne/Sites/india/');
+define ('WEB_ROOT', 		'http://localhost/~gdunne/india/');
+define ('CONTENT_DIR', 		'content/');
+define ('TEMPLATE_DIR', 	'templates/');
+define ('PAGE_DIR', 		'pages/');
+define ('CONFIG_DELIMITER', '--');
+define ('MORE_DELIM', 		'<!--more-->');
+define ('TITLE_DELIMITER', 	': ');
+define ('CONFIG_FILE', 		'config');
+
+
+
+# includes
+require_once 'data.php';
+require_once 'output.php';
+require_once 'markdown.php';
+require_once 'template.php';

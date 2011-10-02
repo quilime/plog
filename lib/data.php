@@ -63,9 +63,10 @@ function get_pages()
  */
 function get_dirs( $path = "", $args = array())
 {
-
 	$recursive = isset($args['recursive']) ? $args['recursive'] : 1;
-	$path = LOCAL_ROOT . CONTENT_DIR . $path;
+
+	$local_content = LOCAL_ROOT . CONTENT_DIR;
+	$path = $local_content . $path;
 
 	if ($recursive) {
 		$iterator = new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::KEY_AS_PATHNAME);
@@ -78,8 +79,13 @@ function get_dirs( $path = "", $args = array())
 	foreach ($dir_iterator as $dir => $info) {
 		if ($info->isDir() && $info->getFilename() != '.' && $info->getFilename() != '..') {
             $d = array();
-            $d['url'] = str_replace($path, "",  $info->getRealPath()) . '/';
-            $d['name'] = substr(str_replace($path, "",  $info->getRealPath()),1);
+            $d['url'] = str_replace($path, "",  $info->getRealPath());
+
+            if (!CLEAN_URLS) {
+            	$d['url'] = WEB_ROOT . '?c=' . $d['url'];
+            }
+
+            $d['name'] = str_replace($path, "",  $info->getRealPath());
 			$dirs[] = $d;
 		}
 	}
@@ -117,22 +123,23 @@ function parse_entry($fileInfo, $page = 0)
 		$content .= $line;
 	}
 
-	$file = array();
-	$file['config'] = parse_ini_string($config);
-	$file['title'] = $file['config']['title'];
-	$file['config']['date'] = isset($file['config']['date']) ? $file['config']['date'] : null;
-	$file['timestamp'] = $file['config']['date'] ? date('U', strtotime( $file['config']['date'])) : $fileInfo->getCTime();
-	$file['tags'] = isset($file['config']['tags']) ? explode(" ", $file['config']['tags']) : null;
-	$file['content'] = Markdown($content);
+	$f = array();
+	$f['config'] = parse_ini_string($config);
+	$f['title'] = $f['config']['title'];
+	$f['config']['date'] = isset($f['config']['date']) ? $f['config']['date'] : null;
+	$f['timestamp'] = $f['config']['date'] ? date('U', strtotime( $f['config']['date'])) : $fileInfo->getCTime();
+	$f['tags'] = isset($f['config']['tags']) ? explode(" ", $f['config']['tags']) : null;
+	$f['content'] = Markdown($content);
     if ($passed_more)
-      $file['content_short'] = Markdown($content_short);
+      $f['content_short'] = Markdown($content_short);
 	$cat = clean_slashes(str_replace(LOCAL_ROOT . CONTENT_DIR, "", $fileInfo->getPath()));
-	$file['cat'] = $page ? null : array('name' => substr($cat,1), 'url' => $cat.'/' );
-	$file['path'] = $fileInfo->getRealPath();
-	$file['url'] = WEB_ROOT . ($page ? '' : substr($file['cat']['url'],1)) . $fileInfo->getFilename() . '/';
+	$f['cat'] = $page ? null : array('name' => substr($cat,1), 'url' => $cat );
+	$f['path'] = $fileInfo->getRealPath();
+	$f['url'] = ($page ? '' : substr($file['cat']['url'],1)) . $fileInfo->getFilename();
 
-	return $file;
+    if (!CLEAN_URLS) {
+    	$f['url'] = WEB_ROOT . '?p=' . $f['url'];
+    }	
+
+	return $f;
 }
-
-
-?>
