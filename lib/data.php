@@ -39,24 +39,6 @@ function get_entries( $path = "", $args = array())
 
 
 /**
- * get all pages
- */
-function get_pages()
-{
-	$path = LOCAL_ROOT . PAGE_DIR;
-	$dir_iterator = new DirectoryIterator($path);
-	$pages = array();
-	foreach($dir_iterator as $page) {
-		if ($page->isDir()) continue;
-		$arr = parse_entry($page, 1);
-		$arr['is_page'] = 1;
-		$pages[] = $arr;
-	}
-	return $pages;
-}
-
-
-/**
  * 	returns directories of a folder
  * 	@param path the path to search. defaults to the CONTENT_DIR
  * 	@param args array
@@ -90,6 +72,23 @@ function get_dirs( $path = "", $args = array())
 		}
 	}
 	return $dirs;
+}
+
+/**
+ * get all pages
+ */
+function get_pages()
+{
+	$path = LOCAL_ROOT . PAGE_DIR;
+	$dir_iterator = new DirectoryIterator($path);
+	$pages = array();
+	foreach($dir_iterator as $page) {
+		if ($page->isDir()) continue;
+		$arr = parse_entry($page, 1);
+		$arr['is_page'] = 1;
+		$pages[] = $arr;
+	}
+	return $pages;
 }
 
 
