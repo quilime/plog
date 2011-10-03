@@ -24,8 +24,8 @@ function get_entries( $path = "", $args = array())
 	}
 	$entries = array();
 	foreach ($dir_iterator as $file => $info) {
-		if (!$info->isDir() && !in_array($info->getFilename(), $_FILE_IGNORES)) {
-			$entries[] = parse_entry($info);
+		if ( !$info->isDir() && !in_array( $info->getFilename(), $_FILE_IGNORES )) {
+			$entries[] = parse_entry( $info );
 		}
 	}
 
@@ -35,10 +35,10 @@ function get_entries( $path = "", $args = array())
 			foreach ($entries as $key => $row)
 		    	$time[$key] = $row['timestamp'];
 			if ($time)
-				array_multisort($time, $order, $entries);
+				array_multisort( $time, $order, $entries );
 	}
 
-	return array($entries, sizeof($entries));
+	return $entries;
 }
 
 
@@ -100,7 +100,7 @@ function get_pages()
  * @param splFileInfo SPLFileInfo Object
  * @param page	default is false
  */
-function parse_entry($fileInfo, $page = 0)
+function parse_entry($fileInfo, $page = false)
 {
 	$config = "";
 	$content = "";
@@ -117,12 +117,10 @@ function parse_entry($fileInfo, $page = 0)
 			$config .= $line;
 			continue;
 		}
-		if (trim($line) == MORE_DELIM) {
+		if (trim($line) == MORE_DELIM)
           $passed_more = true;
-        }
-        if (!$passed_more) {
+        if (!$passed_more)
           $content_short .= $line;
-        }
 		$content .= $line;
 	}
 
@@ -133,22 +131,38 @@ function parse_entry($fileInfo, $page = 0)
 	$f['timestamp'] = $f['config']['date'] ? date('U', strtotime( $f['config']['date'])) : $fileInfo->getCTime();
 	$f['tags'] = isset($f['config']['tags']) ? explode(" ", $f['config']['tags']) : null;
 	$f['content'] = Markdown($content);
+    
     if ($passed_more)
       $f['content_short'] = Markdown($content_short);
+
 	$cat = clean_slashes(str_replace(LOCAL_ROOT . CONTENT_DIR, "", $fileInfo->getPath()));
-	$f['cat'] = $page ? null : array('name' => substr($cat,1), 'url' => $cat );
+	$clean_path = str_replace(LOCAL_ROOT . CONTENT_DIR, "", clean_slashes($fileInfo->getPath()));
+
+
+	$f['cat'] = $page ? null : array('name' => $clean_path, 'url' => $clean_path );
 	$f['path'] = $fileInfo->getRealPath();
-	$f['url'] = ($page ? '' : substr($f['cat']['url'],1)) . $fileInfo->getFilename();
+	$f['url'] = ($page ? '' : $f['cat']['url']) . '/' . $fileInfo->getFilename();
 
     if (!CLEAN_URLS) {
+    	$f['cat']['url'] = WEB_ROOT . '?p=' . $f['cat']['url'];
     	$f['url'] = WEB_ROOT . '?p=' . $f['url'];
     }
-	
+
 	return $f;
 }
 
 
-function parse_config ($location)
+function get_entry ( $relative_entry_path ) 
 {
-	return parse_entry(new SplFileInfo(join(array(LOCAL_ROOT, CONTENT_DIR, $location, CONFIG_FILE, DIRECTORY_SEPARATOR))));
+	return parse_entry(new SplFileInfo(join(array(LOCAL_ROOT, CONTENT_DIR, $relative_entry_path), DIRECTORY_SEPARATOR)));
+}
+
+function get_page ( $relative_page_path )
+{
+	return parse_entry(new SplFileInfo(join(array(LOCAL_ROOT, PAGE_DIR, $relative_page_path), DIRECTORY_SEPARATOR)));
+}
+
+function parse_config ( $relative_path )
+{
+	return parse_entry(new SplFileInfo(join(array(LOCAL_ROOT, CONTENT_DIR, $relative_path, CONFIG_FILE), DIRECTORY_SEPARATOR)));
 }

@@ -53,17 +53,9 @@ if( !function_exists('parse_ini_string') ) {
  */
 function clean_slashes($path)
 {
-	return preg_replace('/\/+/', '/', $path);
+    return preg_replace('/\/+/', '/', $path);
 }
 
-
-/**
- *  makes sure path is valid
- */
-function validate_path()
-{
-
-}
 
 
 /**
@@ -152,7 +144,7 @@ function get_base_href()
 function get_url_parts()
 {
     $parts = explode('/', substr($_SERVER['HTTP_HOST'], strlen(get_base_dir() . '/')));
-	return $parts[0] ? $parts : 0;
+    return $parts[0] ? $parts : 0;
 }
 
 
@@ -171,12 +163,10 @@ function get_request()
     $path_info = pathinfo( $path );
     $path_info['path'] = preg_match("/\.\.\//", $path) ? '/' : $path;
     $path_info['extension'] = null;
+    if ($path_info['dirname'] == '.')
+        $path_info['dirname'] = '';
 
-    // echo '<pre>';
-    // print_r($path_info);
-    // exit;
-
-    return $path_info; //substr($_SERVER['HTTP_HOST'], strlen(get_base_dir() . '/'));
+    return $path_info;
 }
 
 
