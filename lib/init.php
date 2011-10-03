@@ -1,7 +1,13 @@
 <?php
 
-//  NOTE
-//  short tags must be enabled
+/**
+ *		SETUP
+ *
+ *		update variables specific to your server
+ *
+ *		note: PHP short tags must be enabled
+ */
+
 
 # error reporting
 error_reporting(E_ALL);
@@ -26,10 +32,9 @@ define ('MORE_DELIM', 		'<!--more-->');
 define ('TITLE_DELIMITER', 	': ');
 define ('CONFIG_FILE', 		'config');
 
-
-
 # includes
 require_once 'data.php';
 require_once 'output.php';
 require_once 'markdown.php';
-require_once 'template.php';
+require_once 'model.php';
+require_once 'view.php';

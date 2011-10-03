@@ -1,18 +1,21 @@
 <?php
 
-class Template
+/**
+ *	template object (view)
+ */
+class View
 {	
 	var $template_dir = 'templates';
-	var $template_cache_dir = 'cache';
-	var $cachr_file = null;
+	// var $template_cache_dir = 'cache';
 	var $response_format = 'html';
-	var $caching = 1;
-	
-	var $_tpl_vars = array();
+	var $response_mime_type = 'text/html';
 
+	var $_tpl_vars = array();
 
 	function __construct()
 	{
+    	$this->template_dir = join(DIRECTORY_SEPARATOR, array(dirname(__FILE__), '..', TEMPLATE_DIR));
+    	$this->template_cache_dir = join(DIRECTORY_SEPARATOR, array(dirname(__FILE__), '..', TEMPLATE_DIR, 'cache'));		
 	}
 	
 	
@@ -32,18 +35,14 @@ class Template
 	public function include_template ($template, $vars = array())
 	{
 		$this->_tpl_vars = array_merge($this->_tpl_vars, $vars);
-		$this->render($template);
+		$this->render( $template );
 	}
 	
 
-	public function render( $template )
+	public function render( $template ) 
 	{
 		extract( $this->_tpl_vars );
-
-		if (is_file( $this->template_dir . DIRECTORY_SEPARATOR . $template ))
-			include( $this->template_dir . DIRECTORY_SEPARATOR . $template );
-		else
-			include( $this->template_dir . DIRECTORY_SEPARATOR . 'default.' . $this->response_format . '.tpl');
+		include( $this->template_dir . DIRECTORY_SEPARATOR . $template );
 	}
 	
 	

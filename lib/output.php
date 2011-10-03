@@ -1,18 +1,5 @@
 <?php
 
-
-/**
- *	return new template instance
- */
-function get_template_instance()
-{
-    $t = new Template();
-    $t->template_dir = join(DIRECTORY_SEPARATOR, array(dirname(__FILE__), '..', TEMPLATE_DIR));
-    $t->template_cache_dir = join(DIRECTORY_SEPARATOR, array(dirname(__FILE__), '..', TEMPLATE_DIR, 'cache'));
-
-    return $t;
-}
-
 /**
  *	@param format
  *  @param default format
@@ -169,7 +156,7 @@ function get_url_parts()
 }
 
 
-function get_url()
+function get_request()
 {
     $path_info = pathinfo( $_SERVER['SCRIPT_NAME'] );
     $path_info['url'] = preg_match("/\.\.\//", $_SERVER['SCRIPT_NAME']) ? '/' : $_SERVER['SCRIPT_NAME'];
