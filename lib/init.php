@@ -23,7 +23,7 @@ ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . dirname(realp
 define ('CLEAN_URLS', 		false);
 define ('SITE_TITLE', 		'plog');
 define ('LOCAL_ROOT', 		'/Users/gdunne/Sites/india/');
-define ('WEB_ROOT', 		'http://localhost/~gdunne/india/');
+define ('WEB_ROOT', 		'/~gdunne/india/');
 define ('CONTENT_DIR', 		'content/');
 define ('TEMPLATE_DIR', 	'templates/');
 define ('PAGE_DIR', 		'pages/');
@@ -31,6 +31,9 @@ define ('CONFIG_DELIMITER', '--');
 define ('MORE_DELIM', 		'<!--more-->');
 define ('TITLE_DELIMITER', 	': ');
 define ('CONFIG_FILE', 		'config');
+
+# ignores
+$_FILE_IGNORES = array(CONFIG_FILE, '.DS_Store');
 
 # includes
 require_once 'data.php';

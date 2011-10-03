@@ -1,6 +1,6 @@
 <ul class="nav">	   
 
-	<li><h2><a href="/"><?=SITE_TITLE;?></a></h2></li>
+	<li><h2><a href="<?=WEB_ROOT;?>"><?=SITE_TITLE;?></a></h2></li>
 	
 	<br />
 	

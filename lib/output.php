@@ -151,16 +151,31 @@ function get_base_href()
 
 function get_url_parts()
 {
-	$parts = explode('/', substr($_SERVER['HTTP_HOST'], strlen(get_base_dir() . '/')));
+    $parts = explode('/', substr($_SERVER['HTTP_HOST'], strlen(get_base_dir() . '/')));
 	return $parts[0] ? $parts : 0;
 }
 
 
 function get_request()
-{
-    $path_info = pathinfo( $_SERVER['SCRIPT_NAME'] );
-    $path_info['url'] = preg_match("/\.\.\//", $_SERVER['SCRIPT_NAME']) ? '/' : $_SERVER['SCRIPT_NAME'];
-    //$path_info['extension'] = null;
+{   
+    if (!CLEAN_URLS && isset($_GET['p'])) {
+        $path = $_GET['p'];
+    } else {
+        // TODO
+        // this is fudged
+        if ($_SERVER['REQUEST_URI'] == WEB_ROOT) {
+            $path = '/';
+        }
+    }
+
+    $path_info = pathinfo( $path );
+    $path_info['path'] = preg_match("/\.\.\//", $path) ? '/' : $path;
+    $path_info['extension'] = null;
+
+    // echo '<pre>';
+    // print_r($path_info);
+    // exit;
+
     return $path_info; //substr($_SERVER['HTTP_HOST'], strlen(get_base_dir() . '/'));
 }
 

@@ -12,15 +12,11 @@
     
 <div id="content">
 
-	<? foreach($data as $entry): ?>
+	<? foreach($entries as $entry): ?>
 	<?  
-    if ($entry['content_short']) 
+    if (isset($entry['content_short'])) 
         $entry['content'] = $entry['content_short'] . '<br /><a class="more" href="'.$entry['url'].'">more &rarr;</a><br /><br />';
-    
-
-        $this->include_template('entry.html.tpl', array('data' => $entry)); 
-
-    
+    $this->include_template('entry.html.tpl', array('data' => $entry)); 
     ?>
 	<? endforeach; ?>	
 	

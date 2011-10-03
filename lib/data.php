@@ -7,10 +7,14 @@
  */
 function get_entries( $path = "", $args = array())
 {
+	global $_FILE_IGNORES;
+
 	$recursive = isset($args['recursive']) ? $args['recursive'] : 1;
 	$order_by = empty($args['order_by']) ? null : $args['order_by'];
 	$order = empty($args['order']) ? SORT_DESC : $args['order'];
-	$path = LOCAL_ROOT . CONTENT_DIR . $path;
+
+	$path = join(array( LOCAL_ROOT, CONTENT_DIR, $path ), DIRECTORY_SEPARATOR);
+
 	if ($recursive) {
 		$iterator = new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::KEY_AS_PATHNAME);
 		$dir_iterator = new RecursiveIteratorIterator($iterator, RecursiveIteratorIterator::SELF_FIRST);
@@ -20,7 +24,7 @@ function get_entries( $path = "", $args = array())
 	}
 	$entries = array();
 	foreach ($dir_iterator as $file => $info) {
-		if (!$info->isDir() && $info->getFilename() != CONFIG_FILE) {
+		if (!$info->isDir() && !in_array($info->getFilename(), $_FILE_IGNORES)) {
 			$entries[] = parse_entry($info);
 		}
 	}
@@ -64,7 +68,7 @@ function get_dirs( $path = "", $args = array())
             $d['url'] = str_replace($path, "",  $info->getRealPath());
 
             if (!CLEAN_URLS) {
-            	$d['url'] = WEB_ROOT . '?c=' . $d['url'];
+            	$d['url'] = WEB_ROOT . '?p=' . $d['url'];
             }
 
             $d['name'] = str_replace($path, "",  $info->getRealPath());
@@ -134,11 +138,17 @@ function parse_entry($fileInfo, $page = 0)
 	$cat = clean_slashes(str_replace(LOCAL_ROOT . CONTENT_DIR, "", $fileInfo->getPath()));
 	$f['cat'] = $page ? null : array('name' => substr($cat,1), 'url' => $cat );
 	$f['path'] = $fileInfo->getRealPath();
-	$f['url'] = ($page ? '' : substr($file['cat']['url'],1)) . $fileInfo->getFilename();
+	$f['url'] = ($page ? '' : substr($f['cat']['url'],1)) . $fileInfo->getFilename();
 
     if (!CLEAN_URLS) {
     	$f['url'] = WEB_ROOT . '?p=' . $f['url'];
-    }	
-
+    }
+	
 	return $f;
+}
+
+
+function parse_config ($location)
+{
+	return parse_entry(new SplFileInfo(join(array(LOCAL_ROOT, CONTENT_DIR, $location, CONFIG_FILE, DIRECTORY_SEPARATOR))));
 }

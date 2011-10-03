@@ -12,7 +12,7 @@
     
 <div id="content">
 
-	this is the index template
+	hello world
 	
 </div>
 
