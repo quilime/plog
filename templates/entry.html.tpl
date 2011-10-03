@@ -9,9 +9,11 @@
 	</div>
 
 	<div class="metadata">
-		posted <abbr title="<?=get_relative_time($entry['timestamp']);?>"><?=date("F d, Y", $entry['timestamp'])?></abbr> 
+		<abbr title="<?=get_relative_time($entry['timestamp']);?>"><?=date("F d, Y", $entry['timestamp'])?></abbr> 
+		<? if (!empty($entry['cat']['name'])): ?>
 		in <a href="<?=$entry['cat']['url'];?>"><?=$entry['cat']['name'];?></a>
 		<br/>
+		<? endif; ?>
 		<ul class="tags">
 		<? if ($entry['tags']) foreach($entry['tags'] as $tag) : ?>
 		<li>#<?=$tag?></li>

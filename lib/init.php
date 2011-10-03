@@ -21,7 +21,7 @@ ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . dirname(realp
 
 # settings
 define ('CLEAN_URLS', 		false);
-define ('SITE_TITLE', 		'plog');
+define ('SITE_TITLE', 		'india 2011');
 define ('LOCAL_ROOT', 		'/Users/gdunne/Sites/india/');
 define ('WEB_ROOT', 		'/~gdunne/india/');
 define ('CONTENT_DIR', 		'content/');
