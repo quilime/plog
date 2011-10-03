@@ -30,9 +30,9 @@ class Model
 		$this->page_request    = $this->request['filename'];
 
 
-	    # if multiple entries (dir in CONTENT dir)
+	    # if entries (dir in CONTENT dir)
 	    if ($this->is_multiple()) {
-			# check if config file exists
+			# check if config file exists in dir
 		    if ($this->has_config()) {
 		        $this->config = parse_config( $this->content_request );
 		        if (isset($this->config['config']['template'])) {
@@ -44,7 +44,7 @@ class Model
 		} 
 
 
-		# if single entry (file in CONTENT dir)
+		# if entry (file in CONTENT dir)
 		else if ($this->is_single())
 		{
 			$this->entry = get_entry( $this->content_request );
