@@ -141,7 +141,7 @@ function parse_entry($fileInfo, $page = false)
 
 	$f['cat'] = $page ? null : array('name' => $clean_path, 'url' => $clean_path );
 	$f['path'] = $fileInfo->getRealPath();
-	$f['url'] = ($page ? '' : $f['cat']['url']) . '/' . $fileInfo->getFilename();
+	$f['url'] = ($page ? '' : $f['cat']['url'] . '/') . $fileInfo->getFilename();
 
     if (!CLEAN_URLS) {
     	$f['cat']['url'] = WEB_ROOT . '?p=' . $f['cat']['url'];
@@ -159,7 +159,7 @@ function get_entry ( $relative_entry_path )
 
 function get_page ( $relative_page_path )
 {
-	return parse_entry(new SplFileInfo(join(array(LOCAL_ROOT, PAGE_DIR, $relative_page_path), DIRECTORY_SEPARATOR)));
+	return parse_entry(new SplFileInfo(join(array(LOCAL_ROOT, PAGE_DIR, $relative_page_path), DIRECTORY_SEPARATOR)), 1);
 }
 
 function parse_config ( $relative_path )

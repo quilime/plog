@@ -47,17 +47,17 @@ class Model
 		# if single entry (file in CONTENT dir)
 		else if ($this->is_single())
 		{
-			$this->entries = get_entry( $this->content_request );
+			$this->entry = get_entry( $this->content_request );
 			$this->template = 'single.' . $this->response_format . '.tpl';
 		}
 
 
 		# if page (file in PAGES dir)
 		else if ($this->is_page()) {
-    		$this->entries = get_page( $this->page_request );
-    		$this->template = isset($page['config']['template']) ? 
-    							$this->entries['config']['template'] . '.' . $response_format . '.tpl' : 
-    							'page.' . $response_format . '.tpl';
+    		$this->page = get_page( $this->page_request );
+    		$this->template = isset($this->page['config']['template']) ? 
+    							$this->page['config']['template'] . '.' . $this->response_format . '.tpl' : 
+    							'page.' . $this->response_format . '.tpl';
 		}
 
 

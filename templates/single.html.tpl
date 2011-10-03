@@ -11,7 +11,7 @@
     <? $this->include_template('nav.html.tpl') ?>
     
 	<div id="content">
-		<? $this->include_template('entry.html.tpl', array('entry' => $entries)); ?>	
+		<? $this->include_template('entry.html.tpl'); ?>	
 	</div>
 
 	<? $this->include_template('footer.html.tpl') ?>

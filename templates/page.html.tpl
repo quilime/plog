@@ -12,7 +12,7 @@
     
 <div id="content">
 
-	<?=$data['content'];?>
+	<?=$page['content'];?>
 	
 </div>
 
