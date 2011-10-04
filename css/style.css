@@ -1,13 +1,15 @@
 body { 
-    padding:20px 40px;
+    padding:50px;
 }
 html, body, table {
     font-family: sans-serif;
     line-height:1.4em;
+    font-size:12px;
 }
 
 a { 
     color:#999;
+    text-decoration:none;
 }
 a img { 
     border:0; 
@@ -39,31 +41,29 @@ blockquote {
     font-style:italic;
 }
 
+p {
+    font-size:14px;
+}
+
 #content { 
-}
-#content p:first-child { 
+    margin-top:30px;
 }
 
-
-.nav { 
-    display:none; 
-}
-.nav a { 
-    text-decoration:none; 
+.archive li {
     font-weight:bold; 
 }
 
 
-
-
-.entry { margin-bottom:100px; }
-.entry p {
-    max-width:800px;
+.entry {
 }
-.entry h2 { padding-bottom:4px; font-size:1.3em;}
-.entry .metadata { font-style:italic; color:#777; font-size:12px;}
-.entry .metadata a { color:#999; }
-.entry .metadata a:hover { color: #000;}
+.entry h2 {
+    margin-bottom:20px;
+}
+.entry .metadata { 
+    margin-top:30px;
+    font-style:italic; color:#777; font-size:12px;
+}
 .entry .metadata .tags li { 
-    display:inline-block; margin-right:0.3em; 
+    display:inline-block; 
+    margin-right:0.3em; 
 }

@@ -1,7 +1,7 @@
 <div class="entry">
 
 	<h2>
-		<a title="posted on <?=$entry['date']?>" href="<?=$entry['url']?>"><?=$entry['title']?></a>
+		<a href="<?=$entry['url']?>"><?=$entry['title']?></a>
 	</h2>
 
 	<div class="content">
@@ -9,7 +9,7 @@
 	</div>
 
 	<div class="metadata">
-		<abbr title="<?=get_relative_time($entry['timestamp']);?>"><?=date("F d, Y", $entry['timestamp'])?></abbr> 
+		<span title="<?=get_relative_time($entry['timestamp']);?>"><?=date(ENTRY_DATE_FORMAT, $entry['timestamp'])?></span> 
 		<? if (!empty($entry['cat']['name'])): ?>
 		in <a href="<?=$entry['cat']['url'];?>"><?=$entry['cat']['name'];?></a>
 		<br/>
@@ -19,6 +19,8 @@
 		<li>#<?=$tag?></li>
 		<? endforeach; ?>
 		</ul>
-	</div>
+	</div>	
+
+
 
 </div>

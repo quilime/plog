@@ -126,7 +126,7 @@ function parse_entry($fileInfo, $page = false)
 
 	$f = array();
 	$f['config'] = parse_ini_string($config);
-	$f['title'] = $f['config']['title'];
+	$f['title'] = isset($f['config']['title']) ? $f['config']['title'] : $fileInfo->getFilename() ;
 	$f['config']['date'] = isset($f['config']['date']) ? $f['config']['date'] : null;
 	$f['timestamp'] = $f['config']['date'] ? date('U', strtotime( $f['config']['date'])) : $fileInfo->getCTime();
 	$f['tags'] = isset($f['config']['tags']) ? explode(" ", $f['config']['tags']) : null;

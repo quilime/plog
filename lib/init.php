@@ -14,7 +14,7 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
 # timezone
-putenv("TZ=America/Los_Angeles");
+putenv("TZ=Asia/Calcutta");
 
 # include path
 ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . dirname(realpath(__FILE__)));
@@ -28,13 +28,14 @@ define ('CONTENT_DIR', 		'content/');
 define ('TEMPLATE_DIR', 	'templates/');
 define ('PAGE_DIR', 		'pages/');
 define ('CONFIG_DELIMITER', '--');
-define ('MORE_DELIM', 		'<!--more-->');
-define ('TITLE_DELIMITER', 	': ');
 define ('CONFIG_FILE', 		'config');
+define ('MORE_DELIM', 		'<!--more-->');
+define ('TITLE_DELIMITER', 	' &mdash; ');
+define ('ENTRY_DATE_FORMAT', 'M d Y, h:i:s A T');
 
-# ignores
 $_FILE_IGNORES = array(CONFIG_FILE, '.DS_Store');
 
+ 
 # includes
 require_once 'data.php';
 require_once 'output.php';
