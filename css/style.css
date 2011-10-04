@@ -1,10 +1,8 @@
 body { 
     padding:50px;
-}
-html, body, table {
+    font-size: 0.8em;
     font-family: sans-serif;
-    line-height:1.4em;
-    font-size:12px;
+    line-height:1.5em;
 }
 
 a { 
@@ -36,13 +34,11 @@ ol {
 ol li { 
     list-style-type:decimal; 
 }
-
 blockquote { 
     font-style:italic;
 }
-
-p {
-    font-size:14px;
+pre {
+    line-height:1.3em;
 }
 
 #content { 

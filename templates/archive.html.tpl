@@ -15,7 +15,7 @@
 	<ul class="archive"> 
 	<? foreach($entries as $entry): ?>
 	<li>
-	<a href="<?=$entry['url']?>" title="<?=date("m d Y", $entry['timestamp'])?>"><?=date("m-d-Y", $entry['timestamp'])?> <?=$entry['title']?></a>
+	<a href="<?=$entry['url']?>" title="<?=date("m d Y", $entry['timestamp'])?>"><?=$entry['title']?></a>
 	</li>
 	<? endforeach; ?>	
 	</ul>
