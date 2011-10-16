@@ -34,7 +34,7 @@ define ('TITLE_DELIMITER', 	 ' &mdash; ');
 define ('ENTRY_DATE_FORMAT', 'M d Y, h:i:s A T');
 
 $_FILE_IGNORES = array(CONFIG_FILE, '.DS_Store');
- 
+
 # includes
 require_once 'data.php';
 require_once 'output.php';

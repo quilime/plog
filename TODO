@@ -1,9 +1,9 @@
 TODO
 
-functional
-- prev/next links accessable from View object
-- generate publish cache
-
+- pagination (View)
+- prev/next (View)
+- static cache generation (wget? curl?) 
+- update content.sh to give back help if used incorrectly
 
 nice things
 - highlight categories from index

@@ -1,14 +1,11 @@
 <div class="entry">
 
-	<h2>
-		<a href="<?=$entry['url']?>"><?=$entry['title']?></a>
-	</h2>
-
 	<div class="content">
 		<?=$entry['content']?>
 	</div>
 
 	<div class="metadata">
+		"<a href="<?=$entry['url']?>"><?=$entry['title']?></a>", 
 		<span title="<?=get_relative_time($entry['timestamp']);?>"><?=date(ENTRY_DATE_FORMAT, $entry['timestamp'])?></span> 
 		<? if (!empty($entry['cat']['name'])): ?>
 		in <a href="<?=$entry['cat']['url'];?>"><?=$entry['cat']['name'];?></a>

@@ -1,5 +1,6 @@
 body { 
-    padding:50px;
+    padding:0;
+    margin:0;
     font-size: 0.8em;
     font-family: sans-serif;
     line-height:1.5em;
@@ -35,14 +36,23 @@ ol li {
     list-style-type:decimal; 
 }
 blockquote { 
+    font-family:serif;
     font-style:italic;
+    font-size:1.2em;  
+    line-height:1.3em;
+    margin:0;
+    padding:0;
 }
 pre {
     line-height:1.3em;
 }
 
-#content { 
-    margin-top:30px;
+#content {
+    padding:50px;
+}
+#nav {
+    padding:30px 50px;
+    border-top:1px dotted #aaa;
 }
 
 .archive li {

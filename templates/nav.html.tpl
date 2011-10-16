@@ -1,6 +1,15 @@
-<div class="nav">	   
+<div id="nav">	   
 
-	<h1 style="margin:0;"><a href="<?=WEB_ROOT?>">INDIA 2011</a></h1>
-	Gabriel Dunne
+	<ul class="archive">
+	<? foreach(get_entries() as $entry): ?>
+	<li>
+	<a href="<?=$entry['url']?>" title="<?=date("m d Y", $entry['timestamp'])?>"><?=$entry['title']?></a>
+	</li>
+	<? endforeach; ?>	
+	</ul>
+	
+	<br />	
+
+	<a href="<?=WEB_ROOT?>?p=info">info</a>
 
 </div>
