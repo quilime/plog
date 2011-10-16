@@ -4,20 +4,24 @@ body {
     font-size: 0.8em;
     font-family: sans-serif;
     line-height:1.5em;
+    color: rgb(83, 104, 112);
 }
 
 a { 
-    color:#999;
-    text-decoration:none;
+    color:rgb(198, 28, 111);
 }
 a img { 
     border:0; 
 }
+a.visited {
+    
+}
 a.mute { 
     font-weight:normal;
+    color:rgb(129, 144, 144);
 }
 a:hover, a.mute:hover { 
-    color:#d15;
+    color:rgb(209, 28, 36);
 }
 
 h1, h2, h3, h4, h5, h6 { 
@@ -49,12 +53,12 @@ pre {
 
 #content {
     padding:50px;
+    background:#fff;
 }
 #nav {
     padding:30px 50px;
     border-top:1px dotted #aaa;
 }
-
 .archive li {
     font-weight:bold; 
 }

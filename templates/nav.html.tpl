@@ -10,6 +10,6 @@
 	
 	<br />	
 
-	<a href="<?=WEB_ROOT?>?p=info">info</a>
+	<a class="mute" href="<?=WEB_ROOT?>?p=about">about</a>
 
 </div>
