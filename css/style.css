@@ -9,6 +9,7 @@ body {
 
 a { 
     color:rgb(198, 28, 111);
+    text-decoration:none;
 }
 a img { 
     border:0; 
@@ -54,6 +55,9 @@ pre {
 #content {
     padding:50px;
     background:#fff;
+}
+#nextprev {
+    padding:0 50px 10px 50px;
 }
 #nav {
     padding:30px 50px;

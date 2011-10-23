@@ -25,10 +25,8 @@ class Model
 
 	function parse_request( $request )
 	{
-
 		$this->content_request = join(array($this->request['dirname'], $this->request['filename']), DIRECTORY_SEPARATOR );
 		$this->page_request    = $this->request['filename'];
-
 
 	    # if entries (dir in CONTENT dir)
 	    if ($this->is_multiple()) {
@@ -48,6 +46,17 @@ class Model
 		else if ($this->is_single())
 		{
 			$this->entry = get_entry( $this->content_request );
+
+			// heavy handed prev/next
+			$entries = get_entries();
+			for($i = count($entries)-1; $i>=0; $i--) {
+				if ($this->entry['url'] == $entries[$i]['url']) {
+					$this->entry['prev_entry'] = $entries[$i]['prev_entry'];
+					$this->entry['next_entry'] = $entries[$i]['next_entry'];
+					break;
+				}
+			}
+
 			$this->template = 'single.' . $this->response_format . '.tpl';
 		}
 
@@ -59,7 +68,6 @@ class Model
     							$this->page['config']['template'] . '.' . $this->response_format . '.tpl' : 
     							'page.' . $this->response_format . '.tpl';
 		}
-
 
 		# not found
 		else {

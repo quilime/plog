@@ -8,13 +8,15 @@
 </head>
 <body>
     
-    
 	<div id="content">
-		<? $this->include_template('entry.html.tpl'); ?>	
+		<? $this->include_template('entry.html.tpl'); ?>
+	</div>
+
+	<div id="nextprev">
+		<? $this->include_template('nextprev.html.tpl'); ?>
 	</div>
 
 	<? $this->include_template('nav.html.tpl') ?>	
-
 	<? $this->include_template('footer.html.tpl') ?>
 
 </body>

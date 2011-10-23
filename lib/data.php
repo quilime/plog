@@ -37,6 +37,7 @@ function get_entries( $path = "", $args = array())
 		}
 	}
 
+
 	switch ($order_by)
 	{
 		default :
@@ -44,6 +45,14 @@ function get_entries( $path = "", $args = array())
 		    	$time[$key] = $row['timestamp'];
 			if ($time)
 				array_multisort( $time, $order, $entries );
+	}
+
+
+	// assign next/prev for each entry
+	$num_entries = count($entries);
+	for ($i = $num_entries-1; $i>=0; $i--) {
+		$entries[$i]['prev_entry'] = isset($entries[$i+1]) ? $entries[$i+1] : null;
+		$entries[$i]['next_entry'] = isset($entries[$i-1]) ? $entries[$i-1] : null;
 	}
 
 	return $entries;
@@ -85,6 +94,7 @@ function get_dirs( $path = "", $args = array())
 	}
 	return $dirs;
 }
+
 
 /**
  * get all pages
@@ -146,7 +156,6 @@ function parse_entry($fileInfo, $page = false)
 	$cat = clean_slashes(str_replace(LOCAL_ROOT . CONTENT_DIR, "", $fileInfo->getPath()));
 	$clean_path = str_replace(LOCAL_ROOT . CONTENT_DIR, "", clean_slashes($fileInfo->getPath()));
 
-
 	$f['cat'] = $page ? null : array('name' => $clean_path, 'url' => $clean_path );
 	$f['path'] = $fileInfo->getRealPath();
 	$f['url'] = ($page ? '' : $f['cat']['url'] . '/') . $fileInfo->getFilename();
@@ -160,14 +169,14 @@ function parse_entry($fileInfo, $page = false)
 }
 
 
-function get_entry ( $relative_entry_path ) 
+function get_entry ( $relative_path ) 
 {
-	return parse_entry(new SplFileInfo(join(array(LOCAL_ROOT, CONTENT_DIR, $relative_entry_path), DIRECTORY_SEPARATOR)));
+	return parse_entry(new SplFileInfo(join(array(LOCAL_ROOT, CONTENT_DIR, $relative_path), DIRECTORY_SEPARATOR)));
 }
 
-function get_page ( $relative_page_path )
+function get_page ( $relative_path )
 {
-	return parse_entry(new SplFileInfo(join(array(LOCAL_ROOT, PAGE_DIR, $relative_page_path), DIRECTORY_SEPARATOR)), 1);
+	return parse_entry(new SplFileInfo(join(array(LOCAL_ROOT, PAGE_DIR, $relative_path), DIRECTORY_SEPARATOR)), 1);
 }
 
 function parse_config ( $relative_path )
