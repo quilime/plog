@@ -1,0 +1,22 @@
+title = create bootable iso from unix/osx terminal
+date = july 7 2011
+--
+
+1. <code class="prettyprint">$  diskutil list</code><br />
+Determines the device node assigned to your flash media (e.g. /dev/disk2)
+
+2. <code class="prettyprint">$  diskutil unmountDisk /dev/disk#</code><br />
+Replace # with the disk number from the last command; in the previous example, # is 2)
+
+3. <code class="prettyprint">$  sudo dd if=/path/to/example.iso of=/dev/diskN bs=1m</code><br />
+Replace <code>/path/to/example.iso</code> with the path to the iso; for example: <code>./windows7.iso</code>. After typing in your sudo password, the process will start invisibly.
+
+4. <code class="prettyprint">$  diskutil eject /dev/disk#</code><br />
+Remove your flash media device when the command completes. Done!
+
+Referenced from <a href="https://help.ubuntu.com/community/BurningIsoHowto">BurningIsoHowto</a>
+
+Bonus tip! You want to see how far the `dd` copy is coming along? Run in another terminal instance: <br />
+<code class="prettyprint">$  sudo killall -INFO dd</code><br />
+The process info will display in the original terminal.
+

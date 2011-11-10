@@ -3,6 +3,7 @@
     require_once 'lib/init.php';
 
     $url = get_url();
+
     list($response_format, $response_mime_type) = parse_format($url['extension'], 'html');
 
     # setup template
@@ -15,15 +16,15 @@
     $total = 0;
 
     # content exists, and is a folder
-
+/*
     if ($url['filename'] == '')
     {
-        $page = parse_entry(new SplFileInfo('/home/quilime/quilime.com/pages/about'), 1);
-        $t->assign('data', $page);
-        $template = $page['config']['template'] ? $page['config']['template'] . '.' . $response_format . '.tpl' : 'page.' . $response_format . '.tpl';
-        //        $template = 'index.html.tpl';
+        //$page = parse_entry(new SplFileInfo('/home/quilime/quilime.com/pages/about'), 1);
+        //$t->assign('data', $page);
+        //$template = $page['config']['template'] ? $page['config']['template'] . '.' . $response_format . '.tpl' : 'page.' . $response_format . '.tpl';
+                $template = 'index.html.tpl';
     }
-    else if (is_dir($content_request)) {
+    else */if (is_dir($content_request)) {
         # get config in folder, if exists
         if (is_file($content_request . '/' . CONFIG_FILE )) {
             $config = parse_entry(new SplFileInfo($content_request . '/' . CONFIG_FILE));

@@ -172,7 +172,7 @@ function get_url()
 {
     $path_info = pathinfo($_SERVER['SCRIPT_URL']);
     $path_info['url'] = preg_match("/\.\.\//", $_SERVER['SCRIPT_URL']) ? '/' : $_SERVER['SCRIPT_URL'];
-    $path_info['extension'] = null;
+    //$path_info['extension'] = null;
     return $path_info; //substr($_SERVER['SCRIPT_URL'], strlen(get_base_dir() . '/'));
 }
 

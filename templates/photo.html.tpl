@@ -4,7 +4,16 @@
     <?php $this->include_template('head-inc.html.tpl'); ?>
     
     <title><?=SITE_TITLE?>: photo</title>
-    
+    <style>
+    	ul, li {
+    		list-style-type:none;
+
+    	}
+    	ul {
+    		margin:0;
+    		padding:0;
+    	}
+    </style>
 </head>
 <body>
     

@@ -1,0 +1,18 @@
+title = show hidden files (OSX Finder)
+date = Tue May 10 21:03:45 PDT 2011
+tags = osx 
+--
+
+via Terminal
+
+show hidden files:
+<pre class="prettyprint">
+defaults write com.apple.finder AppleShowAllFiles TRUE
+killall Finder
+</pre>
+
+hide hidden files:
+<pre class="prettyprint">
+defaults write com.apple.finder AppleShowAllFiles FALSE
+killall Finder
+</pre>

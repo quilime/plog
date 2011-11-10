@@ -1,0 +1,32 @@
+title = command history
+date = Mon Sep 19 19:39:51 PDT 2011
+--
+<pre class="prettyprint">history | awk {'print $2'} | sort | uniq -c | sort -k1 -rn | head</pre>
+
+example
+<pre class="prettyprint">
+// brand new netbook
+  24 ls
+  14 cd
+  12 defaults
+   9 unzip
+   8 ssh
+   5 mv
+   3 mkdir
+   3 chmod
+   3 cat
+   2 unrar
+</pre>
+<pre class="prettyprint">
+// quilime.com
+ 173 git
+ 140 ls
+  84 cd
+  18 emacs
+  15 cat
+  13 mv
+  12 rm
+   5 ln
+   4 mkdir
+   4 ./scripts/content
+</pre>
