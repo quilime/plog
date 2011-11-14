@@ -1,0 +1,28 @@
+title = print formatted JSON, XML from osx command line
+date = mon, nov 14 2011
+tags = bash shell python json xml osx
+--
+
+via the command line:
+
+format json
+<pre class="prettyprint">
+cat unformatted.json | python -m json.tool
+</pre>
+
+save formated json to file
+<pre class="prettyprint">
+cat unformatted.json | python -m json.tool > formatted.json
+</pre>
+
+format json from clipboard
+<pre class="prettyprint">
+pbpaste | python -m json.tool
+</pre>
+
+format xml from clipboard
+<pre class="prettyprint">
+pbpaste | xmllint --format -
+</pre>
+`xmllint` is part of libxml2 and installed by default on OSX.
+
