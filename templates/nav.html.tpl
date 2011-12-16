@@ -10,6 +10,7 @@
 	<li><a href="<?=$dir['url']?>"><?=$dir['name']?></a></li>
 	<? endforeach; ?>
 
+    <li><a href="/projects/">projects</a></li>
 	<li><a href="/photo/">photo</a></li>
 	<li><a href="/agg/">aggregate</a></li>
 	<li><a href="/links/">links</a></li>	    

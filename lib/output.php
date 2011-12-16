@@ -27,6 +27,7 @@ function parse_format($format, $default)
                    'js'   => 'application/x-javascript',
                    'xspf' => 'application/xspf+xml',
                    'xml'  => 'text/xml',
+                   'rss'  => 'text/xml',
                    'jpg'  => 'image/jpeg',
                    'png'  => 'image/png',
                    'm3u'  => 'audio/x-mpegurl');
@@ -133,6 +134,8 @@ function get_rss_feed( $url )
     curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     $data = curl_exec($ch);
+
+
     curl_close($ch);
     return new SimpleXMLElement($data);
 }

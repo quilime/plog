@@ -3,16 +3,13 @@ date = mon, nov 14 2011
 tags = bash shell python json xml osx
 --
 
+Working with various interfaces that output json or xml results in lots of situations where you have a single-line, unformatted output. Here's a quick way to format json, xml from the CLI.
+
 via the command line:
 
 format json
 <pre class="prettyprint">
 cat unformatted.json | python -m json.tool
-</pre>
-
-save formated json to file
-<pre class="prettyprint">
-cat unformatted.json | python -m json.tool > formatted.json
 </pre>
 
 format json from clipboard
@@ -24,5 +21,7 @@ format xml from clipboard
 <pre class="prettyprint">
 pbpaste | xmllint --format -
 </pre>
-`xmllint` is part of libxml2 and installed by default on OSX.
+`xmllint` is part of libxml2 and installed by default on OSX. Be aware that xmllint cleans up XML as well as formatting it, ocassionally modifying the output.
+
+for all above examples, you can pipe back to the clipboard with <code class="prettyprint">| pbcopy</code> at the end of the command, or output to a file with <code class="prettyprint">&gt; output.json</code> or <code class="prettyprint">&gt; output.xml</code>.
 
