@@ -2,7 +2,7 @@ title = links
 type = page
 markdown = true
 --
-people
+people/groups
 ------
 + gabriel dunne [gabrieldunne.com](http://gabrieldunne.com)
 + stephanie sherriff [ssherriff.com](http://ssherriff.com)
@@ -12,7 +12,6 @@ people
 + keith pasko [keithpasko.com](http://keithpasko.com)
 + jeff lubow [dabkitsch.com/jml/](http://dabkitsch.com/jml/)
 + michael chang [ghost-hack.com](http://ghost-hack.com)  
-+ carbon workshop [carbonworkshop.com](http://carbonworkshop.com)
 + sascha pohflep [pohflepp.com](http://pohflepp.com)
 + mylinh trieu [mylinhtrieu.com](http://mylinhtrieu.com)
 + aaron meyers [universaloscillation.com](http://universaloscillation.com)
@@ -30,5 +29,6 @@ people
 
 places
 ------
++ carbon workshop [carbonworkshop.com](http://carbonworkshop.com)
 + gray area foundation for the arts [gaffta.org](http://gaffta.org)
 + bay area video coalition [bavc.org](http://bavc.org)

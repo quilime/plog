@@ -1,0 +1,85 @@
+title = Terminal Emulator on Windows via Cygwin
+date = august 11 2011
+--
+The default Cygwin install emulates a terminal in a command window similar to the DOS prompt with a limited feature set. 
+
+For a full featured x-term, you can install Cygwin-X along with Cygwin:
+
+1. **Install <a href="http://cygwin.com">Cygwin</a> from <a href="http://cygwin.com/setup.exe">setup.exe</a>**
+
+2. **Install the following packages:**
+
+    - xorg-server (required, the Cygwin X Server)
+    - xinit (required, scripts for starting the X server: xinit, startx, startwin (and a shortcut on the Start Menu to run it), startxdmcp.bat )
+    - xorg-docs (optional, man pages)
+    - X-start-menu-icons (optional, adds shortcuts to X Clients and Server to the Start menu)
+    - mintty (windows-feel terminal)  
+  <br />
+
+3. **Optional Packages**
+    - openssh
+    - git, svn
+    - wget, curl
+    - rsync
+    - vim, emacs
+    - any additional fonts
+
+    <br />
+
+3. **~/.XDefaults**  
+dark theme:
+<pre class="prettyprint">
+! terminal colors ------------------------------------------------------------
+! tangoesque scheme
+*background: #111111
+*foreground: #babdb6
+! Black (not tango) + DarkGrey
+*color0:  #000000
+*color8:  #555753
+! DarkRed + Red
+*color1:  #ff6565
+*color9:  #ff8d8d
+! DarkGreen + Green
+*color2:  #93d44f
+*color10: #c8e7a8
+! DarkYellow + Yellow
+*color3:  #eab93d
+*color11: #ffc123
+! DarkBlue + Blue
+*color4:  #204a87
+*color12: #3465a4
+! DarkMangenta + Mangenta
+*color5:  #ce5c00
+*color13: #f57900
+!DarkCyan + Cyan (both not tango)
+*color6:  #89b6e2
+*color14: #46a4ff
+! LightGrey + White
+*color7:  #cccccc
+*color15: #ffffff
+</pre>
+Some more themes on the <a href="https://bbs.archlinux.org/viewtopic.php?pid=653473">Arch forums</a>.  
+<br />
+
+4. **~/.bashrc**  
+To enable color `ls` and human readable size format, add:
+<pre class="prettyprint">
+alias ls='ls -h --color=tty'
+</pre>
+By default, the .bashrc in CygwinX has many options you can uncomment.  
+<br />
+
+5. **~/.emacs**
+Disable emacs temp (~) file pooping
+<pre class="prettyprint">
+(setq make-backup-files nil)
+</pre>
+<br />
+
+Result:  
+<img src="http://media.quilime.com/files/img/cygwin.PNG" />
+
+
+Other emulators for Windows:
+- <a href="http://software.jessies.org/terminator/">Terminator/</a>
+

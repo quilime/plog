@@ -1,12 +1,14 @@
-body {  margin: 20px 100px 50px 30px }
+body {
+    margin: 20px 100px 50px 30px;
+    background:#eee;
+}
 
 html,
 body,
 table {
-  font-family: georgia, serif;
-  font-size: 14px;
-  line-height: 1.4em;
-  color: #44d;
+  font-family: sans-serif;
+  color: #22f;
+    line-height:1.3em;
 }
 ::-moz-selection,
 ::selection {
@@ -40,6 +42,8 @@ h5,
 h6 {
   font-family: 'Droid Serif';
   font-size: 1em;
+
+color:#004;
 }
 h1 a,
 h2 a,
@@ -48,7 +52,7 @@ h4 a,
 h5 a,
 h6 a { }
 h1 {  margin: 0 0 3em 0 }
-h2 {  margin: 0 0 0.5em 0 }
+h2 {  margin: 0 0 0.5em 0; }
 h3 {  margin: 0 0 0 0 }
 h4 {  margin-top: 0 }
 ul, li { }
@@ -66,21 +70,22 @@ blockquote {
   line-height: 1.45em;
   max-width: 600px;
 }
-code {  line-height: 2em !important; }
+code {  }
 #content {
-  padding-left: 160px;
+  padding-left: 100px;
   min-width: 500px;
   padding-bottom: 200px;
   z-index: 10;
+
 }
 #content p:first-child {  margin-top: 0 }
-p {  max-width: 720px }
+p {   }
 
 
 .nav {
-  position: fixed;
   top: 20px;
   left: 20px;
+  position:absolute;
 }
 .nav a {
   text-decoration: none;
@@ -106,17 +111,26 @@ p {  max-width: 720px }
   text-decoration: underline;
   font-weight: normal;
 }
-.entry {  margin-bottom: 100px }
-.entry h2 {
-  padding-bottom: 4px;
-  font-size: 1.3em;
+.entry, table .column {
+margin-bottom: 50px;
+background:#fff;
+padding:30px;
+border-radius:30px;
+max-width:720px;
+box-shadow:inset 1px 1px 1px #ddd;
 }
 .entry .metadata {
+    margin-top:3em;
   font-style: italic;
-  color: #bbb;
+  color: #999;
+    font-size:12px;
 }
 .entry .metadata a {  color: #999 }
 .entry .metadata a:hover {  color: #000 }
+.tags {
+margin:0;
+padding:0;
+}
 .entry .metadata .tags li {
   display: inline-block;
   margin-right: 0.3em;
@@ -133,7 +147,6 @@ table {
   border: 0;
 }
 table .column {
-  padding-right: 100px;
   min-width: 120px;
   max-width: 400px;
 }

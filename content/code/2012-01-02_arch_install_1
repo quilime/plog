@@ -1,0 +1,118 @@
+title = arch linux install blog
+date = 2012-01-02
+tags = arch linux windows installation tutorial
+--
+
+
+Behold, a blog to document the process of installing [archlinux](http://www.archlinux.org/). Arch will be sharing the drive with Windows 7, so for the sake of completion, I'll make a note of how to set up a dual boot with the GRUB bootloader. I'll be installing both OS's from scratch, starting with Windows.
+
+<br />
+## System Setup
+
+- AMD X2 dual-core processor, running at 2.8 ghz
+- ASUS ATX motherboard
+- 2 gigs of ram
+- 100gb drive
+- nvidia gtx 550 ti graphics card
+- linksys wmp54g wireless pci network card
+- 550w power supply
+
+
+<br />
+## Installing Windows
+I installed Windows 7 from a USB stick using Microsoft's [Windows 7 USB/DVD tool](http://www.microsoftstore.com/store/msstore/html/pbPage.Help_Win7_usbdvd_dwnTool). You'll need a computer running Windows 7 already to do this. I booted with the USB drive, and installed Windows on the entire 100GB drive with a single partition. Once installed, via Start Menu > Administrative Tools > Computer Management > Disk Manamagent, select 'Shrink Partition' on the main Windows parition to create another partition for Arch. The default value for the shrink is 50%, so for my setup the value for the new disk size was ~50GB, and that's fine. 
+
+Note about this install. I have an old Linksys (Cysco) WMP54G Wireless PCI Card. Strangely, all the drivers from Linksys/Cysco's website didn't work, but following this [blog post](http://www.phishthis.com/2009/01/16/how-to-install-wmp54g-drivers-on-windows-7-beta-64-bit-or-vista-64-bit/), the generic RALink drivers worked great.
+
+
+<br />
+## Installing Archlinux
+
+I downloading the Core Image via [torrent](http://www.archlinux.org/iso/2011.08.19/archlinux-2011.08.19-core-dual.iso.torrent) from [http://www.archlinux.org/download/](http://www.archlinux.org/download/).
+This ISO includes all core packages so the system doesn't need to be online to install.
+
+Once downloaded, I followed my [notes](http://quilime.com/code/bootable_iso/) on how to create a bootable ISO onto another USB drive with yet another machine. There are also numerous free tools available to make a bootable ISO on Windows. After booting into Arch with the USB stick, boot into Arch, and type:
+
+<pre>/arch/setup</pre>
+
+The [installation](https://wiki.archlinux.org/index.php/Official_Arch_Linux_Install_Guide) article on the archwiki is an excellent resource.
+
+You'll be prompted to chose your editor. If you don't know vi, then stick with nano. You can skip this, because you'll be asked again when it's needed.
+
+
+<br />
+## Disk Partitions
+
+It's pretty straight forward until the drive partitions. My 100GB drive can only support 4 logical partitions, so the rest have to be Logical. Note: The numbers are out of order, because I used Logical partitions for everything except for the Windows partitions and /home. Logical partitions end up being counted last in the partition table, but I made my /home folder LAST so I could use the up the remaining space on the drive. You'll also need to set the	 /boot partition's 'bootable' flag to `true`.
+
+<pre>
+&bull; sda1  
+	Windows 7 System Reserved
+&bull; sda2  
+	Windows 7  
+&bull; sda5  
+	/boot - 100MB is enough
+&bull; sda6
+	/ - about 25GB is appropriate
+&bull; sda7
+	swap - between 1024MB and 4096MB
+&bull; sda4
+	/home - use rest of hard drive
+</pre>
+
+Some of these, namely **boot**, **swap**, and **home**, are *optional*.
+
+
+<br />
+## Select Packages
+
+At minimum, you'll need the core packages that are already selected. I also included certain key packages such as OpenSSH. Basically, include any packages you need for internet connectivity, as everything else will be updated from the net. I use GRUB as the bootloader.
+
+
+<br />
+## Configure System
+
+Configure system does multiple things, including setting the root password, network settings, and some other configuration tools. Here's a reference of where Arch installs all the base config files for the system.
+
+<pre class="prettyprint">
+/etc/rc.conf					system config
+/etc/fstab						filesystem mountpoints
+/etc/mkinitcpio.conf			initramfs config
+/etc/modprobe.d/modprobe.conf	kernel modules
+/etc/resolv.conf				dns servers
+/etc/hosts						network hosts
+/etc/locale.get 				glibc locals
+/etc/pacman.conf				pacman.confg
+/etc/pacman.d/mirrorlist		pacman mirror list
+</pre>
+
+You should edit any of these files that are specific to your system. At minimum I enabled my network card in `rc.conf`.
+
+You'll also need to enable at least one mirror in pacman.d/mirrorlist if you plan to update the system or download new packages.
+
+
+<br />
+## Bootloader
+
+Install Bootloader will install and help you configure the bootloader you selected in the Select Packages stage (GRUB, in my case). After double-checking your bootloader configuration, you'll be prompted for a disk to install the loader to. You should install GRUB to the MBR of the installation disk, in this case `sda1`.
+
+
+<br />
+## Finalizing Installation
+
+Once installed, exit the installer, remove the USB, type `reboot` in the command line, and the system will reboot. If all went well, you should be dropped into a login screen where you can log in with root and the password you chose during install. 
+
+You can create [new users](https://wiki.archlinux.org/index.php/Users_and_Groups) interactively with `adduser`.
+
+You can install/update packages with Arch's package manager, [pacman](https://wiki.archlinux.org/index.php/Pacman).
+
+Before installing any packages, sync the package list with:
+
+<pre class="prettyprint">pacman --sync --refresh</pre>
+
+To add a new package (vim, in this case), type:
+
+<pre class="prettyprint">pacman -S vim</pre>
+
+
+next: getting node and a webserver installed.
