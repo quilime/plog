@@ -5,11 +5,13 @@
 
     <br />
 
+	<small>categories</small>
 	<? $dirs = get_dirs("", array('recursive' => 0)); ?>
 	<? foreach($dirs as $dir) : ?>
 	<li><a href="<?=$dir['url']?>"><?=$dir['name']?></a></li>
 	<? endforeach; ?>
 
+	<small><br /></small>
     <li><a href="/projects/">projects</a></li>
 	<li><a href="/photo/">photo</a></li>
 	<li><a href="/agg/">aggregate</a></li>
