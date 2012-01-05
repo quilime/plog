@@ -16,21 +16,19 @@
     $total = 0;
 
     # content exists, and is a folder
-/*
-    if ($url['filename'] == '')
-    {
-        //$page = parse_entry(new SplFileInfo('/home/quilime/quilime.com/pages/about'), 1);
-        //$t->assign('data', $page);
-        //$template = $page['config']['template'] ? $page['config']['template'] . '.' . $response_format . '.tpl' : 'page.' . $response_format . '.tpl';
-                $template = 'index.html.tpl';
-    }
-    else */if (is_dir($content_request)) {
+
+    if (is_dir($content_request)) {
         # get config in folder, if exists
         if (is_file($content_request . '/' . CONFIG_FILE )) {
             $config = parse_entry(new SplFileInfo($content_request . '/' . CONFIG_FILE));
             $template = $config['config']['template'] . '.' . $response_format . '.tpl' ;
         }
         list($data, $total) = get_entries($url['dirname'] . '/' . $url['filename']);
+
+        if ($url['filename'] == '') {
+            $template = 'index.html.tpl';
+        }
+            
         $t->assign('data', $data);
         $t->assign('page_title', preg_replace('{^/|/$}', '', $url['url']));
     }

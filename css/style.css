@@ -40,10 +40,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Droid Serif';
-  font-size: 1em;
-
-color:#004;
+  color:#338;
 }
 h1 a,
 h2 a,
@@ -51,8 +48,8 @@ h3 a,
 h4 a,
 h5 a,
 h6 a { }
-h1 {  margin: 0 0 3em 0 }
-h2 {  margin: 0 0 0.5em 0; }
+h1 {  margin: 0 0 1em 0; font-size:1.8em; }
+h2 {  margin: 2em 0 0.5em 0; font-size:1.3em }
 h3 {  margin: 0 0 0 0 }
 h4 {  margin-top: 0 }
 ul, li { }
@@ -83,7 +80,7 @@ p {   }
 
 
 .nav {
-  top: 20px;
+  top: 25px;
   left: 20px;
   position:absolute;
 }
@@ -108,7 +105,6 @@ p {   }
   margin-bottom: 0.4em;
 }
 .index li a {
-  text-decoration: underline;
   font-weight: normal;
 }
 .entry, table .column {
@@ -176,7 +172,7 @@ table .bookmarks li {
 #footer .copy a {  text-decoration: none }
 a.rss {
   background: url("/img/rss-icon.png") no-repeat scroll right center transparent;
-  padding: 0 1.3em 0 0;
+  padding: 0 1.3em 0 0;  
 }
 a.external {
   background: url("/img/external-icon.png") no-repeat scroll right center transparent;

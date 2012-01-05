@@ -3,11 +3,6 @@
 
 <link rel="alternate" type="application/rss+xml" title="RSS" href="<?= get_base_dir(); ?>/.rss" />
 
-
-<link href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic&subset=latin" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono:regular,italic&subset=latin" rel="stylesheet" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-
 <link rel="stylesheet" href="<?= get_base_dir(); ?>/css/style.css" type="text/css">
 
 <link href="<?= get_base_dir(); ?>/js/prettify/prettify.css" type="text/css" rel="stylesheet" />
