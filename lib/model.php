@@ -63,7 +63,7 @@ class Model
 
 		# if page (file in PAGES dir)
 		else if ($this->is_page()) {
-    		$this->page = get_page( $this->page_request );
+    		$this->page = get_page( $this->page_request );    		
     		$this->template = isset($this->page['config']['template']) ? 
     							$this->page['config']['template'] . '.' . $this->response_format . '.tpl' : 
     							'page.' . $this->response_format . '.tpl';
