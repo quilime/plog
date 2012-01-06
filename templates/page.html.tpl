@@ -12,7 +12,9 @@
     
 <div id="content">
 
+	<div class="page">
 	<?=$data['content'];?>
+	</div>
 	
 </div>
 

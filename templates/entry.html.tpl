@@ -9,8 +9,8 @@
 	</div>
 
 	<div class="metadata">
-		posted <abbr title="<?=get_relative_time($data['timestamp']);?>"><?=date("F d, Y", $data['timestamp'])?></abbr> 
-		in <a href="<?=$data['cat']['url'];?>"><?=$data['cat']['name'];?></a> filed as <? if ($data['tags']) echo implode(', ', $data['tags']); ?>
+		<abbr title="<?=get_relative_time($data['timestamp']);?>"><?=date("F d, Y", $data['timestamp'])?></abbr> 
+		in <a href="<?=$data['cat']['url'];?>"><?=$data['cat']['name'];?></a><? if ($data['tags']) echo ' filed as ' . implode(', ', $data['tags']); ?>
 		
 	</div>
 

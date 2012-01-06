@@ -1,5 +1,7 @@
 title = about
 --
+###about
+
 quilime is a codification of process, resource, and code by **gabriel dunne** ([www](http://gabrieldunne.com), [email](&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#x67;&#x64;&#x75;&#x6e;&#110;&#x65;&#x40;&#x71;&#117;&#105;&#x6c;&#x69;&#x6d;&#101;&#x2e;&#x63;&#111;&#x6d;))
 <br />elsewhere:
 [github](http://github.com/quilime/),
@@ -14,5 +16,5 @@ quilime.com has taken many forms: <a href="/projects/">archive</a>
 
 site update <a href="http://quilime.com/.rss" class="rss">rss</a>
 
-quilime is built on <a href="http://git.quilime.com/?p=plog.git;a=summary">plog</a> (project+log), a minimal CMS. 
+quilime is powered by <a href="http://git.quilime.com/?p=plog.git;a=summary">plog</a> (project+log), a static-file CMS.
 
