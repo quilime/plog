@@ -3,17 +3,24 @@
     
     <? $this->include_template('head-inc.html.tpl') ?>
     
+<!-- <<<<<<< HEAD
     <title><?=SITE_TITLE?><?=TITLE_DELIMITER?> <?=$data['title'];?></title>
+======= -->
+    <title><?=$entry['title'];?></title>
+<!-- >>>>>>> 2ae0cd949c331f83dcb05116cffdca21b2ecb871 -->
     
 </head>
 <body>
     
-    <? $this->include_template('nav.html.tpl') ?>
-    
 	<div id="content">
-		<? $this->include_template('entry.html.tpl', array('data' => $data)); ?>	
+		<? $this->include_template('entry.html.tpl'); ?>
 	</div>
 
+	<div id="nextprev">
+		<? $this->include_template('nextprev.html.tpl'); ?>
+	</div>
+
+<!-- <<<<<<< HEAD -->
 <!-- 
 
 <div id="disqus_thread"></div>
@@ -36,6 +43,9 @@
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
  -->
 
+<!-- ======= -->
+	<? $this->include_template('nav.html.tpl') ?>	
+<!-- >>>>>>> 2ae0cd949c331f83dcb05116cffdca21b2ecb871 -->
 	<? $this->include_template('footer.html.tpl') ?>
 
 </body>

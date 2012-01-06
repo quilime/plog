@@ -3,7 +3,7 @@ type = page
 markdown = true
 --
 
-###links
+###people
 + [gabrieldunne.com](http://gabrieldunne.com) gabriel dunne 
 + [ssherriff.com](http://ssherriff.com) stephanie sherriff
 + [onecm.com](http://onecm.com) ryan alexander
@@ -25,6 +25,8 @@ markdown = true
 + [fredericeyl.de](http://fredericeyl.de) frédéric eyl
 + [thegreeneyl.com](http://thegreeneyl.com) the green eyl
 
-####places
+<br /><br />
+
+###places
 + [gaffta.org](http://gaffta.org) gray area foundation for the arts
 + [bavc.org](http://bavc.org) bay area video coalition

@@ -7,11 +7,14 @@
  */
 function get_entries( $path = "", $args = array())
 {
+	global $_FILE_IGNORES;
+
 	$recursive = isset($args['recursive']) ? $args['recursive'] : 1;
 	$order_by = empty($args['order_by']) ? null : $args['order_by'];
 	$order = empty($args['order']) ? SORT_DESC : $args['order'];
 
-	$path = LOCAL_ROOT . CONTENT_DIR . $path;
+	$path = join(array( LOCAL_ROOT, CONTENT_DIR, $path ), DIRECTORY_SEPARATOR);
+
 	if ($recursive) {
 		$iterator = new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::KEY_AS_PATHNAME);
 		$dir_iterator = new RecursiveIteratorIterator($iterator, RecursiveIteratorIterator::SELF_FIRST);
@@ -19,13 +22,21 @@ function get_entries( $path = "", $args = array())
 	else {
 		$dir_iterator = new DirectoryIterator($path);
 	}
-
 	$entries = array();
 	foreach ($dir_iterator as $file => $info) {
-		if (!$info->isDir() && $info->getFilename() != CONFIG_FILE) {
-			$entries[] = parse_entry($info);
+
+		// $finfo = finfo_open(FILEINFO_MIME_TYPE);
+		// $ftype = finfo_file($finfo, join(array($info->getPath(), $info->getFilename()), DIRECTORY_SEPARATOR));
+		// finfo_close($finfo);		
+
+		if ( 
+//			$ftype == 'text/plain' && 
+			!$info->isDir() && 
+			!in_array( $info->getFilename(), $_FILE_IGNORES )) {
+			$entries[] = parse_entry( $info );
 		}
 	}
+
 
 	switch ($order_by)
 	{
@@ -33,10 +44,55 @@ function get_entries( $path = "", $args = array())
 			foreach ($entries as $key => $row)
 		    	$time[$key] = $row['timestamp'];
 			if ($time)
-				array_multisort($time, $order, $entries);
+				array_multisort( $time, $order, $entries );
 	}
 
-	return array($entries, sizeof($entries));
+
+	// assign next/prev for each entry
+	$num_entries = count($entries);
+	for ($i = $num_entries-1; $i>=0; $i--) {
+		$entries[$i]['prev_entry'] = isset($entries[$i+1]) ? $entries[$i+1] : null;
+		$entries[$i]['next_entry'] = isset($entries[$i-1]) ? $entries[$i-1] : null;
+	}
+
+	return $entries;
+}
+
+
+/**
+ * 	returns directories of a folder
+ * 	@param path the path to search. defaults to the CONTENT_DIR
+ * 	@param args array
+ */
+function get_dirs( $path = "", $args = array())
+{
+	$recursive = isset($args['recursive']) ? $args['recursive'] : 1;
+
+	$local_content = LOCAL_ROOT . CONTENT_DIR;
+	$path = $local_content . $path;
+
+	if ($recursive) {
+		$iterator = new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::KEY_AS_PATHNAME);
+		$dir_iterator = new RecursiveIteratorIterator($iterator, RecursiveIteratorIterator::SELF_FIRST);
+	}
+	else {
+		$dir_iterator = new DirectoryIterator($path);
+	}
+	$dirs = array();
+	foreach ($dir_iterator as $dir => $info) {
+		if ($info->isDir() && $info->getFilename() != '.' && $info->getFilename() != '..') {
+            $d = array();
+            $d['url'] = str_replace($path, "",  $info->getRealPath());
+
+            if (!CLEAN_URLS) {
+            	$d['url'] = WEB_ROOT . '?p=' . $d['url'];
+            }
+
+            $d['name'] = str_replace($path, "",  $info->getRealPath());
+			$dirs[] = $d;
+		}
+	}
+	return $dirs;
 }
 
 
@@ -59,40 +115,10 @@ function get_pages()
 
 
 /**
- * 	returns directories of a folder
- * 	@param path the path to search. defaults to the CONTENT_DIR
- * 	@param args array
- */
-function get_dirs( $path = "", $args = array())
-{
-	$recursive = isset($args['recursive']) ? $args['recursive'] : 1;
-	$path = LOCAL_ROOT . CONTENT_DIR . $path;
-
-	if ($recursive) {
-		$iterator = new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::KEY_AS_PATHNAME);
-		$dir_iterator = new RecursiveIteratorIterator($iterator, RecursiveIteratorIterator::SELF_FIRST);
-	}
-	else {
-		$dir_iterator = new DirectoryIterator($path);
-	}
-	$dirs = array();
-	foreach ($dir_iterator as $dir => $info) {
-		if ($info->isDir() && $info->getFilename() != '.' && $info->getFilename() != '..') {
-            $d = array();
-            $d['url'] = str_replace($path, "",  $info->getRealPath()) . '/';
-            $d['name'] = substr(str_replace($path, "",  $info->getRealPath()),1);
-			$dirs[] = $d;
-		}
-	}
-	return $dirs;
-}
-
-
-/**
  * @param splFileInfo SPLFileInfo Object
  * @param page	default is false
  */
-function parse_entry($fileInfo, $page = 0)
+function parse_entry($fileInfo, $page = false)
 {
 	$config = "";
 	$content = "";
@@ -109,31 +135,51 @@ function parse_entry($fileInfo, $page = 0)
 			$config .= $line;
 			continue;
 		}
-		if (trim($line) == MORE_DELIM) {
+		if (trim($line) == MORE_DELIM)
           $passed_more = true;
-        }
-        if (!$passed_more) {
+        if (!$passed_more)
           $content_short .= $line;
-        }
 		$content .= $line;
 	}
 
-	$file = array();
-	$file['config'] = parse_ini_string($config);
-	$file['title'] = $file['config']['title'];
-	$file['config']['date'] = isset($file['config']['date']) ? $file['config']['date'] : null;
-	$file['timestamp'] = $file['config']['date'] ? date('U', strtotime( $file['config']['date'])) : $fileInfo->getCTime();
-	$file['tags'] = isset($file['config']['tags']) ? explode(" ", $file['config']['tags']) : null;
-	$file['content'] = Markdown($content);
+	$f = array();
+	$f['config'] = parse_ini_string($config);
+	$f['title'] = isset($f['config']['title']) ? $f['config']['title'] : $fileInfo->getFilename() ;
+	$f['config']['date'] = isset($f['config']['date']) ? $f['config']['date'] : null;
+	$f['timestamp'] = $f['config']['date'] ? date('U', strtotime( $f['config']['date'])) : $fileInfo->getCTime();
+	$f['tags'] = isset($f['config']['tags']) ? explode(" ", $f['config']['tags']) : null;
+	$f['content'] = Markdown($content);
+    
     if ($passed_more)
-      $file['content_short'] = Markdown($content_short);
-	$cat = clean_slashes(str_replace(LOCAL_ROOT . CONTENT_DIR, "", $fileInfo->getPath()));
-	$file['cat'] = $page ? null : array('name' => substr($cat,1), 'url' => $cat.'/' );
-	$file['path'] = $fileInfo->getRealPath();
-	$file['url'] = WEB_ROOT . ($page ? '' : substr($file['cat']['url'],1)) . $fileInfo->getFilename() . '/';
+      $f['content_short'] = Markdown($content_short);
 
-	return $file;
+	$cat = clean_slashes(str_replace(LOCAL_ROOT . CONTENT_DIR, "", $fileInfo->getPath()));
+	$clean_path = str_replace(LOCAL_ROOT . CONTENT_DIR, "", clean_slashes($fileInfo->getPath()));
+
+	$f['cat'] = $page ? null : array('name' => $clean_path, 'url' => $clean_path );
+	$f['path'] = $fileInfo->getRealPath();
+	$f['url'] = ($page ? '' : $f['cat']['url'] . '/') . $fileInfo->getFilename();
+
+    if (!CLEAN_URLS) {
+    	$f['cat']['url'] = WEB_ROOT . '?p=' . $f['cat']['url'];
+    	$f['url'] = WEB_ROOT . '?p=' . $f['url'];
+    }
+
+	return $f;
 }
 
 
-?>
+function get_entry ( $relative_path ) 
+{
+	return parse_entry(new SplFileInfo(join(array(LOCAL_ROOT, CONTENT_DIR, $relative_path), DIRECTORY_SEPARATOR)));
+}
+
+function get_page ( $relative_path )
+{
+	return parse_entry(new SplFileInfo(join(array(LOCAL_ROOT, PAGE_DIR, $relative_path), DIRECTORY_SEPARATOR)), 1);
+}
+
+function parse_config ( $relative_path )
+{
+	return parse_entry(new SplFileInfo(join(array(LOCAL_ROOT, CONTENT_DIR, $relative_path, CONFIG_FILE), DIRECTORY_SEPARATOR)));
+}

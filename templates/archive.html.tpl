@@ -11,14 +11,13 @@
     
 <div id="content">
 
+    <ul class="archive">
 	<? foreach($entries as $entry): ?>
-	<?  
-        if (isset($entry['content_short'])) 
-            $entry['content'] = $entry['content_short'] . '<br /><a class="more" href="'.$entry['url'].'">more &rarr;</a><br /><br />';
-
-        $this->include_template('entry.html.tpl', array('entry' => $entry)); 
-    ?>
+    <li>
+        &mdash; <a class="more" href="<?= $entry['url']; ?>"><?= $entry['title']; ?></a>
+    </li>
 	<? endforeach; ?>	
+    </ul>
 	
 </div>
 

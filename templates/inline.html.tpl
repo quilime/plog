@@ -8,6 +8,7 @@
 </head>
 <body>
     
+    <? $this->include_template('nav.html.tpl') ?>
     
 <div id="content">
 
@@ -23,7 +24,6 @@
 </div>
 
 	<? $this->include_template('footer.html.tpl') ?>
-    <? $this->include_template('nav.html.tpl') ?>
 
 </body>
 </html>

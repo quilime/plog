@@ -1,8 +1,7 @@
+<!-- <<<<<<< HEAD
 <ul class="nav">
 
 
-    <li><a href="/">quilime</a></li>
-	<li><a href="/about/">about</a></li>
 
     <br />
 
@@ -39,3 +38,29 @@
 */ ?>
 
 </ul>
+======= -->
+<ul id="nav">	  
+
+    <li><a href="/">quilime</a></li>
+	<li><a href="/about/">about</a></li>
+
+	<br />
+	<br />
+
+	<small>category</small>
+	<? $dirs = get_dirs("", array('recursive' => 0)); ?>
+	<? foreach($dirs as $dir) : ?>
+	<li><a href="/<?=$dir['url']?>"><?=$dir['name']?></a></li>
+	<? endforeach; ?>  
+
+	<br />
+	<br />
+
+	<small>pages</small>
+    <li><a href="/projects">projects</a></li>
+	<li><a href="/photo">photo</a></li>
+	<li><a href="/agg">aggregate</a></li>
+	<li><a href="/links">links</a></li>	
+
+</ul>
+

@@ -8,15 +8,21 @@
 </head>
 <body>
     
-    <? $this->include_template('nav.html.tpl') ?>
+    
     
 <div id="content">
 
+<!-- <<<<<<< HEAD
 	<div class="page">
 	<?=$data['content'];?>
 	</div>
+======= -->
+	<?=$page['content'];?>
+<!-- >>>>>>> 2ae0cd949c331f83dcb05116cffdca21b2ecb871 -->
 	
 </div>
+
+	<? $this->include_template('nav.html.tpl') ?>
 
 	<? $this->include_template('footer.html.tpl') ?>
 

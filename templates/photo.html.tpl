@@ -68,7 +68,7 @@
 <?endforeach;?>
 	</ul>
 	<p>
-	<a class="rss" href="http://api.flickr.com/services/feeds/photos_public.gne?id=28394478@N00&lang=en-us&format=rss_200">rss</a>, <a class="more" href="http://flickr.com/photos/quilime/" title="via flickr">more &rarr;</a>            
+	<a class="more" href="http://flickr.com/photos/quilime/" title="via flickr">more &rarr;</a>            
 	</p>
 
 

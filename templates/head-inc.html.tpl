@@ -1,6 +1,8 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
+<? /*
+<!-- <<<<<<< HEAD
 <link rel="alternate" type="application/rss+xml" title="RSS" href="<?= get_base_dir(); ?>/.rss" />
 
 <link rel="stylesheet" href="<?= get_base_dir(); ?>/css/style.css" type="text/css">
@@ -29,3 +31,9 @@ $(document).ready(function() {
   })();
 
 </script>
+======= -->
+*/ ?>
+<link rel="alternate" type="application/rss+xml" title="RSS" href="<?=get_base_dir();?>/.rss" />
+<link rel="stylesheet" href="<?=get_base_dir();?>/css/style.css" type="text/css">
+
+<? /* <!-- >>>>>>> 2ae0cd949c331f83dcb05116cffdca21b2ecb871 --> */ ?> 
