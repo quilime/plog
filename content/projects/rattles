@@ -1,15 +1,18 @@
 title = Rattles
 date = 2006
 thumb = http://portfolio.quilime.com/2008/rattle/thumb.png
+template = project
 --
+
+Particles are jostled and shaken as in a rattle. The sonic possibilities of their collisions and movement are given freedom and sonic depth via software.
+Rattles and shakers can be embedded into one another, allowing for more sensitivity, sonic subtlety, and layers when making music. Interaction with the digital rattle is as intuitive as its physical counterpart.
 
 <img style="width:100%;" src="http://portfolio.quilime.com/new/content/03_Rattles/images/rattleFlowers.0077.png">
 
 
-Particles are jostled and shaken as in a rattle. The sonic possibilities of their collisions and movement are given freedom and sonic depth via software.
-Rattles and shakers can be embedded into one another, allowing for more sensitivity, sonic subtlety, and layers when making music. Interaction with the digital rattle is as simple and dynamic as its physical counterpart.
 
-<!--
+
+
 The interaction with "Rattles" is identicle to the traditional percussive instrument.
 The visual shape, texture, or size of each interior rattler represents a unique audio 
 tone, either percussive or melodic. The resulting soundscape of the rattle instrument is 
@@ -17,9 +20,9 @@ therefore unique and rich with sonic subtlety and variation, transforming the tr
 "rattle" into an instrument with a necesarry visual component. 
 Rattles can be embedded into one another, allowing for more 
 sensitivity, sonic subtlety, and layers.
--->
 
-*medium: software*
+
+written in c++
 
 <img style="width:100%;" src="http://portfolio.quilime.com/new/content/03_Rattles/images/rattleFlowers.0118.png">
 

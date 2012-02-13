@@ -1,12 +1,10 @@
 title = aero
 date = 2007
 thumb = http://portfolio.quilime.com/2008/aero/thumb.png
+template = project
 --
-
 <img src="http://portfolio.quilime.com/2008/aero//aero.jpg" />
 
-<p>
-aero
-<br/>
+aero  
 <em>ceramic. 6" x 3" x 3"</em>
-</p>
+

@@ -115,6 +115,7 @@ function get_rss_feed( $url )
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     $data = curl_exec($ch);
     curl_close($ch);
+
     return new SimpleXMLElement($data);
 }
 

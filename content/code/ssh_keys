@@ -2,11 +2,11 @@ title = create ssh keys
 date = april 16 2011
 --
 <pre class="prettyprint">
-local~ $    ssh-keygen -t rsa
+ssh-keygen -t rsa
 // linux
-local~ $    ssh-copy-id [user@]host
+ssh-copy-id [user@]host
 // osx
-local~ $    cat ~/.ssh/id_rsa.pub | ssh user@machine "mkdir ~/.ssh; cat >> ~/.ssh/authorized_keys"
-local~ $    eval `ssh-agent`
-local~ $    ssh-add
+cat ~/.ssh/id_rsa.pub | ssh user@machine "mkdir ~/.ssh; cat >> ~/.ssh/authorized_keys"
+eval `ssh-agent`
+ssh-add
 </pre>

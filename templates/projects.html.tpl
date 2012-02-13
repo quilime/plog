@@ -11,11 +11,13 @@
     
 <div id="content">
 
+    <h1>projects</h1>
+
     <? foreach($entries as $entry): ?>
     <?  if (isset($entry['content_short'])) ?>
             
             <div class="project">
-            <a href="<?= $entry['url']?>">
+            <a href="/<?= $entry['url']?>">
             <div class="thumb">
             <? if (isset($entry['config']['thumb'])): ?>
             <img src="<?= $entry['config']['thumb']?>">

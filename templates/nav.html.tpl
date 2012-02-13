@@ -41,13 +41,13 @@
 ======= -->
 <ul id="nav">	  
 
-    <li><a href="/">quilime</a></li>
+    <li><a href="/">home</a></li>
 	<li><a href="/about/">about</a></li>
 
 	<br />
 	<br />
 
-	<small>category</small>
+	content
 	<? $dirs = get_dirs("", array('recursive' => 0)); ?>
 	<? foreach($dirs as $dir) : ?>
 	<li><a href="/<?=$dir['url']?>"><?=$dir['name']?></a></li>
@@ -56,11 +56,17 @@
 	<br />
 	<br />
 
-	<small>pages</small>
-    <li><a href="/projects">projects</a></li>
+	static
 	<li><a href="/photo">photo</a></li>
 	<li><a href="/agg">aggregate</a></li>
 	<li><a href="/links">links</a></li>	
+
+	<br />
+	<br />
+
+	<li id="nextprev">
+		<? $this->include_template('nextprev.html.tpl'); ?>
+	</li>
 
 </ul>
 

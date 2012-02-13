@@ -3,15 +3,24 @@ title = about
 #about
 
 quilime is a codification of projects, process and resources by **gabriel dunne** ([www](http://gabrieldunne.com), [email](&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#x67;&#x64;&#x75;&#x6e;&#110;&#x65;&#x40;&#x71;&#117;&#105;&#x6c;&#x69;&#x6d;&#101;&#x2e;&#x63;&#111;&#x6d;))
-<br />elsewhere:
-[github](http://github.com/quilime/),
-[vimeo](http://vimeo.com/quilime/),
-[clmpr](http://clmpr.com/quilime/),
-[flickr](http://flickr.com/photos/quilime/),
-[delicious](http://delicious.com/quilime/),
-[ffffound](http://ffffound.com/home/quilime/found/),
-[@quilime](http://twitter.com/quilime/)
+
+quilime is powered by <a href="http://git.quilime.com/?p=plog;a=summary">plog</a>, a static-file **p**roject+**log**ging engine.
+
+other projects   
+[clmpr](http://clmpr.com/quilime/)  
+[aggregate](http://media.quilime.com/aggregate/)  	
+[git.quilime.com](http://git.quilime.com)  
+
+
+elsewhere on the internets     
+[flickr](http://flickr.com/photos/quilime/)  
+[vimeo](http://vimeo.com/quilime/)    
+[github](http://github.com/quilime/)  
+[@quilime](http://twitter.com/quilime/)  
+
 
 <!-- add <a href="http://quilime.com/.rss" class="rss">.rss</a> to the end of any url for an xml feed -->
 
-quilime is powered by <a href="http://git.quilime.com/?p=plog.git;a=summary">plog</a> (project+log) engine.
+
+
+

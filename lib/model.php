@@ -42,7 +42,7 @@ class Model
 		} 
 
 
-		# if entry (file in CONTENT dir)
+		# if single entry (file in CONTENT dir)
 		else if ($this->is_single())
 		{
 			$this->entry = get_entry( $this->content_request );

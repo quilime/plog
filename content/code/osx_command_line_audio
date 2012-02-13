@@ -9,14 +9,11 @@ Install sox by either downloading the OSX binary from <a href="http://sox.source
 or    
 install <a href="http://mxcl.github.com/homebrew/">homebrew</a>, and then install sox with <code class="prettyprint">brew install sox</code>    
 
-<br />
-
-Examples:
+##Examples
 
 cat audio from /dev/urandom/ :
 <pre class="prettyprint">cat /dev/urandom | sox -traw -r44100 -b16 -u - -tcoreaudio</pre>
 
-<br />
 
 audio from an executable
 <pre class="prettyprint">
@@ -33,10 +30,8 @@ gcc test.c -o test
 </pre>
 
 
-<br />
 
-
-links: 
+##resources
 
 - <a href="http://countercomplex.blogspot.com/2011/10/algorithmic-symphonies-from-one-line-of.html">http://countercomplex.blogspot.com/2011/10/algorithmic-symphonies-from-one-line-of.html</a>
 - <a href="http://www.bemmu.com/music/index.html">http://www.bemmu.com/music/index.html</a>

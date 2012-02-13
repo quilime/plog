@@ -11,6 +11,7 @@
     
 <div id="content">
 
+    <div class="entries">
 	<? foreach($entries as $entry): ?>
 	<?  
         if (isset($entry['content_short'])) 
@@ -19,6 +20,7 @@
         $this->include_template('entry.html.tpl', array('entry' => $entry)); 
     ?>
 	<? endforeach; ?>	
+    </div>
 	
 </div>
 

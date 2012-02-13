@@ -36,8 +36,6 @@ Once downloaded, I followed my [notes](http://quilime.com/code/bootable_iso/) on
 
 The [installation](https://wiki.archlinux.org/index.php/Official_Arch_Linux_Install_Guide) article on the archwiki is an excellent resource.
 
-You'll be prompted to chose your editor. If you don't know vi, then stick with nano. You can skip this, because you'll be asked again when it's needed.
-
 
 
 ## Disk Partitions
@@ -65,7 +63,7 @@ Some of these, namely **boot**, **swap**, and **home**, are *optional*.
 
 ## Select Packages
 
-At minimum, you'll need the core packages that are already selected. I also included certain key packages such as OpenSSH. Basically, include any packages you need for internet connectivity, as everything else will be updated from the net. I use GRUB as the bootloader.
+At minimum, you'll need the core packages that are already selected. I also included certain key packages such as OpenSSH. Basically, include any packages you need for internet connectivity, as everything else will be updated from the net.
 
 
 

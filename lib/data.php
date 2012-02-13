@@ -25,6 +25,9 @@ function get_entries( $path = "", $args = array())
 	$entries = array();
 	foreach ($dir_iterator as $file => $info) {
 
+		# don't list hidden files
+		if (substr($info->getFilename(), 0, 1) == '.') continue;
+
 		// $finfo = finfo_open(FILEINFO_MIME_TYPE);
 		// $ftype = finfo_file($finfo, join(array($info->getPath(), $info->getFilename()), DIRECTORY_SEPARATOR));
 		// finfo_close($finfo);		

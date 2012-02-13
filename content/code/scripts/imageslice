@@ -41,8 +41,8 @@ fi
 
 ##To Use
 navigate to slice.sh in your terminal and do 
-<pre class="prettyprint">$  chmod 775 slice.sh
-$  ./slice.sh Sunset.jpg 800 600 16 16</pre>
+<pre class="prettyprint">chmod +x slice.sh
+./slice.sh Sunset.jpg 800 600 16 16</pre>
 replace **Sunset.jpg** with your image name.  
 params: **Image Height, Image Width, Vertical Divisions, Horizontal Divisions**  
 

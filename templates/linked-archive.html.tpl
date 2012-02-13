@@ -14,7 +14,7 @@
     <ul class="archive">
     <? foreach($entries as $entry): ?>
     <li>
-        &bull; <a class="more" href="#<?= $entry['url']; ?>"><?= $entry['title']; ?></a>
+        <a class="more" href="#<?= $entry['url']; ?>"><?= $entry['title']; ?></a>
     </li>
     <? endforeach; ?>   
     </ul>

@@ -1,35 +1,31 @@
-body {
-    background:#f4f4f4;
-}
 body, table {
     font-size: 12px;
-    font-family: sans-serif;
+    font-family: monaco, sans-serif;
     line-height:1.5em;
 }
 
 body { 
+    background:#212121;
     padding:0;
     margin:0;
-    color: #555;
+    color: #ddd;
 }
 
 a { 
-    font-weight:bold;
-    color:#000;
-/*    color: #22f;*/
+    color:rgb(42, 88, 235);
+    text-decoration:underline;
 }
 a img { 
     border:0; 
 }
 a.visited {
-    
 }
 a.mute { 
     font-weight:normal;
     color:rgb(129, 144, 144);
 }
 a:hover, a.mute:hover { 
-    color:rgb(209, 28, 36);
+    color:f0a;;
 }
 
 h1 {
@@ -38,10 +34,13 @@ h1 {
     margin-bottom:30px;
 }
 h1, h2, h3, h4, h5, h6 { 
-    
+    font-weight:normal;
+    color:#fff;
+    font-size:12px;
 }
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { 
-text-decoration:none;
+    text-decoration:none;
+    color:#fff;
 }
 
 ul, li { 
@@ -62,17 +61,23 @@ blockquote {
     padding:0;
 }
 pre, code {
-    color:#f08;
-    font-weight:bold;
+    color:#df0;
     line-height:1.3em;
-    font-size:12px;
+    font-family: Consolas,"Andale Mono",Monaco,Courier,"Courier New",Verdana,sans-serif;
+    padding:1px 5px 2px;
+    background:#121212;
+    border-radius:4px;
+}
+pre {
+    padding:10px 30px;
 }
 
 #content {
-  padding-left: 150px;
-  padding-top:30px;
-  padding-right:10px;
-  padding-bottom: 200px;
+  padding-left: 160px;
+  padding-bottom: 20px;
+}
+#content.single {
+    padding-top:0;
 }
 
 #nextprev {
@@ -82,9 +87,11 @@ pre, code {
 
 
 #nav {
-  position:absolute;
-  top: 30px;
-  left: 20px;
+  position:fixed;
+    top:0;
+    left:0;
+  padding:20px;
+background:rgba(33,33,33,0.9);
 }
 #nav a {
 }
@@ -97,23 +104,33 @@ pre, code {
 
 
 
-
-
-
 .entry {
-  width:auto;
   padding-bottom:20px;
-  border-radius:3px;
   margin-bottom:70px;
-  background:#fff;
-  padding:20px;
+}
+.single .entry {
+}
+
+.singlebg {
+
+}
+.entry h1 {
+    margin-bottom:40px;
+}
+#content h1, .entry h1 a {
+   display:block;
+    background:#f09;
+    padding-left:1em;
+}
+.entry h1 a:hover {
+
+     background:rgba(255,0,153,.7);
 }
 .entry h2 {
-    margin-bottom:20px;
+    margin-top:40px;
 }
 .entry .metadata { 
     margin-top:30px;
-    font-style:italic; color:#777; font-size:12px;
 }
 .entry .metadata .tags li { 
     display:inline-block; 
@@ -124,6 +141,9 @@ pre, code {
 }
 
 
+.archive li {
+    border-bottom:1px dotted #363636;
+}
 
 .project {
     display:inline-block;
