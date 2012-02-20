@@ -3,7 +3,7 @@
     
     <? $this->include_template('head-inc.html.tpl') ?>
     
-    <title><?=SITE_TITLE?><?=TITLE_DELIMITER?> <?=$data['title']?></title>
+    <title><?=SITE_TITLE?><?=TITLE_DELIMITER?><?=$page['title']?></title>
     
 </head>
 <body>
@@ -17,7 +17,6 @@
 </div>
 
 	<? $this->include_template('nav.html.tpl') ?>
-
 	<? $this->include_template('footer.html.tpl') ?>
 
 </body>

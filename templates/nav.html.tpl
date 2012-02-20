@@ -48,7 +48,6 @@
 	<br />
 	<br />
 
-	content
 	<? $dirs = get_dirs("", array('recursive' => 0)); ?>
 	<? foreach($dirs as $dir) : ?>
 	<li><a href="/<?=$dir['url']?>"><?=$dir['name']?></a></li>
@@ -57,7 +56,6 @@
 	<br />
 	<br />
 
-	static
 	<li><a href="/photo">photo</a></li>
 	<li><a href="/agg">aggregate</a></li>
 	<li><a href="/links">links</a></li>
@@ -69,6 +67,11 @@
 		<? $this->include_template('nextprev.html.tpl'); ?>
 	</li>
 
+	<!--
+	<li id="viewtoggle">
+		<? $this->include_template('viewtoggle.html.tpl'); ?>
+	</li>
+	-->
 
 </ul>
 

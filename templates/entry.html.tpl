@@ -1,7 +1,7 @@
 <div class="entry">
 
 	<h1>
-	<a title="posted on <?=$entry['date']?>" href="/<?=$entry['url']?>"><?=$entry['title']?></a>
+		<a title="posted on <?=$entry['date']?>" href="/<?=$entry['url']?>">&mdash; <?=$entry['title']?></a>
 	</h1>
 
 	<div class="content">

@@ -62,7 +62,7 @@
                     var canvas = document.getElementById('thumb_<?=$c?>');
                     if(canvas && canvas.getContext) {
                         var ctx = canvas.getContext('2d');
-                        ctx.strokeStyle = "#1d1d1d";
+                        ctx.strokeStyle = "rgba(42, 128, 235, .25)";
                         ctx.fillStyle   = "#121212";
                         ctx.fillRect (0, 0, 100, 100);
                         ctx.fill();

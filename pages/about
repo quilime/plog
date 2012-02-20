@@ -1,25 +1,33 @@
 title = about
 --
-#about
 
-quilime is a codification of projects, process and resources by **gabriel dunne** ([www](http://gabrieldunne.com), [email](&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#x67;&#x64;&#x75;&#x6e;&#110;&#x65;&#x40;&#x71;&#117;&#105;&#x6c;&#x69;&#x6d;&#101;&#x2e;&#x63;&#111;&#x6d;))
+quilime is a codification of projects, process and resources  
 
-quilime is powered by <a href="http://git.quilime.com/?p=plog;a=summary">plog</a>, a static-file **p**roject+**log**ging engine.
+all content &copy; 1999&mdash;2012 **gabriel dunne** ([www](http://gabrieldunne.com), [email](&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#x67;&#x64;&#x75;&#x6e;&#110;&#x65;&#x40;&#x71;&#117;&#105;&#x6c;&#x69;&#x6d;&#101;&#x2e;&#x63;&#111;&#x6d;))
 
-other projects   
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>
+
+<br />
+
+related    
 [clmpr](http://clmpr.com/quilime/)  
 [aggregate](http://media.quilime.com/aggregate/)  	
 [git.quilime.com](http://git.quilime.com)  
 
 
-elsewhere on the internets     
+elsewhere    
 [flickr](http://flickr.com/photos/quilime/)  
 [vimeo](http://vimeo.com/quilime/)    
 [github](http://github.com/quilime/)  
-[@quilime](http://twitter.com/quilime/)  
+[twitter](http://twitter.com/quilime/)  
 
 
 <!-- add <a href="http://quilime.com/.rss" class="rss">.rss</a> to the end of any url for an xml feed -->
+
+<br />
+
+running on <a href="http://git.quilime.com/?p=plog;a=summary">plog</a>, a custom static-file **p**roject+**log**ging engine.
 
 
 
