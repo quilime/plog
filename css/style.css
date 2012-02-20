@@ -1,19 +1,20 @@
 body, table {
     font-size: 12px;
-    font-family: monaco, sans-serif;
-    line-height:1.5em;
+    font-family: arial, monaco, monospace;
+    line-height:1.6em;
 }
 
 body { 
-    background:#212121;
+    background:rgb(25, 25, 25);
     padding:0;
     margin:0;
     color: #ddd;
 }
 
 a { 
-    color:rgb(42, 88, 235);
-    text-decoration:underline;
+  outline:none;
+    color:rgb(42, 128, 235);
+    text-decoration:none;
 }
 a img { 
     border:0; 
@@ -32,15 +33,33 @@ h1 {
     padding-top:0;
     margin-top:0;
     margin-bottom:30px;
+
+}
+h1 a {
+  background:#121212;
+display:block;
+  margin-left:-1.5em;
+    padding-left:1.5em;
+}
+h1 a:hover {
+    color:#ddd;
+background:#333;
 }
 h1, h2, h3, h4, h5, h6 { 
     font-weight:normal;
-    color:#fff;
+    color:#666;
     font-size:12px;
 }
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { 
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    display:block;
     text-decoration:none;
     color:#fff;
+}
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover { 
+background:#161616;
+}
+h1 a:hover {
+
 }
 
 ul, li { 
@@ -55,7 +74,7 @@ ol li {
 blockquote { 
     font-family:serif;
     font-style:italic;
-    font-size:1.2em;  
+    font-size:1.45em;  
     line-height:1.3em;
     margin:0;
     padding:0;
@@ -63,16 +82,21 @@ blockquote {
 pre, code {
     color:#df0;
     line-height:1.3em;
-    font-family: Consolas,"Andale Mono",Monaco,Courier,"Courier New",Verdana,sans-serif;
+    font-family: monaco, monospace;
     padding:1px 5px 2px;
-    background:#121212;
+    background:#090909;
     border-radius:4px;
 }
 pre {
     padding:10px 30px;
 }
+table, td, tr {
+  margin:0;
+  padding:0;
+}
 
 #content {
+    margin-top:20px;
   padding-left: 160px;
   padding-bottom: 20px;
 }
@@ -91,7 +115,7 @@ pre {
     top:0;
     left:0;
   padding:20px;
-background:rgba(33,33,33,0.9);
+background:rgba(25,25,25,0.3);
 }
 #nav a {
 }
@@ -115,22 +139,27 @@ background:rgba(33,33,33,0.9);
 
 }
 .entry h1 {
-    margin-bottom:40px;
+    margin-bottom:5px;
 }
-#content h1, .entry h1 a {
+.entry h1 a {
    display:block;
-    background:#f09;
-    padding-left:1em;
 }
 .entry h1 a:hover {
 
-     background:rgba(255,0,153,.7);
 }
 .entry h2 {
     margin-top:40px;
 }
 .entry .metadata { 
-    margin-top:30px;
+    
+    margin-bottom:30px;
+    color:#444;
+}
+.entry .metadata a {
+    color:#444;
+}
+.entry .metadata a:hover {
+    color:#999;
 }
 .entry .metadata .tags li { 
     display:inline-block; 
@@ -142,7 +171,9 @@ background:rgba(33,33,33,0.9);
 
 
 .archive li {
-    border-bottom:1px dotted #363636;
+    padding-bottom:5px;
+    margin-bottom:5px;
+    border-bottom:1px dotted #555;
 }
 
 .project {
@@ -155,7 +186,7 @@ background:rgba(33,33,33,0.9);
   height:100px;
   border:1px dotted #000;
   overflow:hidden;
-  background:#eee;
+  
 }
 
 
@@ -169,6 +200,6 @@ background:rgba(33,33,33,0.9);
 }
 
 ul.image {
-    background:#fff;
+    background:#131313;
     padding:20px;
 }

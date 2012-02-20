@@ -1,6 +1,5 @@
 title = boat
 date = 2007
-template = project
 --
 
 
@@ -18,7 +17,3 @@ template = project
 <embed name = "qt_object" width="535" height="374" controller="true" loop="true" autoplay="true" src="http://portfolio.quilime.com/2008/boat/boat.mov" kioskmode="true" nocache="true" type="video/quicktime" bgcolor="#000000" border="0" pluginspage="http://www.apple.com/quicktime/download/indext.html" enablejavascript="true">
 </embed>
 </object>
-
-
-boat
-*photo timelapse*

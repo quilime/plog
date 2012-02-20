@@ -13,15 +13,41 @@
 
     <h1>projects</h1>
 
-    <? foreach($entries as $entry): ?>
+    <? $c = 0; foreach($entries as $entry): $c++;?>
     <?  if (isset($entry['content_short'])) ?>
             
             <div class="project">
             <a href="/<?= $entry['url']?>">
             <div class="thumb">
+
             <? if (isset($entry['config']['thumb'])): ?>
             <img src="<?= $entry['config']['thumb']?>">
+            <? else : ?>
+
+                <canvas id="thumb_<?=$c?>" width="100" height="100"></canvas>
+
+                <script>
+                    var canvas = document.getElementById('thumb_<?=$c?>');
+                    if(canvas && canvas.getContext) {
+                        var ctx = canvas.getContext('2d');
+                        ctx.strokeStyle = "#1d1d1d";
+                        ctx.fillStyle   = "#121212";
+                        ctx.fillRect (0, 0, 100, 100);
+                        ctx.fill();
+                        ctx.beginPath();
+                        ctx.moveTo(10, 10);
+                        ctx.lineTo(90, 90);
+                        ctx.moveTo(90, 10);
+                        ctx.lineTo(10, 90);                        
+                        ctx.closePath();
+                        ctx.stroke();
+                        ctx.fill();
+                    }
+                </script>
+
+
             <? endif; ?>
+
             </div>
             <?= $entry['title']; ?>
             </a>
