@@ -12,7 +12,13 @@
     
 <div id="content">
 
-	this is the TEST TEST TEST template
+	<h1>tests</h1>
+
+	<?php
+
+	
+
+	?>
 	
 </div>
 

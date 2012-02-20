@@ -30,11 +30,11 @@ function get_entries( $path = "", $args = array())
 
 		// $finfo = finfo_open(FILEINFO_MIME_TYPE);
 		// $ftype = finfo_file($finfo, join(array($info->getPath(), $info->getFilename()), DIRECTORY_SEPARATOR));
-		// finfo_close($finfo);		
+		// finfo_close($finfo);
 
-		if ( 
-//			$ftype == 'text/plain' && 
-			!$info->isDir() && 
+		if (
+//			$ftype == 'text/plain' &&
+			!$info->isDir() &&
 			!in_array( $info->getFilename(), $_FILE_IGNORES )) {
 			$entries[] = parse_entry( $info );
 		}
@@ -48,14 +48,6 @@ function get_entries( $path = "", $args = array())
 		    	$time[$key] = $row['timestamp'];
 			if ($time)
 				array_multisort( $time, $order, $entries );
-	}
-
-
-	// assign next/prev for each entry
-	$num_entries = count($entries);
-	for ($i = $num_entries-1; $i>=0; $i--) {
-		$entries[$i]['prev_entry'] = isset($entries[$i+1]) ? $entries[$i+1] : null;
-		$entries[$i]['next_entry'] = isset($entries[$i-1]) ? $entries[$i-1] : null;
 	}
 
 	return $entries;
@@ -152,7 +144,7 @@ function parse_entry($fileInfo, $page = false)
 	$f['timestamp'] = $f['config']['date'] ? date('U', strtotime( $f['config']['date'])) : $fileInfo->getCTime();
 	$f['tags'] = isset($f['config']['tags']) ? explode(" ", $f['config']['tags']) : null;
 	$f['content'] = Markdown($content);
-    
+
     if ($passed_more)
       $f['content_short'] = Markdown($content_short);
 
@@ -172,7 +164,7 @@ function parse_entry($fileInfo, $page = false)
 }
 
 
-function get_entry ( $relative_path ) 
+function get_entry ( $relative_path )
 {
 	return parse_entry(new SplFileInfo(join(array(LOCAL_ROOT, CONTENT_DIR, $relative_path), DIRECTORY_SEPARATOR)));
 }

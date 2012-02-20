@@ -9,7 +9,7 @@
 	<? $dirs = get_dirs("", array('recursive' => 0)); ?>
 	<? foreach($dirs as $dir) : ?>
 	<li><a href="<?=$dir['url']?>"><?=$dir['name']?></a></li>
-	<? endforeach; ?> 
+	<? endforeach; ?>
 
 	<br />
 
@@ -39,10 +39,11 @@
 
 </ul>
 ======= -->
-<ul id="nav">	  
+<ul id="nav">
 
     <li><a href="/">home</a></li>
-	<li><a href="/about/">about</a></li>
+    <!-- <li><a href="/contents">contents</a></li> -->
+	<li><a href="/about">about</a></li>
 
 	<br />
 	<br />
@@ -51,7 +52,7 @@
 	<? $dirs = get_dirs("", array('recursive' => 0)); ?>
 	<? foreach($dirs as $dir) : ?>
 	<li><a href="/<?=$dir['url']?>"><?=$dir['name']?></a></li>
-	<? endforeach; ?>  
+	<? endforeach; ?>
 
 	<br />
 	<br />
@@ -59,7 +60,7 @@
 	static
 	<li><a href="/photo">photo</a></li>
 	<li><a href="/agg">aggregate</a></li>
-	<li><a href="/links">links</a></li>	
+	<li><a href="/links">links</a></li>
 
 	<br />
 	<br />
@@ -67,6 +68,7 @@
 	<li id="nextprev">
 		<? $this->include_template('nextprev.html.tpl'); ?>
 	</li>
+
 
 </ul>
 

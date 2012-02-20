@@ -1,11 +1,11 @@
 <?php
 
 class Model
-{	
+{
 
 	var $content_request = null;
 	var $page_request = null;
-	
+
 	var $response_format = 'html';
 	var $response_mime_type = 'text/html';
 	var $page_title = null;
@@ -25,6 +25,7 @@ class Model
 
 	function parse_request( $request )
 	{
+
 		$this->content_request = join(array($this->request['dirname'], $this->request['filename']), DIRECTORY_SEPARATOR );
 		$this->page_request    = $this->request['filename'];
 
@@ -39,7 +40,7 @@ class Model
 		    }
 	    	$this->entries = get_entries( $this->content_request );
 	    	$this->page_title = preg_replace('{^/|/$}', '', $this->request['path']);
-		} 
+		}
 
 
 		# if single entry (file in CONTENT dir)
@@ -47,25 +48,27 @@ class Model
 		{
 			$this->entry = get_entry( $this->content_request );
 
-			// heavy handed prev/next
-			$entries = get_entries();
+			// prev/next
+			$entries = get_entries($request['dirname']);
+
 			for($i = count($entries)-1; $i>=0; $i--) {
 				if ($this->entry['url'] == $entries[$i]['url']) {
-					$this->entry['prev_entry'] = $entries[$i]['prev_entry'];
-					$this->entry['next_entry'] = $entries[$i]['next_entry'];
+					$this->entry['prev_entry'] = isset($entries[$i-1]) ? $entries[$i-1] : null;
+					$this->entry['next_entry'] = isset($entries[$i+1]) ? $entries[$i+1] : null;
 					break;
 				}
 			}
 
+			$this->entry['is_single'] = true;
 			$this->template = 'single.' . $this->response_format . '.tpl';
 		}
 
 
 		# if page (file in PAGES dir)
 		else if ($this->is_page()) {
-    		$this->page = get_page( $this->page_request );    		
-    		$this->template = isset($this->page['config']['template']) ? 
-    							$this->page['config']['template'] . '.' . $this->response_format . '.tpl' : 
+    		$this->page = get_page( $this->page_request );
+    		$this->template = isset($this->page['config']['template']) ?
+    							$this->page['config']['template'] . '.' . $this->response_format . '.tpl' :
     							'page.' . $this->response_format . '.tpl';
 		}
 
@@ -93,5 +96,5 @@ class Model
 	function is_page()
 	{
 		return is_file(join(array( LOCAL_ROOT, PAGE_DIR, $this->page_request ), DIRECTORY_SEPARATOR )) ? 1 : 0;
-	}			
+	}
 }

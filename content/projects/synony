@@ -1,8 +1,12 @@
 title = synonymovement
-date = 2007
+date = 2007-04-10
 thumb = http://portfolio.quilime.com/2008/synonymovement/thumb.png
 --
 
+synonymovement  
+*non-interactive software*
+
+<!--more-->
 
 <object classid="clsid:02bf25d5-8c17-4b23-bc80-d3488abddc6b" id="qt_object" width="640" height="496" codebase="http://www.apple.com/qtactivex/qtplugin.cab#version=6,0,2,0">
 <param name="type" value="video/quicktime">

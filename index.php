@@ -7,7 +7,6 @@ require 'lib/init.php';
 
 
 $request = get_request();
-
 $v = new View  ($request);
 $m = new Model ($request);
 
@@ -30,15 +29,7 @@ else if ($m->is_multiple())
 
 
 
-header("Content-Type: {$m->response_mime_type}; charset=UTF-8"); 
+header("Content-Type: {$m->response_mime_type}; charset=UTF-8");
 $v->render( $m->template );
-
-
-
-
-
-
-
-
 
 exit;

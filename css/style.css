@@ -1,31 +1,31 @@
 body, table {
-    font-size: 12px;
+    font-size:14px;
     font-family: arial, monaco, monospace;
     line-height:1.6em;
 }
 
-body { 
+body {
     background:rgb(25, 25, 25);
     padding:0;
     margin:0;
     color: #ddd;
 }
 
-a { 
+a {
   outline:none;
     color:rgb(42, 128, 235);
     text-decoration:none;
 }
-a img { 
-    border:0; 
+a img {
+    border:0;
 }
 a.visited {
 }
-a.mute { 
+a.mute {
     font-weight:normal;
     color:rgb(129, 144, 144);
 }
-a:hover, a.mute:hover { 
+a:hover, a.mute:hover {
     color:f0a;;
 }
 
@@ -33,48 +33,35 @@ h1 {
     padding-top:0;
     margin-top:0;
     margin-bottom:30px;
-
 }
-h1 a {
-  background:#121212;
-display:block;
-  margin-left:-1.5em;
-    padding-left:1.5em;
-}
-h1 a:hover {
-    color:#ddd;
-background:#333;
-}
-h1, h2, h3, h4, h5, h6 { 
+h1, h2, h3, h4, h5, h6 {
     font-weight:normal;
     color:#666;
-    font-size:12px;
+    font-size:14px;
 }
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     display:block;
     text-decoration:none;
-    color:#fff;
+    color:#666;
 }
-h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover { 
-background:#161616;
-}
-h1 a:hover {
-
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+  color:#fff;
 }
 
-ul, li { 
-    margin:0; padding:0; list-style-type:none; 
+
+ul, li {
+    margin:0; padding:0; list-style-type:none;
 }
-ol { 
+ol {
     margin:0;
 }
-ol li { 
-    list-style-type:decimal; 
+ol li {
+    list-style-type:decimal;
 }
-blockquote { 
+blockquote {
     font-family:serif;
     font-style:italic;
-    font-size:1.45em;  
+    font-size:1.45em;
     line-height:1.3em;
     margin:0;
     padding:0;
@@ -150,23 +137,22 @@ background:rgba(25,25,25,0.3);
 .entry h2 {
     margin-top:40px;
 }
-.entry .metadata { 
-    
+.entry .metadata {
     margin-bottom:30px;
-    color:#444;
+    color:#333;
 }
 .entry .metadata a {
-    color:#444;
+    color:#555;
 }
 .entry .metadata a:hover {
     color:#999;
 }
-.entry .metadata .tags li { 
-    display:inline-block; 
-    margin-right:0.3em; 
+.entry .metadata .tags li {
+    display:inline-block;
+    margin-right:0.3em;
 }
 .entry p {
-     max-width:720px;   
+     max-width:720px;
 }
 
 
@@ -186,7 +172,7 @@ background:rgba(25,25,25,0.3);
   height:100px;
   border:1px dotted #000;
   overflow:hidden;
-  
+
 }
 
 

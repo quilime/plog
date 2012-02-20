@@ -10,12 +10,7 @@
     
 <div id="content">
 
-
-
-
-
 	<table cellspacing="0" cellpadding="0">
-
 
 	<tr>
 
@@ -93,11 +88,6 @@
 
 	</tr>
 	</table>	
-
-
-
-
-
 
 <!-- 		&bull; <a href="http://content.stamen.com/som_transbay_tower">Bay Area Transit</a> - data visualization<br />		
 		&bull; <a href="http://portfolio.quilime.com/content/daschtein/index.html">Dachstein</a> - installation<br />
