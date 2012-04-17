@@ -1,9 +1,7 @@
 title = Terminal Emulator on Windows via Cygwin
 date = august 11 2011
 --
-The default Cygwin install emulates a terminal in a command window similar to the DOS prompt with a limited feature set. 
-
-For a full featured x-term, you can install Cygwin-X along with Cygwin:
+How to install cygwin on windows:
 
 1. **Install <a href="http://cygwin.com">Cygwin</a> from <a href="http://cygwin.com/setup.exe">setup.exe</a>**
 
@@ -25,6 +23,9 @@ For a full featured x-term, you can install Cygwin-X along with Cygwin:
     - any additional fonts
 
     <br />
+
+<!--more-->
+
 
 3. **~/.XDefaults**  
 dark theme:
@@ -61,6 +62,8 @@ dark theme:
 Some more themes on the <a href="https://bbs.archlinux.org/viewtopic.php?pid=653473">Arch forums</a>.  
 <br />
 
+
+
 4. **~/.bashrc**  
 To enable color `ls` and human readable size format, add:
 <pre class="prettyprint">
@@ -75,6 +78,8 @@ Disable emacs temp (~) file pooping
 (setq make-backup-files nil)
 </pre>
 <br />
+
+
 
 Result:  
 <img src="http://media.quilime.com/files/img/cygwin.PNG" />

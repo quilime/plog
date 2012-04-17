@@ -14,29 +14,9 @@
 	        	$this->include_template($entry['config']['template'] . '.' . $this->response_format . '.tpl');
 	        }
 	        else {
+	        	$this->include_template('entry.' . $this->response_format . '.tpl');
+			} 
 		?>
-
-	<div class="entry">
-
-	<h1><?=$entry['title']?></h1>
-
-	<div class="content">
-		<?=$entry['content']?>
-	</div>
-
-	<div class="metadata">
-
-		<a href="/<?=$entry['url']?>">#</a>
-
-		<br />
-
-		created: <span title="<?=get_relative_time($entry['timestamp']);?>"><?=date("F d, Y", $entry['timestamp'])?></span> in
-		<a href="/<?=$entry['cat']['url'];?>">/<?=$entry['cat']['url'];?></a><? if ($entry['tags']) echo '<br/>tags: ' . implode(', ', $entry['tags']); ?>
-	</div>
-
-	</div>
-
-	<? } ?>
 
 	</div>
 

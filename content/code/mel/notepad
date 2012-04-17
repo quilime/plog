@@ -3,6 +3,10 @@ title = "MEL Notepad"
 tags = mel maya
 --
 
+mel notepad with various code snippets
+
+
+
 process selection list
 <pre class="prettyprint lang-mel">string $select[] = `ls -sl`;
 for ( $node in $select ) // process each
@@ -30,6 +34,8 @@ string $node = "pCube1.f[2]";
 string $no_component = `match "^[^\.]*" $node`;
 // Result: "pCube1" //
 </pre>
+
+<!--more-->
 
 <br />
 Extract component or attribute, with '.'

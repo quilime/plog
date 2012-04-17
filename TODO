@@ -1,10 +1,10 @@
 TODO
-
 - pagination (View)
-
 - canvas icons for list/thumb/tile views (js)
-
 - static cache generation (wget? curl?)
+  static rss, json, html
+- commenting system from india branch
+
 
 - update content.sh to give back help if used incorrectly
 

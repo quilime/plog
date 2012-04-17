@@ -27,7 +27,6 @@
 		<p><a class="more" href="/log/">more &rarr;</a></p>
 	</td>
 	
-		
 	<td  style="padding-right:100px;"  valign="top">
 		<h1><a class="more" href="/code/">code</a></h1>
 		<ul class="archive">
@@ -42,7 +41,6 @@
 
 		<p><a class="more" href="/code/">more &rarr;</a></p>
 	</td>
-
 
 	<td valign="top">
 		<h1><a href="/projects/">projects</a></h1>
@@ -77,7 +75,6 @@
                     }
                 </script>
 
-
             <? endif; ?>
 	            </div>
 			<?=$entry['title']?></a>
@@ -89,21 +86,16 @@
 	</tr>
 	</table>	
 
-<!-- 		&bull; <a href="http://content.stamen.com/som_transbay_tower">Bay Area Transit</a> - data visualization<br />		
-		&bull; <a href="http://portfolio.quilime.com/content/daschtein/index.html">Dachstein</a> - installation<br />
-		&bull; <a href="http://portfolio.quilime.com/content/cm/index.html">Celestial Mechanics</a> - dome-based animation<br />
-		&bull; <a href="http://portfolio.quilime.com/content/valentine/index.html">Valentine</a><br />	 -->
 
+<br /><br/>
 
-
+<a href="/all">all posts &rarr;</a>
 
 </div>
 
 <br />
 
-
     <? $this->include_template('nav.html.tpl') ?>
-
 	<? $this->include_template('footer.html.tpl') ?>
 
 </body>

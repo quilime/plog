@@ -25,6 +25,7 @@ ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . dirname(realp
 
 # settings
 define ('CLEAN_URLS', 		 true);
+define ('LIMIT',             15);
 define ('SITE_TITLE', 		 'quilime');
 define ('LOCAL_ROOT', 		 '/home/quilime/quilime.com/');
 define ('WEB_ROOT', 		 '/');

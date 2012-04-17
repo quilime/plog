@@ -6,6 +6,8 @@ lang = bash
 
 Shell script that slices a single image into any number of vertical and horizontal sections.
 
+
+
 <pre class="prettyprint">#!/bin/bash
 #@author  gabriel dunne &lt;quilime.com&gt;
 
@@ -38,6 +40,8 @@ else
 	
 fi
 </pre>
+
+<!--more-->
 
 ##To Use
 navigate to slice.sh in your terminal and do 

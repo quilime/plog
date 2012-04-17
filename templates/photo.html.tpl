@@ -67,6 +67,9 @@
         </li>
 <?endforeach;?>
 	</ul>
+	<p style="clear:both;">
+
+	</p>
 	<p>
 	<a class="more" href="http://flickr.com/photos/quilime/" title="via flickr">more &rarr;</a>            
 	</p>

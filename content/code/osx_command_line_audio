@@ -31,7 +31,7 @@ gcc test.c -o test
 
 
 
-##resources
+## references
 
 - <a href="http://countercomplex.blogspot.com/2011/10/algorithmic-symphonies-from-one-line-of.html">http://countercomplex.blogspot.com/2011/10/algorithmic-symphonies-from-one-line-of.html</a>
 - <a href="http://www.bemmu.com/music/index.html">http://www.bemmu.com/music/index.html</a>
@@ -41,3 +41,5 @@ gcc test.c -o test
 - <a href="http://wurstcaptures.untergrund.net/music/?oneliner=-(M%3D127)%3E(s%3D(((y%3D%5B3%2C3%2C4.7%2C2%5D%5Bp%3Dt%3E%3E14%263%5D%2F5*t)*.96%2663)%2B(y%2663))*1.2%2B(t%3E%3E16%3F(((5*t%25(m%3D2048))*(a%3D1-t%25m%2Fm)%26128)*(0x53232323%3E%3E(z%3Dt%3E%3E11%26(k%3D31))%261)*a%2B((d%3D(14*t*t%5Et)%25m*a)%26M)*(0xa444c444%3E%3Ez%261)*a*1.5%2B((a*d*(t%3E%3E9%261)%26M)%2F7.5))%2B((((h%3D%22IQNNNN!!%5D%5D!Q!IW%5DWQNN%3F%3F!!W%5DWQNNN%3F%22.charCodeAt(t%3E%3E10%2615%7Cp%2F3%3C%3C4)%2F33*t-t)%26k)%2B(h*1.99%26k)%2B(h*.49%26k)%2B(h*.97%26k)-64))*a*(2-a)*2%3A0))%3F-M%3As%3EM%3FM%3As&oneliner2=&t0=0&tmod=0&duration=30&separation=100&rate=8000">one-liner</a> from <a href="http://www.iquilezles.org">inigo quilez</a>
 
 -->
+
+<br />

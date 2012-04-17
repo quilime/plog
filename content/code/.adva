@@ -1,0 +1,53 @@
+title = advanced hard drive format
+date = feb 20 2012, 9:34pm PST
+
+--
+Newer hard drives (circa 2012) are building drives that use a 4KB sector size instead of the conventional 512B. This requires a specific type of formatting to make sure the alignment of the drive is correct, allowing the OS to take full advantage of the performance of the drive. If the drives partition table is not aligned to a single sector that is a multiple of 512, but at least 2x512B, then it will potentially allow gaps between each sector. Ubuntu will throw an error in the disk utilty saying the "Warning: The partition table is misaligned by n number of bytes", and the drive will not perform fully.
+
+For this article I am using a Seagate 2TB ATA ST2000DM001-9YN164 which I am formatting in a single partition as ext4.
+
+I reference this article heavily via linuxconfig.org: [Linux ED EARS Advanced Hard Drive Format](http://linuxconfig.org/linux-wd-ears-advanced-format)
+
+<!--more-->
+
+By default, linux partitioned my drive with the start of each partition on sector 63, which lead to warnings from Ubuntu because they are not aligned to 4K sector from the beginning of the track.
+
+The following assumes your disk is labled as <code>sda</code>.
+<pre class="prettyprint"># fdisk -u /dev/sda
+
+The number of cylinders for this disk is set to 121601.
+There is nothing wrong with that, but this is larger than 1024,
+and could in certain setups cause problems with:
+1) software that runs at boot time (e.g., old versions of LILO)
+2) booting and partitioning software from other OSs
+   (e.g., DOS FDISK, OS/2 FDISK)
+
+Command (m for help): p
+
+Disk /dev/sda: 2000.1 GB, 2000204886016 bytes
+255 heads, 63 sectors/track, 121601 cylinders, total 1953525168 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Disk identifier: 0x10bd10bc
+
+   Device Boot      Start         End      Blocks   Id  System
+
+Command (m for help): n
+Command action
+   e   extended
+   p   primary partition (1-4)
+p
+Partition number (1-4): 1
+First sector (63-1953525167, default 63): 64
+Last sector, +sectors or +size{K,M,G} (64-1953525167, default 1953525167):
+Using default value 1953525167
+
+Command (m for help): w
+The partition table has been altered!
+
+Calling ioctl() to re-read partition table.
+
+WARNING: Re-reading the partition table failed with error 16: Device or resource busy.
+The kernel still uses the old table.
+The new table will be used at the next reboot.
+Syncing disks.
+</pre>

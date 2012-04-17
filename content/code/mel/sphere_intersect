@@ -1,5 +1,5 @@
 date = 2009-06-12
-title = "MEL Sphere Intersect"
+title = "Sphere Intersect in Maya/MEL"
 tags = maya mel sphere intersection
 lang = mel
 --
@@ -7,6 +7,8 @@ lang = mel
 Function to return location of intersect with poly mesh and spherical object moving in the positive direction on the Y axis.
 <br/>
 </p>
+
+<!--more-->
 
 <h2>
 mel source

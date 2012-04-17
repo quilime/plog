@@ -1,7 +1,7 @@
 body, table {
-    font-size:14px;
+    font-size:13px;
     font-family: arial, monaco, monospace;
-    line-height:1.6em;
+    line-height:1.4em;
 }
 
 body {
@@ -116,9 +116,16 @@ background:rgba(25,25,25,0.3);
 
 .entry {
   padding-bottom:20px;
-  margin-bottom:70px;
+  margin-bottom:100px;
 }
-.single .entry {
+.entry .metadata {
+  visibility:hidden;
+}
+.entry:hover .metadata{
+  visibility:visible;
+}
+.single .entry .metadata {
+  visibility:visible !important;
 }
 
 .singlebg {
@@ -156,7 +163,7 @@ background:rgba(25,25,25,0.3);
 .archive li {
     padding-bottom:5px;
     margin-bottom:5px;
-    border-bottom:1px dotted #555;
+    border-bottom:1px dotted #333;
 }
 
 .project {

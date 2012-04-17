@@ -1,3 +1,10 @@
+<?php
+
+    if (!isset($entries)) {
+        $entries = get_entries();
+    }
+
+?>
 <html>
 <head>
     <? $this->include_template('head-inc.html.tpl') ?>
@@ -8,7 +15,7 @@
 <div id="content">
 
     <div class="entries">
-	<? foreach($entries as $entry): ?>
+	<? $limit = LIMIT; foreach($entries as $entry): if ($limit-- == 0) break; ?>
         
         <? if (isset($entry['content_short'])): ?>
             <? $entry['content'] = $entry['content_short'] . '<br /><a class="more" href="'.$entry['url'].'">more &rarr;</a><br /><br />'; ?>
@@ -18,6 +25,11 @@
 
 	<? endforeach; ?>
     </div>
+
+    <a href="/index">index &rarr;</a>
+    <br />
+    <br />
+    <br />
 
 </div>
 

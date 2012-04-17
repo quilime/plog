@@ -16,12 +16,13 @@ Documentation of the process of installing [archlinux](http://www.archlinux.org/
 - 550w power supply
 
 
+
 ## Installing Windows
 Windows was installed from a USB stick using Microsoft's [Windows 7 USB/DVD tool](http://www.microsoftstore.com/store/msstore/html/pbPage.Help_Win7_usbdvd_dwnTool). It's required to create this key from a Windows 7 system. Boot with the USB drive, then install Windows on the drive in a single partition. Windows also creates a System Reserved partition for itself. Once installed, via Start Menu > Administrative Tools > Computer Management > Disk Manamagent, select 'Shrink Partition' on the main Windows parition to create another partition for Arch. The default value for the shrink is 50%, so for my setup the value for the new disk size was ~50GB, which was ideal. 
 
 Note about this install. I have an old Linksys (Cysco) WMP54G Wireless PCI Card. Drivers from Linksys/Cysco's website didn't work, but following this [blog post](http://www.phishthis.com/2009/01/16/how-to-install-wmp54g-drivers-on-windows-7-beta-64-bit-or-vista-64-bit/), the generic RALink drivers worked great.
 
-
+<!--more-->
 
 ## Installing Archlinux
 
