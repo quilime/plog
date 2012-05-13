@@ -6,15 +6,12 @@
 .typ { color: #93d44f; }
 .lit { color: #099; }
 .pun { color: #66d; }
-.pln { color: #ffd; }
+.pln { color: #df0; }
 .tag { color: #008; }
 .atn { color: #606; }
 .atv { color: #080; }
 .dec { color: #606; }
-pre.prettyprint, code.prettyprint {
-  font-family:monaco, "Lucida Console", monospace; font-size:12px; line-height:1.5em; padding:0.2em 0.6em; background:#181818;
-  border-radius: 6px;
-}
+pre.prettyprint, code.prettyprint { }
 pre.prettyprint { padding:20px; }
 
 @media print {

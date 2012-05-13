@@ -145,6 +145,9 @@ function parse_entry($fileInfo, $page = false)
 	$f['tags'] = isset($f['config']['tags']) ? explode(" ", $f['config']['tags']) : null;
 	$f['content'] = Markdown($content);
 
+	$f['comments_enabled'] = isset($f['config']['comments']) && $f['config']['comments'];
+	$f['comments'] = new Comments($fileInfo); 	
+
     if ($passed_more)
       $f['content_short'] = Markdown($content_short);
 
@@ -163,6 +166,17 @@ function parse_entry($fileInfo, $page = false)
 	return $f;
 }
 
+function get_comments_location ( &$fileInfo ) {
+	return LOCAL_ROOT . COMMENTS_DIR . get_clean_path($fileInfo) . DIRECTORY_SEPARATOR . $fileInfo->getFilename() . DIRECTORY_SEPARATOR;
+}
+
+function get_clean_path ( &$fileInfo, $page = false ) {
+	if (!$page) {
+		return str_replace(LOCAL_ROOT . CONTENT_DIR, "", clean_slashes($fileInfo->getPath()));
+	} else {
+		return str_replace(LOCAL_ROOT . PAGE_DIR, "", clean_slashes($fileInfo->getPath()));
+	}
+}
 
 function get_entry ( $relative_path )
 {

@@ -30,6 +30,7 @@ define ('SITE_TITLE', 		 'quilime');
 define ('LOCAL_ROOT', 		 '/home/quilime/quilime.com/');
 define ('WEB_ROOT', 		 '/');
 define ('CONTENT_DIR', 		 'content/');
+define ('COMMENTS_DIR',      'comments/');
 define ('TEMPLATE_DIR', 	 'templates/');
 define ('PAGE_DIR', 		 'pages/');
 define ('CONFIG_DELIMITER',  '--');
@@ -42,6 +43,11 @@ $_FILE_IGNORES = array(CONFIG_FILE, '.DS_Store');
 
 
 
+# recaptcha for comments
+require_once 'recaptchalib.php';
+// Get a key from https://www.google.com/recaptcha/admin/create
+$captcha_publickey  = "6Lek-MkSAAAAAAZknQQGSx9DiCqm_wAiFGytc37d";
+$captcha_privatekey = "6Lek-MkSAAAAAK4FAaPKO0Cwp-iHa0OcUaqipee4";
 
 
 
@@ -51,3 +57,4 @@ require_once 'output.php';
 require_once 'markdown.php';
 require_once 'model.php';
 require_once 'view.php';
+require_once 'comments.php';

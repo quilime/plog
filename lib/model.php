@@ -51,6 +51,11 @@ class Model
 			// prev/next
 			$entries = get_entries($request['dirname']);
 
+			// post request
+			if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+				$this->process_post_request($this->entry);
+			
+
 			for($i = count($entries)-1; $i>=0; $i--) {
 				if ($this->entry['url'] == $entries[$i]['url']) {
 					$this->entry['prev_entry'] = isset($entries[$i-1]) ? $entries[$i-1] : null;
@@ -77,6 +82,11 @@ class Model
     		$this->template = '404.html.tpl';
 		}
 	}
+
+	function process_post_request( &$entry ) {
+		if ($entry['comments']) 
+			$entry['comments']->process_post_request();
+	}	
 
 	function has_config()
 	{

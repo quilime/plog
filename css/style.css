@@ -68,14 +68,17 @@ blockquote {
 }
 pre, code {
     color:#df0;
-    line-height:1.3em;
-    font-family: monaco, monospace;
+    line-height:1.4em;
+    font-size:14px;
+    font-family:menlo, monaco, "Lucida Console", monospace; 
     padding:1px 5px 2px;
     background:#090909;
-    border-radius:4px;
+    border-radius:3px;
 }
 pre {
-    padding:10px 30px;
+    padding:10px 20px;
+    position:relative;
+    left:-20px;
 }
 table, td, tr {
   margin:0;

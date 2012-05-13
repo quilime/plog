@@ -16,4 +16,9 @@
 		<a href="/<?=$entry['cat']['url'];?>">/<?=$entry['cat']['url'];?></a><? if ($entry['tags']) echo '<br/>tags: ' . implode(', ', $entry['tags']); ?>
 	</div>
 
+	<? 
+	if ($entry['is_single'] && $entry['comments_enabled'])
+		$this->include_template('comments.html.tpl', array('entry' => $entry));
+	?>	
+
 </div>

@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="<?= get_base_dir(); ?>/css/style.css" type="text/css">
 
+<script type="text/javascript" src="<?= get_base_dir(); ?>/js/prettify/prettify.js"></script>
 <link href="<?= get_base_dir(); ?>/js/prettify/prettify.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="<?= get_base_dir(); ?>/js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="<?= get_base_dir(); ?>/js/prettify/prettify.js"></script>
@@ -35,5 +36,16 @@ $(document).ready(function() {
 */ ?>
 <link rel="alternate" type="application/rss+xml" title="RSS" href="<?=get_base_dir();?>/.rss" />
 <link rel="stylesheet" href="<?=get_base_dir();?>/css/style.css" type="text/css">
+<link rel="stylesheet" href="<?=get_base_dir();?>/css/comments.css" type="text/css">
 
-<? /* <!-- >>>>>>> 2ae0cd949c331f83dcb05116cffdca21b2ecb871 --> */ ?> 
+<script type="text/javascript" src="/js/prettify/prettify.js"></script>
+<link href="/js/prettify/prettify.css" type="text/css" rel="stylesheet" />
+
+<script>
+window.onload = function() {
+    prettyPrint();
+}
+</script>
+
+
+
