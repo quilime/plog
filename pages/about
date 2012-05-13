@@ -1,27 +1,30 @@
 title = about
 --
 
-quilime is a codification of projects, process and resources  
+#about
 
-all content &copy; 1999&mdash;2012 **gabriel dunne** ([www](http://gabrieldunne.com), [email](&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#x67;&#x64;&#x75;&#x6e;&#110;&#x65;&#x40;&#x71;&#117;&#105;&#x6c;&#x69;&#x6d;&#101;&#x2e;&#x63;&#111;&#x6d;)) unless otherwise noted
-
-
-elsewhere    
-[clmpr](http://clmpr.com/quilime/)  
-[aggregate](http://media.quilime.com/aggregate/)  	
-[git.quilime.com](http://git.quilime.com)  
-[github.com/quilime](http://github.com/quilime/)  
-[flickr.com/photos/quilime](http://flickr.com/photos/quilime/)  
-[vimeo/quilime](http://vimeo.com/quilime/)    
-[twitter/quilime](http://twitter.com/quilime/)  
-
-
-<!-- add <a href="http://quilime.com/.rss" class="rss">.rss</a> to the end of any url for an xml feed -->
+quilime is an ongoing collection of projects, sketches, ideas, and process by **gabriel dunne** ([www](http://gabrieldunne.com), [email](&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#x67;&#x64;&#x75;&#x6e;&#110;&#x65;&#x40;&#x71;&#117;&#105;&#x6c;&#x69;&#x6d;&#101;&#x2e;&#x63;&#111;&#x6d;))
 
 <br />
 
-quilime runs on <a href="http://git.quilime.com/?p=plog;a=summary">plog</a>, a static-file **p**roject+**log**
+built with <a href="http://git.quilime.com/?p=plog.git;a=summary">plog</a>, a static-file `p`roject`log` engine.
+
+
+
+<!--add <a href="http://quilime.com/.rss" class="rss">.rss</a>-->
+
+<br />
 
 
 
 
+
+
+
+## elsewhere
+[clmpr.com/quilime](http://clmpr.com/quilime/)  
+[media.quilime.com/aggregate/](http://media.quilime.com/aggregate/)  
+[github.com/quilime](http://github.com/quilime/)  
+[flickr.com/photos/quilime](http://flickr.com/photos/quilime/)  
+[vimeo.com/quilime](http://vimeo.com/quilime/)  
+[twitter.com/quilime](http://twitter.com/quilime/)  

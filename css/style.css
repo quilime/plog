@@ -1,5 +1,4 @@
 body, table {
-    font-size:13px;
     font-family: arial, monaco, monospace;
     line-height:1.4em;
 }
@@ -37,7 +36,9 @@ h1 {
 h1, h2, h3, h4, h5, h6 {
     font-weight:normal;
     color:#666;
-    font-size:14px;
+    font-size:1em;
+    text-shadow:1px 1px 3px #000;
+    letter-spacing:0.2em;
 }
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     text-decoration:none;
