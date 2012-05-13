@@ -17,7 +17,7 @@
 	</div>
 
 	<? 
-	if ($entry['is_single'] && $entry['comments_enabled'])
+	if (isset($entry['is_single']) && $entry['is_single'] && $entry['comments_enabled'])
 		$this->include_template('comments.html.tpl', array('entry' => $entry));
 	?>	
 

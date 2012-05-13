@@ -204,4 +204,4 @@ tileHeight            -th &lt;int&gt;        force the height of the tiles.  Val
 </pre>
 any boolean works: yes, true, or 1, as TRUE,and off, no, false, or 0 as FALSE.
 
-e.g. Render -x 512 -y 512 -cam persp -im test -of sgi -mb on -sa 180 file.ma
+example: `Render -x 512 -y 512 -cam persp -im test -of sgi -mb on -sa 180 file.ma`

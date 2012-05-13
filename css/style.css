@@ -61,24 +61,28 @@ ol li {
 blockquote {
     font-family:serif;
     font-style:italic;
-    font-size:1.45em;
+    font-size:1.2em;
+    color:#999;
     line-height:1.3em;
     margin:0;
     padding:0;
 }
 pre, code {
-    color:#df0;
+    color:#4fa;
     line-height:1.4em;
     font-size:14px;
     font-family:menlo, monaco, "Lucida Console", monospace; 
     padding:1px 5px 2px;
-    background:#090909;
-    border-radius:3px;
+    background:#303030;
+    border-radius:4px;
 }
 pre {
     padding:10px 20px;
     position:relative;
     left:-20px;
+}
+code {
+padding:2px 6px;
 }
 table, td, tr {
   margin:0;
@@ -86,8 +90,9 @@ table, td, tr {
 }
 
 #content {
-    margin-top:20px;
-  padding-left: 160px;
+  position:relative;
+  left: 160px;
+  margin-top:20px;
   padding-bottom: 20px;
 }
 #content.single {
