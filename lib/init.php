@@ -13,7 +13,7 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
 # timezone
-putenv('TZ=Asia/Calcutta');
+putenv('TZ=America/Los Angeles');
 
 # include path
 ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . dirname(realpath(__FILE__)));

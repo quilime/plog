@@ -15,6 +15,8 @@
 	<!-- <li><a href="/agg">aggregate</a></li> -->
 	<li><a href="/photo">photo</a></li>
 	<li><a href="/links">links</a></li>
+
+	<br />
 	<li><a href="/about">about</a></li>
 
 	<br />

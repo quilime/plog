@@ -7,6 +7,7 @@ class View
 {	
 	var $template_dir = 'templates';
 	// var $template_cache_dir = 'cache';
+    var $default_template = 'default';
 	var $response_format = 'html';
 	var $response_mime_type = 'text/html';
 
@@ -42,6 +43,8 @@ class View
 	public function render( $template ) 
 	{
 		extract( $this->_tpl_vars );
+        if (!is_file($this->template_dir . DIRECTORY_SEPARATOR . $template))
+            $template = $default_template . '.' . $response_format . '.tpl';
 		include( $this->template_dir . DIRECTORY_SEPARATOR . $template );
 	}
 	

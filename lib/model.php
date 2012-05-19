@@ -6,11 +6,11 @@ class Model
 	var $content_request = null;
 	var $page_request = null;
 
+	var $template = 'default.html.tpl';
 	var $response_format = 'html';
 	var $response_mime_type = 'text/html';
-	var $page_title = null;
-	var $template = 'default.html.tpl';
 
+	var $page_title = null;
 	var $entries = null;
 	var $config = null;
 
@@ -18,7 +18,8 @@ class Model
 	function __construct( $request )
 	{
 		$this->request = $request;
-		list($this->response_format, $this->response_mime_type) = parse_format($this->request['extension'], 'html');
+		list($this->response_format, $this->response_mime_type) = parse_format($this->request['extension']);	
+		$this->template = 'default.' . $this->response_format . '.tpl';
 		$this->parse_request( $this->request );
 	}
 
@@ -29,14 +30,14 @@ class Model
 		$this->content_request = join(array($this->request['dirname'], $this->request['filename']), DIRECTORY_SEPARATOR );
 		$this->page_request    = $this->request['filename'];
 
+
 	    # if entries (dir in CONTENT dir)
 	    if ($this->is_multiple()) {
 			# check if config file exists in dir
 		    if ($this->has_config()) {
 		        $this->config = parse_config( $this->content_request );
-		        if (isset($this->config['config']['template'])) {
+		        if (isset($this->config['config']['template']))
 		        	$this->template = $this->config['config']['template'] . '.' . $this->response_format . '.tpl' ;
-		        }
 		    }
 	    	$this->entries = get_entries( $this->content_request );
 	    	$this->page_title = preg_replace('{^/|/$}', '', $this->request['path']);

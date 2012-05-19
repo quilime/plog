@@ -28,7 +28,6 @@ else if ($m->is_multiple())
 
 
 
-
 header("Content-Type: {$m->response_mime_type}; charset=UTF-8");
 $v->render( $m->template );
 

@@ -1,10 +1,3 @@
-<?php
-
-    if (!isset($entries)) {
-        $entries = get_entries();
-    }
-
-?>
 <html>
 <head>
     <? $this->include_template('head-inc.html.tpl') ?>

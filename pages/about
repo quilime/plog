@@ -3,12 +3,17 @@ title = about
 
 #about
 
-quilime is an ongoing collection of projects, sketches, ideas, and process by **gabriel dunne** ([www](http://gabrieldunne.com), [email](&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#x67;&#x64;&#x75;&#x6e;&#110;&#x65;&#x40;&#x71;&#117;&#105;&#x6c;&#x69;&#x6d;&#101;&#x2e;&#x63;&#111;&#x6d;))
+quilime.com is a place for my experiments, process. My web portfolio.
 
-quilime.com is built with <a href="http://git.quilime.com/?p=plog.git;a=summary">plog</a>, a static-file `p`roject`log` engine written in PHP.
+this site is built with <a href="http://git.quilime.com/?p=plog.git;a=summary">plog</a>, a static-file `p`roject`log` engine written in PHP.
 
 
+<br />
 <!--add <a href="http://quilime.com/.rss" class="rss">.rss</a>-->
+
+## contact
+gabriel dunne  
+[www](http://gabrieldunne.com), [email](&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#x67;&#x64;&#x75;&#x6e;&#110;&#x65;&#x40;&#x71;&#117;&#105;&#x6c;&#x69;&#x6d;&#101;&#x2e;&#x63;&#111;&#x6d;)
 
 <br />
 
@@ -23,8 +28,3 @@ quilime.com is built with <a href="http://git.quilime.com/?p=plog.git;a=summary"
 [vimeo](http://vimeo.com/quilime/)  
 [github](http://github.com/quilime/)  
 [flickr](http://flickr.com/photos/quilime/)  
-
-
-
-
-

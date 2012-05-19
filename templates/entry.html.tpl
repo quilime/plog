@@ -13,7 +13,7 @@
 		<a href="/<?=$entry['url']?>">#</a>
 		<br />
 		<span title="<?=get_relative_time($entry['timestamp']);?>"><?=date("F d, Y", $entry['timestamp'])?></span> in
-		<a href="/<?=$entry['cat']['url'];?>">/<?=$entry['cat']['url'];?></a><? if ($entry['tags']) echo '<br/>tags: ' . implode(', ', $entry['tags']); ?>
+		<a href="/<?=$entry['cat']['url'];?>">/<?=$entry['cat']['url'];?></a><? if ($entry['tags']) echo '<br/>' . implode(', ', $entry['tags']); ?>
 	</div>
 
 	<? 

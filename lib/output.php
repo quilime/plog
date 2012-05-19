@@ -5,7 +5,7 @@
  *	@param format
  *  @param default format
  */
-function parse_format($format, $default)
+function parse_format($format, $default = 'html')
 {
     $types = array('html' => 'text/html',
                    'php'  => 'text/html',
@@ -164,7 +164,7 @@ function get_request()
 
     $path_info = pathinfo( $path );
     $path_info['path'] = preg_match("/\.\.\//", $path) ? '/' : $path;
-    $path_info['extension'] = null;
+    $path_info['extension'] = isset($path_info['extension']) ? $path_info['extension'] : 'html';
     if ($path_info['dirname'] == '.')
         $path_info['dirname'] = '';
 
