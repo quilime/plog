@@ -34,7 +34,7 @@ $(document).ready(function() {
 </script>
 ======= -->
 */ ?>
-<link rel="alternate" type="application/rss+xml" title="RSS" href="<?=get_base_dir();?>/.rss" />
+<link rel="alternate" type="application/rss+xml" title="official quilime RSS Feed" href="<?=get_base_dir();?>/.rss" />
 <link rel="stylesheet" href="<?=get_base_dir();?>/css/style.css" type="text/css">
 <link rel="stylesheet" href="<?=get_base_dir();?>/css/comments.css" type="text/css">
 

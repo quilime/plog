@@ -3,16 +3,9 @@
 require 'lib/init.php';
 
 
-
-
-
 $request = get_request();
-$v = new View  ($request);
 $m = new Model ($request);
-
-
-
-
+$v = new View();
 
 
 if ($m->is_single())
@@ -24,11 +17,7 @@ else if ($m->is_page())
 else if ($m->is_multiple())
 	$v->assign('entries', $m->entries);
 
-
-
-
-
 header("Content-Type: {$m->response_mime_type}; charset=UTF-8");
-$v->render( $m->template );
+$v->render( $m->template, $m->response_format );
 
 exit;

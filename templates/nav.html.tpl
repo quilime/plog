@@ -1,7 +1,6 @@
 <ul id="nav">
 
     <li><a href="/">home</a></li>
-    <li><a href="/index">index</a></li>  
 
     <br />
 
@@ -18,7 +17,7 @@
 
 	<br />
 	<li><a href="/about">about</a></li>
-
+	<li><a href="/.rss">feed</a></li>
 	<br />
 	<br />
 

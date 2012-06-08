@@ -36,8 +36,9 @@ class Model
 			# check if config file exists in dir
 		    if ($this->has_config()) {
 		        $this->config = parse_config( $this->content_request );
-		        if (isset($this->config['config']['template']))
+		        if (isset($this->config['config']['template'])) {
 		        	$this->template = $this->config['config']['template'] . '.' . $this->response_format . '.tpl' ;
+		        }
 		    }
 	    	$this->entries = get_entries( $this->content_request );
 	    	$this->page_title = preg_replace('{^/|/$}', '', $this->request['path']);

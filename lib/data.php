@@ -15,13 +15,21 @@ function get_entries( $path = "", $args = array())
 
 	$path = join(array( LOCAL_ROOT, CONTENT_DIR, $path ), DIRECTORY_SEPARATOR);
 
-	if ($recursive) {
-		$iterator = new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::KEY_AS_PATHNAME);
-		$dir_iterator = new RecursiveIteratorIterator($iterator, RecursiveIteratorIterator::SELF_FIRST);
+	try {
+		if (!is_dir($path)) {
+			throw new Exception("no such file or directory", 1);
+		}
+		if ($recursive) {
+			$iterator = new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::KEY_AS_PATHNAME);
+			$dir_iterator = new RecursiveIteratorIterator($iterator, RecursiveIteratorIterator::SELF_FIRST);
+		}
+		else {
+			$dir_iterator = new DirectoryIterator($path);
+		}
+	} catch (Exception $e) {
+		echo 'Caught exception: ',  $e->getMessage(), "\n";
 	}
-	else {
-		$dir_iterator = new DirectoryIterator($path);
-	}
+
 	$entries = array();
 	foreach ($dir_iterator as $file => $info) {
 
@@ -63,15 +71,25 @@ function get_dirs( $path = "", $args = array())
 {
 	$recursive = isset($args['recursive']) ? $args['recursive'] : 1;
 
-	$local_content = LOCAL_ROOT . CONTENT_DIR;
-	$path = $local_content . $path;
+	$local_content = join(array(LOCAL_ROOT, CONTENT_DIR), DIRECTORY_SEPARATOR);
 
-	if ($recursive) {
-		$iterator = new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::KEY_AS_PATHNAME);
-		$dir_iterator = new RecursiveIteratorIterator($iterator, RecursiveIteratorIterator::SELF_FIRST);
-	}
-	else {
-		$dir_iterator = new DirectoryIterator($path);
+	$path = $local_content . $path;
+	$path = str_replace("//", "/", $path);
+
+
+	try {
+		if (!is_dir($path)) {
+			throw new Exception("no such file or directory: $path", 1);
+		}
+		if ($recursive) {
+			$iterator = new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::KEY_AS_PATHNAME);
+			$dir_iterator = new RecursiveIteratorIterator($iterator, RecursiveIteratorIterator::SELF_FIRST);
+		}
+		else {
+			$dir_iterator = new DirectoryIterator($path);
+		}
+	} catch (Exception $e) {
+		echo 'Caught exception: ',  $e->getMessage(), "\n";
 	}
 	$dirs = array();
 	foreach ($dir_iterator as $dir => $info) {
@@ -138,7 +156,18 @@ function parse_entry($fileInfo, $page = false)
 	}
 
 	$f = array();
-	$f['config'] = parse_ini_string($config);
+	try {
+		$f['config'] = parse_ini_string($config);
+		if (!parse_ini_string($config)) {
+			echo $config;
+   			throw new Exception('bad ini format');
+		}
+	}
+	catch (Exception $e) {
+		echo 'Caught exception: ',  $e->getMessage(), "\n";
+		exit;
+	}
+
 	$f['title'] = isset($f['config']['title']) ? $f['config']['title'] : $fileInfo->getFilename() ;
 	$f['config']['date'] = isset($f['config']['date']) ? $f['config']['date'] : null;
 	$f['timestamp'] = $f['config']['date'] ? date('U', strtotime( $f['config']['date'])) : $fileInfo->getCTime();
@@ -146,7 +175,7 @@ function parse_entry($fileInfo, $page = false)
 	$f['content'] = Markdown($content);
 
 	$f['comments_enabled'] = isset($f['config']['comments']) && $f['config']['comments'];
-	$f['comments'] = new Comments($fileInfo); 	
+	$f['comments'] = new Comments($fileInfo);
 
     if ($passed_more)
       $f['content_short'] = Markdown($content_short);
@@ -156,7 +185,7 @@ function parse_entry($fileInfo, $page = false)
 
 	$f['cat'] = $page ? null : array('name' => $clean_path, 'url' => $clean_path );
 	$f['path'] = $fileInfo->getRealPath();
-	$f['url'] = ($page ? '' : $f['cat']['url'] . '/') . $fileInfo->getFilename();
+	$f['url'] = ($page ? '' : $f['cat']['url'] . '/' ) . $fileInfo->getFilename();
 
     if (!CLEAN_URLS) {
     	$f['cat']['url'] = WEB_ROOT . '?p=' . $f['cat']['url'];

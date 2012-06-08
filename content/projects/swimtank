@@ -1,10 +1,11 @@
 title = Swimtank
 date = 2007-05-01
+thumb = http://media.quilime.com/files/projects/swimtank/thumb.png
 --
 
 <img style="width:100%;" src="http://portfolio.quilime.com/new/content/05_Swim_Tank/images/fish_close.0261.png">
 
-A form follows an infinite path drawn by you, 
+A form follows an infinite path drawn by you,
 and then reacts to its own trail. You can control the form on two axis, while the depth of the path follows a sinusoidal rhythm that is affected by paths previously drawn.
 
 <!--Exploratory, infinitely looping game.

@@ -18,28 +18,51 @@ putenv('TZ=America/Los Angeles');
 # include path
 ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . dirname(realpath(__FILE__)));
 
-
-
-
-
-
 # settings
-define ('CLEAN_URLS', 		 true);
-define ('LIMIT',             15);
-define ('SITE_TITLE', 		 'quilime');
-define ('LOCAL_ROOT', 		 '/home/quilime/quilime.com/');
-define ('WEB_ROOT', 		 '/');
-define ('CONTENT_DIR', 		 'content/');
-define ('COMMENTS_DIR',      'comments/');
-define ('TEMPLATE_DIR', 	 'templates/');
-define ('PAGE_DIR', 		 'pages/');
-define ('CONFIG_DELIMITER',  '--');
-define ('CONFIG_FILE', 		 'config');
-define ('MORE_DELIM', 		 '<!--more-->');
-define ('TITLE_DELIMITER', 	 ' &mdash; ');
-define ('ENTRY_DATE_FORMAT', 'M d Y, h:i:s A T');
+define ('LOCAL_ROOT', '/home/quilime/quilime.com/');
+define ('WEB_ROOT', '/');
 
-$_FILE_IGNORES = array(CONFIG_FILE, '.DS_Store');
+
+
+/*
+
+Array
+(
+    [site_title] => quilime
+    [clean_urls] => 1
+    [limit] => 15
+    [date_format] => M d Y, h:i:s A T
+    [web_root] => /
+    [content] => content/
+    [comments] => comments/
+    [template] => templates/
+    [pages] => pages/
+    [config_file] => config
+    [config_delim] => --
+    [more_delim] =>
+    [title_delim] =>  —
+    [file_ignores] => Array
+        (
+            [0] => config
+            [1] => .DS_Store
+        )
+)
+*/
+$_cfg = parse_ini_file('lib/config.ini');
+define ('CLEAN_URLS', $_cfg['clean_urls']);
+define ('LIMIT', $_cfg['limit']);
+define ('SITE_TITLE', $_cfg['site_title']);
+define ('CONTENT_DIR', $_cfg['content']);
+define ('COMMENTS_DIR', $_cfg['comments']);
+define ('TEMPLATE_DIR', $_cfg['templates']);
+define ('PAGE_DIR', $_cfg['pages']);
+define ('CONFIG_DELIMITER', $_cfg['config_delim']);
+define ('CONFIG_FILE', $_cfg['config_file']);
+define ('MORE_DELIM', $_cfg['more_delim']);
+define ('TITLE_DELIMITER', $_cfg['title_delim']);
+define ('ENTRY_DATE_FORMAT', $_cfg['date_format']);
+$_FILE_IGNORES = $_cfg['file_ignores'];
+
 
 
 

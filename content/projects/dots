@@ -1,5 +1,6 @@
 title = dots
 date = 2007-05-02
+thumb = http://media.quilime.com/files/projects/dots/thumb.png
 --
 
 <img style="width:100%;" src="http://portfolio.quilime.com/new/content/01_Dots/images/out.0033.png">
@@ -12,11 +13,11 @@ Human generated tones are rendered with lines. The software manipulates these to
 
 
 <!--
-"Dots" is an interaction between human and computational order and chaos. 
-Notes are generated in an circular ordered, repetitive pattern. Connection lines 
-represent human-played audio tones, line length representing pitch. 
-While notes are played by the human musician, the notes wander away from their original 
-places, warping and distorting the connecting lines, resulting in a more chaotic 
+"Dots" is an interaction between human and computational order and chaos.
+Notes are generated in an circular ordered, repetitive pattern. Connection lines
+represent human-played audio tones, line length representing pitch.
+While notes are played by the human musician, the notes wander away from their original
+places, warping and distorting the connecting lines, resulting in a more chaotic
 and unusual soundscape as time passes.
 -->
 </p>

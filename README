@@ -4,3 +4,19 @@ Gabriel Dunne <gdunne@quilime.com>
 Description: 
 PLOG is an CMS engine written for quick and minimal publishing.
 
+Use:
+Put markdown files in the content/ folder.
+At the top of each file, you can specify variables in ini format.
+
+i.e;
+
+`
+title = Post Title
+date = 2012 may 12, 7:33pm
+--
+
+## header
+Your post markdown content here. 
+
+<span>HTML is enabled, <strong>too</strong></span>.
+`

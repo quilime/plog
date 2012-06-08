@@ -1,14 +1,14 @@
 TODO
+- work on README documentation
 - pagination (View)
 - canvas icons for list/thumb/tile views (js)
 - static cache generation (wget? curl?)
-  static rss, json, html
-- commenting system from india branch
+    static rss, json, html
 
 
 - update content.sh to give back help if used incorrectly
 
 
 
-done
-- prev/next (View)
+command line usage (for generating static site)
+http://php.net/manual/en/features.commandline.php

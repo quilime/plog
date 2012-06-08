@@ -1,6 +1,7 @@
 body, table {
     font-family: arial, monaco, monospace;
     line-height:1.4em;
+    font-size:14px;
 }
 
 body {
@@ -75,7 +76,7 @@ pre, code {
     color:#4fa;
     line-height:1.4em;
     font-size:14px;
-    font-family:menlo, monaco, "Lucida Console", monospace; 
+    font-family:menlo, monaco, "Lucida Console", monospace;
     padding:1px 5px 2px;
     background:#303030;
     border-radius:4px;
@@ -110,10 +111,9 @@ table, td, tr {
 
 #nav {
   position:fixed;
-    top:0;
-    left:0;
+  top:0;
+  left:0;
   padding:20px;
-background:rgba(25,25,25,0.3);
 }
 #nav a {
 }

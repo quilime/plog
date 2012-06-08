@@ -1,4 +1,4 @@
-title = Terminal Emulator on Windows via Cygwin
+title = "Terminal Emulator on Windows via Cygwin"
 date = august 11 2011
 --
 How to install cygwin on windows:
@@ -11,7 +11,7 @@ How to install cygwin on windows:
     - xinit (required, scripts for starting the X server: xinit, startx, startwin (and a shortcut on the Start Menu to run it), startxdmcp.bat )
     - xorg-docs (optional, man pages)
     - X-start-menu-icons (optional, adds shortcuts to X Clients and Server to the Start menu)
-    - mintty (windows-feel terminal)  
+    - mintty (windows-feel terminal)
   <br />
 
 3. **Optional Packages**
@@ -27,7 +27,7 @@ How to install cygwin on windows:
 <!--more-->
 
 
-3. **~/.XDefaults**  
+3. **~/.XDefaults**
 dark theme:
 <pre class="prettyprint">
 ! terminal colors ------------------------------------------------------------
@@ -59,17 +59,17 @@ dark theme:
 *color7:  #cccccc
 *color15: #ffffff
 </pre>
-Some more themes on the <a href="https://bbs.archlinux.org/viewtopic.php?pid=653473">Arch forums</a>.  
+Some more themes on the <a href="https://bbs.archlinux.org/viewtopic.php?pid=653473">Arch forums</a>.
 <br />
 
 
 
-4. **~/.bashrc**  
+4. **~/.bashrc**
 To enable color `ls` and human readable size format, add:
 <pre class="prettyprint">
 alias ls='ls -h --color=tty'
 </pre>
-By default, the .bashrc in CygwinX has many options you can uncomment.  
+By default, the .bashrc in CygwinX has many options you can uncomment.
 <br />
 
 5. **~/.emacs**
@@ -81,7 +81,7 @@ Disable emacs temp (~) file pooping
 
 
 
-Result:  
+Result:
 <img src="http://media.quilime.com/files/img/cygwin.PNG" />
 
 

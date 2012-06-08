@@ -4,7 +4,7 @@
  *	template object (view)
  */
 class View
-{	
+{
 	var $template_dir = 'templates';
 	// var $template_cache_dir = 'cache';
     var $default_template = 'default';
@@ -16,10 +16,10 @@ class View
 	function __construct()
 	{
     	$this->template_dir = join(DIRECTORY_SEPARATOR, array(dirname(__FILE__), '..', TEMPLATE_DIR));
-    	$this->template_cache_dir = join(DIRECTORY_SEPARATOR, array(dirname(__FILE__), '..', TEMPLATE_DIR, 'cache'));		
+    	$this->template_cache_dir = join(DIRECTORY_SEPARATOR, array(dirname(__FILE__), '..', TEMPLATE_DIR, 'cache'));
 	}
-	
-	
+
+
     function assign($tpl_var, $value = null)
     {
         if (is_array($tpl_var)) {
@@ -38,17 +38,17 @@ class View
 		$this->_tpl_vars = array_merge($this->_tpl_vars, $vars);
 		$this->render( $template );
 	}
-	
 
-	public function render( $template ) 
+
+	public function render( $template, $response_format = 'html' )
 	{
 		extract( $this->_tpl_vars );
         if (!is_file($this->template_dir . DIRECTORY_SEPARATOR . $template))
-            $template = $default_template . '.' . $response_format . '.tpl';
+            $template = $this->default_template . '.' . $response_format . '.tpl';
 		include( $this->template_dir . DIRECTORY_SEPARATOR . $template );
 	}
-	
-	
+
+
 	public function page_title($delim)
 	{
 		return isset($this->_tpl_vars['page_title']) ? $delim . $this->_tpl_vars['page_title'] : "";

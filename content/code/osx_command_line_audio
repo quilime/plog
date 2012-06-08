@@ -1,13 +1,13 @@
-title = command line audio on OSX
-date = Wed, Nov  9  2011 18:40:26,  IST 
+title = "command line audio on OSX"
+date = "Wed, Nov  9  2011 18:40:26,  IST"
 tags = audio osx cli
 --
 
 Since there is no equivilent to /dev/dsp or /dev/audio on OSX, you need to install an alternative like <a href="http://sox.sourceforge.net/">sox</a>.
 
-Install sox by either downloading the OSX binary from <a href="http://sox.sourceforge.net/">http://sox.sourceforge.net/</a>    
-or    
-install <a href="http://mxcl.github.com/homebrew/">homebrew</a>, and then install sox with <code class="prettyprint">brew install sox</code>    
+Install sox by either downloading the OSX binary from <a href="http://sox.sourceforge.net/">http://sox.sourceforge.net/</a>
+or
+install <a href="http://mxcl.github.com/homebrew/">homebrew</a>, and then install sox with <code class="prettyprint">brew install sox</code>
 
 ##Examples
 
