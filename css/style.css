@@ -1,7 +1,6 @@
 body, table {
     font-family: arial, monaco, monospace;
     line-height:1.4em;
-    font-size:14px;
 }
 
 body {
@@ -33,13 +32,10 @@ h1 {
     padding-top:0;
     margin-top:0;
     margin-bottom:30px;
-    font-size
 }
 h1, h2, h3, h4, h5, h6 {
-    font-weight:normal;
     color:#666;
-    font-size:1em;
-    text-shadow:1px 1px 3px #000;
+    font-size:1.2em;
     letter-spacing:0.2em;
 }
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -47,10 +43,8 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     color:#666;
 }
 h1 a {
-  color:#f0a;
 }
 h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
-  color:#fff;
 }
 
 

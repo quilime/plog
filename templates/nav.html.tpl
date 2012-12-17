@@ -1,6 +1,6 @@
 <ul id="nav">
 
-    <li><a href="/">home</a></li>
+    <li><a href="/"><?=SITE_TITLE?></a></li>
 
     <br />
 
@@ -9,15 +9,10 @@
 	<li><a href="/<?=$dir['url']?>"><?=$dir['name']?></a></li>
 	<? endforeach; ?>
 
-    <br />
-
 	<!-- <li><a href="/agg">aggregate</a></li> -->
 	<li><a href="/photo">photo</a></li>
 	<li><a href="/links">links</a></li>
 
-	<br />
-	<li><a href="/about">about</a></li>
-	<li><a href="/.rss">feed</a></li>
 	<br />
 	<br />
 

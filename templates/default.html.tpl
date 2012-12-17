@@ -19,7 +19,7 @@
 	<? endforeach; ?>
     </div>
 
-    <a href="/index">index &rarr;</a>
+    <a href="/index">&uarr; index</a>
     <br />
     <br />
     <br />
