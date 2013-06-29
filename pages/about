@@ -1,33 +1,24 @@
 title = about
 --
-
-#about
-
-quilime is an archive of my experiments and process
-
-this site is built with <a href="http://git.quilime.com/?p=plog.git;a=summary">plog</a>, a static-file `p`roject`log` engine written in PHP.
-
-<!--add <a href="http://quilime.com/.rss" class="rss">.rss</a>-->
-
-@ 1999&mdash;2012 gabriel dunne  
-[www](http://gabrieldunne.com), [email](&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#x67;&#x64;&#x75;&#x6e;&#110;&#x65;&#x40;&#x71;&#117;&#105;&#x6c;&#x69;&#x6d;&#101;&#x2e;&#x63;&#111;&#x6d;)  
-
+experiments and process 
 <br />
+&copy; 1999&mdash;2013<br />
+Gabriel L. Dunne <br />
+<a href="http://gabrieldunne.com">www</a>, 
+<a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#x67;&#x64;&#x75;&#x6e;&#110;&#x65;&#x40;&#x71;&#117;&#105;&#x6c;&#x69;&#x6d;&#101;&#x2e;&#x63;&#111;&#x6d;">email</a><br />
 
-## also
-[aggregate](http://media.quilime.com/aggregate/)  
-[clmpr](http://clmpr.com/quilime/)  
+past work<br />
+<a href="http://portfolio.quilime.com/2008/">2008</a><br />
+<a href="http://portfolio.quilime.com/new/port.php">2007</a><br />
+<a href="http://portfolio.quilime.com/recent.html">2005</a><br />
+<a href="http://portfolio.quilime.com/archive/">1999&mdash;2004</a><br />
 
-<br />
+elsewhere<br />
+<a href="http://media.quilime.com/aggregate/">aggregate</a><br />
+<a href="http://twitter.com/quilime/">twitter</a><br />
+<a href="http://vimeo.com/quilime/">vimeo</a><br />
+<a href="http://github.com/quilime/">github</a><br />
+<a href="http://flickr.com/photos/quilime/">flickr</a>
 
-## elsewhere
-[@quilime](http://twitter.com/quilime/)  
-[vimeo](http://vimeo.com/quilime/)  
-[github](http://github.com/quilime/)  
-[flickr](http://flickr.com/photos/quilime/)  
-
-<br />
-
-## feeds
 [rss](http://quilime.com/.rss)  
-[feedburner](http://feeds.feedburner.com/quilime)  
+

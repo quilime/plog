@@ -1,8 +1,11 @@
-<ul id="nav">
+<div id="nav">
+<ul>
 
-    <li><a href="/"><?=SITE_TITLE?></a></li>
+	<li><a href="/">home</a></li>
+	<li><a href="/about">about</a></li>
+	<li><a href="/index">index</a></li>
 
-    <br />
+	<br />
 
 	<? $dirs = get_dirs("", array('recursive' => 0)); ?>
 	<? foreach($dirs as $dir) : ?>
@@ -10,8 +13,9 @@
 	<? endforeach; ?>
 
 	<!-- <li><a href="/agg">aggregate</a></li> -->
+	
 	<li><a href="/photo">photo</a></li>
-	<li><a href="/links">links</a></li>
+
 
 	<br />
 	<br />
@@ -20,6 +24,9 @@
 		<? $this->include_template('nextprev.html.tpl'); ?>
 	</li>
 
+
+
+
 	<!--
 	<li id="viewtoggle">
 		<? $this->include_template('viewtoggle.html.tpl'); ?>
@@ -27,4 +34,5 @@
 	-->
 
 </ul>
+</div>
 

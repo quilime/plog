@@ -1,10 +1,12 @@
 body, table {
     font-family: arial, monaco, monospace;
+    font-size:14px;
+
     line-height:1.4em;
 }
 
 body {
-    background:rgb(25, 25, 25);
+    background:#15110E;
     padding:0;
     margin:0;
     color: #ddd;
@@ -12,7 +14,8 @@ body {
 
 a {
   outline:none;
-    color:rgb(42, 128, 235);
+    color:#54A1FF;
+    font-weight:bold;
     text-decoration:none;
 }
 a img {
@@ -60,9 +63,9 @@ ol li {
 blockquote {
     font-family:serif;
     font-style:italic;
-    font-size:1.2em;
+    font-size:1.3em;
     color:#999;
-    line-height:1.3em;
+    line-height:1.2em;
     margin:0;
     padding:0;
 }
@@ -108,6 +111,7 @@ table, td, tr {
   top:0;
   left:0;
   padding:20px;
+  width:100px;
 }
 #nav a {
 }

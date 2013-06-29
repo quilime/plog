@@ -98,7 +98,7 @@ Install Bootloader will install and help you configure the bootloader you select
 
 Once installed, exit the installer, remove the USB, type `reboot` in the command line, and the system will reboot. You'll boot into a login screen, which you can login with via root.
 
-You can create [new users](https://wiki.archlinux.org/index.php/Users_and_Groups) interactively with `adduser`.
+You can create [new users](https://wiki.archlinux.org/index.php/Users_and_Groups) interactively with `useradd`.
 
 You can install/update packages with Arch's package manager, [pacman](https://wiki.archlinux.org/index.php/Pacman).
 

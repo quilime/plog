@@ -1,6 +1,5 @@
 title = linux bash profile
 date = march 11 2011
-comments = true
 --
 <pre class="prettyprint">
 alias ls='ls --color'

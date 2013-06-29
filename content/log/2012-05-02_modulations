@@ -5,13 +5,11 @@ tags = video visuals live
 
 <iframe src="http://player.vimeo.com/video/41406543?byline=0&amp;portrait=0&amp;color=ff0179" width="800" height="450" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe><p>
 
-<a href="http://vimeo.com/41406543">Live visuals for Chris Carlson @ CCRMA Modulations 2012</a>
+<a href="http://vimeo.com/41406543">Live visuals. Music Performer: Chris Carlson @ CCRMA Modulations 2012</a>
 
-sorry for the cuttoff at the end -- SD card was full.
+this visual set was based on live-coding experiments with non-periodic tiling patterns. I'm still fascinated with the forms. Towards the end of the night I started using color. 
 
-this set was essentially more live-coding experiments with non-periodic tiling patterns. I'm still fascinated with the forms. Towards the end of the night I started using color.
-
-visual software done with: [audio-shadertoy](http://notlion.github.com/audio-shadertoy/)
+visual software created with: [audio-shadertoy](http://notlion.github.com/audio-shadertoy/)
 
 for this setup, the live audio was analyzed by ChucK through the built-in mic on my macbook air. the ChucK script routes osc to Node, and the client receives via web sockets.
 
