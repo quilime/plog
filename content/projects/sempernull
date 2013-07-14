@@ -1,0 +1,76 @@
+title = sempernull
+date = 2007-08-12
+thumb = http://portfolio.quilime.com/2008/sempernull/thumb.png
+tag = video installation
+--
+
+<img style="width:100%;" src="http://portfolio.quilime.com/new/content/04_Stars/images/god.0135.png">
+
+<br />
+
+
+An exploration of infinite/finite space. The user transitions between macro and micro environments of mathematically infinite scale, limited only by computer processing power. As the viewer moves through multiple spaces, their scope and perspective widends and transcends while space becoms infinitely big and infinitely small simultaneously.
+
+*non-interactive software*
+
+
+<!--more-->
+
+
+
+
+
+<img style="width:100%;" src="http://portfolio.quilime.com/new/content/04_Stars/images/astars.10535.png">
+
+<br />
+
+<img style="width:100%;" src="http://portfolio.quilime.com/new/content/04_Stars/images/astars.20144.png">
+
+<br />
+
+<img style="width:100%;" src="http://portfolio.quilime.com/new/content/04_Stars/images/astars.png">
+
+<br />
+
+<img style="width:100%;" src="http://portfolio.quilime.com/new/content/04_Stars/images/god.0027.png">
+
+<br />
+
+<img style="width:100%;" src="http://portfolio.quilime.com/new/content/04_Stars/images/god.0135.png">
+
+<br />
+
+<img style="width:100%;" src="http://portfolio.quilime.com/new/content/04_Stars/images/god.0253.png">
+
+<br />
+
+<img style="width:100%;" src="http://portfolio.quilime.com/new/content/04_Stars/images/god.0385.png">
+
+<br />
+
+<img style="width:100%;" src="http://portfolio.quilime.com/new/content/04_Stars/images/god.0498.png">
+
+<br />
+
+<img style="width:100%;" src="http://portfolio.quilime.com/new/content/04_Stars/images/god.0710.png">
+
+<br />
+
+<img style="width:100%;" src="http://portfolio.quilime.com/new/content/04_Stars/images/god.0898.png">
+
+<br />
+
+<object classid="clsid:02bf25d5-8c17-4b23-bc80-d3488abddc6b" id="qt_object" width="640" height="496" codebase="http://www.apple.com/qtactivex/qtplugin.cab#version=6,0,2,0">
+<param name="type" value="video/quicktime">
+<param name="name" value="qt_object">
+<param name="nocache" value="false">
+<param name="autoplay" value="false">
+<param name="kioskmode" value="false">
+<param name="controller" value="true">
+<param name="loop" value="true">
+<param name="bgcolor" value="#000000">
+<param name="src" value="http://portfolio.quilime.com/2008/sempernull/stars.mov">
+<param name="pluginspage" value="http://www.apple.com/quicktime/download/indext.html">      
+<embed name = "qt_object" width="640" height="496" controller="true" loop="true" autoplay="false" src="http://portfolio.quilime.com/2008/sempernull/stars.mov" kioskmode="false" nocache="false" type="video/quicktime" bgcolor="#000000" border="0" pluginspage="http://www.apple.com/quicktime/download/indext.html" enablejavascript="true">
+</embed>
+</object>

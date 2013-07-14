@@ -1,0 +1,22 @@
+title = synonymovement
+date = 2007-04-10
+thumb = http://portfolio.quilime.com/2008/synonymovement/thumb.png
+--
+
+<object classid="clsid:02bf25d5-8c17-4b23-bc80-d3488abddc6b" id="qt_object" width="640" height="496" codebase="http://www.apple.com/qtactivex/qtplugin.cab#version=6,0,2,0">
+<param name="type" value="video/quicktime">
+<param name="name" value="qt_object">
+<param name="nocache" value="false">
+<param name="autoplay" value="false">
+<param name="kioskmode" value="false">
+<param name="controller" value="true">
+<param name="loop" value="true">
+<param name="bgcolor" value="#000000">
+<param name="src" value="http://portfolio.quilime.com/2008/synonymovement/synonymovement.mov.mov">
+<param name="pluginspage" value="http://www.apple.com/quicktime/download/indext.html">		
+<embed name = "qt_object" width="640" height="496" controller="true" loop="true" autoplay="false" src="http://portfolio.quilime.com/2008/synonymovement/synonymovement.mov.mov" kioskmode="false" nocache="false" type="video/quicktime" bgcolor="#000000" border="0" pluginspage="http://www.apple.com/quicktime/download/indext.html" enablejavascript="true">
+</embed>
+</object>
+
+*non-interactive software written in c++*
+

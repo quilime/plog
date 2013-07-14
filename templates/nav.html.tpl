@@ -3,10 +3,10 @@
 
 	<li><a href="/">home</a></li>
 	<li><a href="/about">about</a></li>
-	<li><a href="/index">index</a></li>
 
 	<br />
 
+	<!-- <li><a href="/index">index</a></li> -->
 	<? $dirs = get_dirs("", array('recursive' => 0)); ?>
 	<? foreach($dirs as $dir) : ?>
 	<li><a href="/<?=$dir['url']?>"><?=$dir['name']?></a></li>
