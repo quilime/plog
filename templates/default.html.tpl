@@ -11,7 +11,7 @@
 	<? $limit = LIMIT; foreach($entries as $entry): if ($limit-- == 0) break; ?>
         
         <? if (isset($entry['content_short'])): ?>
-            <? $entry['content'] = $entry['content_short'] . '<br /><a class="more" href="'.$entry['url'].'">more &rarr;</a><br /><br />'; ?>
+            <?// $entry['content'] = $entry['content_short'] . '<br /><a class="more" href="'.$entry['url'].'">more &rarr;</a><br /><br />'; ?>
         <? endif; ?>
 
         <? $this->include_template('entry.html.tpl', array('entry' => $entry)); ?>

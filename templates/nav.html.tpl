@@ -12,9 +12,11 @@
 	<li><a href="/<?=$dir['url']?>"><?=$dir['name']?></a></li>
 	<? endforeach; ?>
 
-	<!-- <li><a href="/agg">aggregate</a></li> -->
-	
-	<li><a href="/photo">photo</a></li>
+    <li><a href="http://flickr.com/photos/quilime">flickr</a></li>
+	<li><a href="http://media.quilime.com/aggregate/">aggregate</a></li>
+    <li><a href="/.rss">rss</a></li>	
+
+
 
 
 	<br />

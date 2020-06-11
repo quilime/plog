@@ -6,7 +6,7 @@ ssh-keygen -t rsa
 // linux
 ssh-copy-id [user@]host
 // osx
-cat ~/.ssh/id_rsa.pub | ssh user@machine "mkdir ~/.ssh; cat >> ~/.ssh/authorized_keys"
+cat ~/.ssh/id_rsa.pub | ssh user@machine "mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys"
 eval `ssh-agent`
 ssh-add
 </pre>

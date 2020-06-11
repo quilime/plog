@@ -9,8 +9,8 @@
 
 
 # error reporting (turn this off for production)
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+  //error_reporting(E_ALL);
+  //ini_set("display_errors", 1);
 
 # timezone
 putenv('TZ=America/Los Angeles');
